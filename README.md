@@ -1,7 +1,3 @@
-# Sahayak_Indic_Muliti-lingual_Chatbot
-Multilingual RAG chatbot for Indian government welfare schemes — ask in Hindi, Telugu, Tamil and 8 other languages, get accurate answers powered by a local LLM + ChromaDB vector search.
-
-
 # 🇮🇳 Sahayak — India's Government Scheme Assistant
 
 > **Multilingual RAG chatbot for Indian government welfare schemes.**  
@@ -195,7 +191,7 @@ https://...
 
 ### From a PDF or Word document
 Just drop the `.pdf` or `.docx` file into the `schemes/` folder. The parser handles:
-- Numbered headings (`1. Benefits:`)
+- Numbered headings (`1. Overview:`)
 - Word `Heading 1/2/3` styles
 - ALL CAPS headings
 - Common single-word headings (`Benefits`, `Eligibility`, etc.)
