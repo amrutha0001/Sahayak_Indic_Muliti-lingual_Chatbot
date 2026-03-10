@@ -1,0 +1,15 @@
+Header Fields:
+- Name
+- Ministry
+- Department (if applicable)
+- Launch Date
+- Type
+
+Section Structure:
+1. Overview
+2. Benefits
+3. Eligibility
+4. Application Process
+5. Documents Required
+6. Frequently Asked Questions
+7. Website URL

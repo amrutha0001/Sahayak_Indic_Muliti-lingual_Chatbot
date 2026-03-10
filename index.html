@@ -1,0 +1,1001 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sahayak — India's Scheme Assistant</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet"/>
+
+  <style>
+    /* ── Variables ─────────────────────────────────────── */
+    :root {
+      --saffron:    #FF6B1A;
+      --saffron-lt: #FF8C42;
+      --green:      #1A7A4A;
+      --green-lt:   #22A060;
+      --navy:       #0D1B2A;
+      --navy-2:     #16263A;
+      --navy-3:     #1F3048;
+      --cream:      #FFF8F0;
+      --cream-2:    #FFF2E4;
+      --gold:       #F5C842;
+      --text-main:  #0D1B2A;
+      --text-soft:  #4A5568;
+      --text-muted: #8A9AB0;
+      --border:     rgba(13,27,42,0.10);
+      --radius:     18px;
+      --radius-sm:  10px;
+      --shadow:     0 8px 32px rgba(13,27,42,0.10);
+      --shadow-lg:  0 24px 64px rgba(13,27,42,0.14);
+    }
+
+    /* ── Reset & Base ──────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body {
+      height: 100%;
+      overflow: hidden;   /* kills the third outer scrollbar completely */
+    }
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--cream);
+      color: var(--text-main);
+    }
+
+    /* ── Noise texture overlay ─────────────────────────── */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* ── Layout ────────────────────────────────────────── */
+    .app {
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      grid-template-rows: auto 1fr;
+      height: 100vh;        /* exactly the viewport — no more, no less */
+      overflow: hidden;     /* belt-and-braces: nothing leaks out */
+      position: relative;
+      z-index: 1;
+      align-items: start;
+    }
+
+    /* ── Header ────────────────────────────────────────── */
+    header {
+      grid-column: 1 / -1;
+      background: var(--navy);
+      padding: 0 40px;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 1px 0 rgba(255,255,255,0.05), var(--shadow);
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .logo-mark {
+      width: 36px;
+      height: 36px;
+      background: linear-gradient(135deg, var(--saffron), var(--gold));
+      border-radius: 10px;
+      display: grid;
+      place-items: center;
+      font-size: 18px;
+    }
+
+    .logo-text {
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      font-size: 22px;
+      color: #fff;
+      letter-spacing: -0.5px;
+    }
+    .logo-text span { color: var(--saffron-lt); }
+
+    .header-right {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .lang-selector {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 40px;
+      padding: 6px 14px 6px 10px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .lang-selector:hover { background: rgba(255,255,255,0.12); }
+    .lang-selector select {
+      background: transparent;
+      border: none;
+      color: #fff;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+      outline: none;
+      appearance: none;
+      padding-right: 4px;
+    }
+    .lang-selector option { color: var(--text-main); background: #fff; }
+    .lang-selector select { -webkit-appearance: none; }  /* hide native arrow */
+    .lang-chevron {
+      display: grid; place-items: center;
+      color: rgba(255,255,255,0.55);
+      flex-shrink: 0; pointer-events: none;
+      transition: transform 0.2s;
+    }
+    .lang-selector:focus-within .lang-chevron { transform: rotate(180deg); }
+
+    .status-pill {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(26,122,74,0.25);
+      border: 1px solid rgba(26,122,74,0.4);
+      border-radius: 40px;
+      padding: 5px 12px;
+      font-size: 12px;
+      font-weight: 500;
+      color: #6EE7A0;
+      letter-spacing: 0.02em;
+    }
+    .status-dot {
+      width: 6px; height: 6px;
+      background: #6EE7A0;
+      border-radius: 50%;
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.4; }
+    }
+
+    /* ── Sidebar ────────────────────────────────────────── */
+    aside {
+      background: var(--navy-2);
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      border-right: 1px solid rgba(255,255,255,0.05);
+      height: calc(100vh - 64px);   /* full height minus header */
+      overflow: hidden;              /* children manage their own scroll */
+      position: sticky;
+      top: 64px;
+      align-self: start;
+    }
+    /* Static top: label */
+    .sidebar-top {
+      padding: 24px 20px 10px;
+      flex-shrink: 0;
+    }
+    /* ── Scrollable scheme list — its OWN scrollbar ── */
+    .scheme-scroll {
+      flex: 1;              /* takes all available space between top and bottom */
+      overflow-y: auto;
+      overflow-x: hidden;
+      padding: 0 20px 8px;
+      min-height: 0;        /* critical: lets flex child shrink below content size */
+    }
+    .scheme-scroll::-webkit-scrollbar { width: 4px; }
+    .scheme-scroll::-webkit-scrollbar-track { background: rgba(255,255,255,0.03); border-radius: 4px; }
+    .scheme-scroll::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.18); border-radius: 4px; }
+    .scheme-scroll::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.30); }
+    /* Static bottom: URL + stats — never scrolls away */
+    .sidebar-bottom {
+      padding: 12px 20px 20px;
+      flex-shrink: 0;
+      border-top: 1px solid rgba(255,255,255,0.07);
+      background: var(--navy-2);  /* ensures it stays solid over scroll content */
+    }
+
+    .sidebar-label {
+      font-family: 'Syne', sans-serif;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      padding: 0 8px;
+      margin-bottom: 4px;
+      margin-top: 12px;
+    }
+    .sidebar-label:first-child { margin-top: 0; }
+
+    .scheme-chip {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 12px;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: all 0.18s;
+      color: rgba(255,255,255,0.65);
+      font-size: 13px;
+      font-weight: 400;
+      line-height: 1.3;
+      border: 1px solid transparent;
+    }
+    .scheme-chip:hover {
+      background: rgba(255,255,255,0.07);
+      color: #fff;
+      border-color: rgba(255,255,255,0.08);
+    }
+    .scheme-chip.active {
+      background: rgba(255,107,26,0.15);
+      color: var(--saffron-lt);
+      border-color: rgba(255,107,26,0.25);
+    }
+    .scheme-chip .chip-icon {
+      width: 30px; height: 30px;
+      background: rgba(255,255,255,0.07);
+      border-radius: 8px;
+      display: grid;
+      place-items: center;
+      font-size: 14px;
+      flex-shrink: 0;
+    }
+    .scheme-chip.active .chip-icon {
+      background: rgba(255,107,26,0.2);
+    }
+
+    /* upload removed */
+
+    .url-form {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      margin-top: 4px;
+    }
+    .url-input {
+      padding: 9px 12px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 10px;
+      color: #fff;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 12px;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .url-input::placeholder { color: rgba(255,255,255,0.3); }
+    .url-input:focus { border-color: rgba(255,107,26,0.5); }
+    .url-submit {
+      padding: 8px;
+      background: rgba(26,122,74,0.3);
+      border: 1px solid rgba(26,122,74,0.4);
+      border-radius: 10px;
+      color: #6EE7A0;
+      font-size: 12px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s;
+      font-family: 'DM Sans', sans-serif;
+    }
+    .url-submit:hover { background: rgba(26,122,74,0.45); }
+
+    /* ── Main chat area ─────────────────────────────────── */
+    main {
+      display: flex;
+      flex-direction: column;
+      height: calc(100vh - 64px);
+      overflow: hidden;
+      min-height: 0;
+    }
+
+    /* ── Hero / empty state ─────────────────────────────── */
+    .hero {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      padding: 24px 40px 16px;
+      text-align: center;
+      animation: fadeUp 0.6s ease both;
+      overflow-y: auto;
+      min-height: 0;
+    }
+    /* pseudo-elements create elastic vertical centering that collapses on short screens */
+    .hero-spacer-top    { flex: 1; max-height: 40px; }
+    .hero-spacer-bottom { flex: 1; max-height: 40px; }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: linear-gradient(to right, rgba(255,107,26,0.12), rgba(245,200,66,0.10));
+      border: 1px solid rgba(255,107,26,0.2);
+      border-radius: 40px;
+      padding: 6px 14px;
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--saffron);
+      letter-spacing: 0.04em;
+      margin-bottom: 16px;
+    }
+
+    .hero h1 {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(28px, 3.6vw, 48px);
+      font-weight: 800;
+      line-height: 1.28;
+      letter-spacing: -1px;
+      color: var(--navy);
+      max-width: 640px;
+      margin-bottom: 16px;
+    }
+    .hero h1 .accent {
+      background: linear-gradient(135deg, var(--saffron), var(--gold));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero p {
+      color: var(--text-soft);
+      font-size: 16px;
+      line-height: 1.6;
+      max-width: 480px;
+      margin-bottom: 24px;
+    }
+
+    .suggestion-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+      max-width: 600px;
+      width: 100%;
+    }
+
+    .suggestion-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 12px 16px;
+      cursor: pointer;
+      text-align: left;
+      transition: all 0.2s;
+      box-shadow: 0 2px 8px rgba(13,27,42,0.05);
+    }
+    .suggestion-card:hover {
+      border-color: var(--saffron);
+      box-shadow: 0 4px 20px rgba(255,107,26,0.10), 0 0 0 3px rgba(255,107,26,0.05);
+      transform: translateY(-2px);
+    }
+    .suggestion-card .card-emoji { font-size: 20px; margin-bottom: 8px; }
+    .suggestion-card .card-title {
+      font-weight: 600;
+      font-size: 13px;
+      color: var(--text-main);
+      margin-bottom: 4px;
+    }
+    .suggestion-card .card-desc {
+      font-size: 12px;
+      color: var(--text-soft);
+      line-height: 1.4;
+    }
+
+    /* ── Chat messages ──────────────────────────────────── */
+    .chat-container {
+      flex: 1;
+      overflow-y: auto;
+      padding: 32px 40px;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      scroll-behavior: smooth;
+    }
+    .chat-container::-webkit-scrollbar { width: 5px; }
+    .chat-container::-webkit-scrollbar-track { background: rgba(13,27,42,0.04); border-radius: 4px; }
+    .chat-container::-webkit-scrollbar-thumb { background: rgba(13,27,42,0.20); border-radius: 4px; }
+    .chat-container::-webkit-scrollbar-thumb:hover { background: rgba(13,27,42,0.35); }
+
+    .msg {
+      display: flex;
+      gap: 14px;
+      animation: fadeUp 0.3s ease both;
+      max-width: 780px;
+    }
+    .msg.user { align-self: flex-end; flex-direction: row-reverse; }
+    .msg.bot  { align-self: flex-start; }
+
+    .msg-avatar {
+      width: 36px; height: 36px;
+      border-radius: 10px;
+      flex-shrink: 0;
+      display: grid;
+      place-items: center;
+      font-size: 16px;
+      font-weight: 700;
+    }
+    .msg.user .msg-avatar {
+      background: linear-gradient(135deg, var(--navy), var(--navy-3));
+      color: #fff;
+      font-size: 14px;
+    }
+    .msg.bot .msg-avatar {
+      background: linear-gradient(135deg, var(--saffron), var(--gold));
+      color: #fff;
+    }
+
+    .msg-bubble {
+      padding: 16px 20px;
+      border-radius: 18px;
+      max-width: 640px;
+      line-height: 1.65;
+      font-size: 15px;
+    }
+    .msg.user .msg-bubble {
+      background: var(--navy);
+      color: #fff;
+      border-bottom-right-radius: 4px;
+    }
+    .msg.bot .msg-bubble {
+      background: #fff;
+      color: var(--text-main);
+      border-bottom-left-radius: 4px;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+    }
+
+    .msg.bot .msg-bubble ul {
+      padding-left: 18px;
+      margin: 8px 0;
+    }
+    .msg.bot .msg-bubble ul li { margin-bottom: 4px; }
+    .msg.bot .msg-bubble strong { color: var(--navy); }
+
+    /* Sources */
+    .sources {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 12px;
+      padding-top: 12px;
+      border-top: 1px solid var(--border);
+    }
+    .source-tag {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      padding: 4px 10px;
+      background: rgba(255,107,26,0.06);
+      border: 1px solid rgba(255,107,26,0.15);
+      border-radius: 20px;
+      font-size: 11px;
+      color: var(--saffron);
+      font-weight: 500;
+    }
+    .source-score {
+      background: rgba(255,107,26,0.12);
+      border-radius: 10px;
+      padding: 1px 5px;
+      font-size: 10px;
+    }
+    .tier-badge {
+      display: inline-flex; align-items: center; gap: 4px;
+      margin-top: 8px; padding: 3px 10px; border-radius: 20px;
+      font-size: 10px; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase;
+    }
+    .tier-txt  { background:rgba(26,122,74,0.10);  color:#22A060; border:1px solid rgba(26,122,74,0.2); }
+    .tier-url  { background:rgba(245,200,66,0.12); color:#B8860B; border:1px solid rgba(245,200,66,0.3); }
+    .tier-web  { background:rgba(99,130,255,0.10); color:#4F67D8; border:1px solid rgba(99,130,255,0.2); }
+    .tier-none { background:rgba(255,80,80,0.10);  color:#D04040; border:1px solid rgba(255,80,80,0.2); }
+
+    /* Typing indicator */
+    .typing-indicator {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      padding: 14px 18px;
+    }
+    .typing-dot {
+      width: 7px; height: 7px;
+      background: var(--text-muted);
+      border-radius: 50%;
+      animation: typingBounce 1.2s infinite;
+    }
+    .typing-dot:nth-child(2) { animation-delay: 0.2s; }
+    .typing-dot:nth-child(3) { animation-delay: 0.4s; }
+    @keyframes typingBounce {
+      0%, 60%, 100% { transform: translateY(0); opacity: 0.4; }
+      30% { transform: translateY(-6px); opacity: 1; }
+    }
+
+    /* ── Input bar ──────────────────────────────────────── */
+    .input-bar {
+      padding: 20px 40px 28px;
+      background: linear-gradient(to top, var(--cream) 80%, transparent);
+    }
+
+    .input-wrap {
+      display: flex;
+      align-items: flex-end;
+      gap: 10px;
+      background: #fff;
+      border: 1.5px solid var(--border);
+      border-radius: 20px;
+      padding: 12px 14px 12px 20px;
+      box-shadow: var(--shadow-lg);
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .input-wrap:focus-within {
+      border-color: var(--saffron);
+      box-shadow: 0 0 0 4px rgba(255,107,26,0.08), var(--shadow-lg);
+    }
+
+    .chat-input {
+      flex: 1;
+      border: none;
+      outline: none;
+      resize: none;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 15px;
+      color: var(--text-main);
+      background: transparent;
+      max-height: 140px;
+      line-height: 1.5;
+    }
+    .chat-input::placeholder { color: var(--text-muted); }
+
+    .send-btn {
+      width: 42px; height: 42px;
+      background: linear-gradient(135deg, var(--saffron), var(--saffron-lt));
+      border: none;
+      border-radius: 14px;
+      color: #fff;
+      font-size: 18px;
+      cursor: pointer;
+      display: grid;
+      place-items: center;
+      flex-shrink: 0;
+      transition: all 0.2s;
+      box-shadow: 0 4px 12px rgba(255,107,26,0.3);
+    }
+    .send-btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 18px rgba(255,107,26,0.4);
+    }
+    .send-btn:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    .input-hint {
+      text-align: center;
+      font-size: 11px;
+      color: var(--text-muted);
+      margin-top: 10px;
+      letter-spacing: 0.02em;
+    }
+
+    /* ── Toast ──────────────────────────────────────────── */
+    .toast {
+      position: fixed;
+      bottom: 100px;
+      right: 24px;
+      background: var(--navy);
+      color: #fff;
+      padding: 12px 20px;
+      border-radius: 14px;
+      font-size: 13px;
+      font-weight: 500;
+      box-shadow: var(--shadow-lg);
+      z-index: 999;
+      animation: slideIn 0.3s ease;
+      max-width: 300px;
+    }
+    .toast.success { border-left: 3px solid var(--green-lt); }
+    .toast.error   { border-left: 3px solid #F87171; }
+    @keyframes slideIn {
+      from { opacity: 0; transform: translateX(20px); }
+      to   { opacity: 1; transform: translateX(0); }
+    }
+
+    /* ── Decorative background orbs ─────────────────────── */
+    .orb {
+      position: fixed;
+      border-radius: 50%;
+      filter: blur(80px);
+      opacity: 0.18;
+      pointer-events: none;
+      z-index: 0;
+    }
+    .orb-1 { width: 500px; height: 500px; background: var(--saffron); top: -200px; right: -100px; }
+    .orb-2 { width: 400px; height: 400px; background: var(--green);   bottom: -150px; left: 200px; }
+    .orb-3 { width: 300px; height: 300px; background: var(--gold);    top: 40%; left: 50%; opacity: 0.08; }
+
+    /* ── Responsive ─────────────────────────────────────── */
+    @media (max-width: 768px) {
+      .app { grid-template-columns: 1fr; }
+      aside { display: none; }
+      header { padding: 0 20px; }
+      .chat-container { padding: 20px; }
+      .input-bar { padding: 12px 20px 20px; }
+      .suggestion-grid { grid-template-columns: 1fr; }
+      .hero { padding: 20px; }
+    }
+
+    /* ── Tier badge ─────────────────────────────────────── */
+    .tier-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 3px 9px;
+      border-radius: 20px;
+      margin-bottom: 8px;
+    }
+    .tier-txt  { background: rgba(26,122,74,0.10); color: #1A7A4A; border: 1px solid rgba(26,122,74,0.2); }
+    .tier-url  { background: rgba(245,200,66,0.15); color: #B8860B; border: 1px solid rgba(245,200,66,0.35); }
+    .tier-web  { background: rgba(255,107,26,0.10); color: var(--saffron); border: 1px solid rgba(255,107,26,0.25); }
+    .tier-none { background: rgba(139,0,0,0.08); color: #8B0000; border: 1px solid rgba(139,0,0,0.15); }
+  </style>
+</head>
+<body>
+
+<!-- Background decoration -->
+<div class="orb orb-1"></div>
+<div class="orb orb-2"></div>
+<div class="orb orb-3"></div>
+
+<div class="app">
+
+  <!-- ── Header ── -->
+  <header>
+    <div class="logo">
+      <div class="logo-mark">🇮🇳</div>
+      <div class="logo-text">Saha<span>yak</span></div>
+    </div>
+    <div class="header-right">
+      <div class="lang-selector">
+        <span style="font-size:14px">🌐</span>
+        <select id="lang-select" onchange="setLanguage(this.value)">
+          <option value="English">English</option>
+          <option value="Hindi">हिंदी</option>
+          <option value="Telugu">తెలుగు</option>
+          <option value="Tamil">தமிழ்</option>
+          <option value="Kannada">ಕನ್ನಡ</option>
+          <option value="Bengali">বাংলা</option>
+          <option value="Marathi">मराठी</option>
+          <option value="Gujarati">ગુજરાતી</option>
+          <option value="Punjabi">ਪੰਜਾਬੀ</option>
+          <option value="Odia">ଓଡ଼ིଆ</option>
+          <option value="Malayalam">മലയാളം</option>
+        </select>
+        <span class="lang-chevron">
+          <svg width="10" height="6" viewBox="0 0 10 6" fill="none">
+            <path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </span>
+      </div>
+      <div class="status-pill">
+        <div class="status-dot"></div>
+        <span id="status-text">Live</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- ── Sidebar ── -->
+  <aside id="sidebar">
+    <!-- Static top: label -->
+    <div class="sidebar-top">
+      <div class="sidebar-label" style="margin-top:0">Loaded Schemes</div>
+    </div>
+
+    <!-- Scrollable scheme list -->
+    <div class="scheme-scroll" id="scheme-list">
+      <div style="color:rgba(255,255,255,0.3);font-size:12px;padding:8px">Loading...</div>
+    </div>
+
+    <!-- Static bottom: stats only -->
+    <div class="sidebar-bottom">
+      <div class="sidebar-label" style="margin-top:0;margin-bottom:8px">Stats</div>
+      <div style="background:rgba(255,255,255,0.05);border-radius:12px;padding:12px;font-size:12px;color:rgba(255,255,255,0.5)">
+        <div style="display:flex;justify-content:space-between;margin-bottom:6px">
+          <span>Chunks indexed</span>
+          <span id="chunk-count" style="color:var(--saffron-lt);font-weight:600">—</span>
+        </div>
+        <div style="display:flex;justify-content:space-between">
+          <span>Language</span>
+          <span id="lang-display" style="color:var(--saffron-lt);font-weight:600">English</span>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ── Main ── -->
+  <main>
+    <!-- Hero / empty state -->
+    <div class="hero" id="hero">
+      <div class="hero-spacer-top"></div>
+      <div class="hero-badge">🇮🇳 India's Government Scheme Assistant</div>
+      <h1>Your guide to every <span class="accent">Government Scheme</span></h1>
+      <p>Ask anything about PM welfare programmes — in your own language. Get complete, accurate answers instantly.</p>
+      <div class="suggestion-grid">
+        <div class="suggestion-card" onclick="ask('What is PMJDY and who is eligible?')">
+          <div class="card-emoji">🏦</div>
+          <div class="card-title">Jan Dhan Yojana</div>
+          <div class="card-desc">Eligibility, benefits and how to open an account</div>
+        </div>
+        <div class="suggestion-card" onclick="ask('What are the benefits of PM Kisan Samman Nidhi?')">
+          <div class="card-emoji">🌾</div>
+          <div class="card-title">PM-KISAN</div>
+          <div class="card-desc">Farmer support — amounts, eligibility, payment</div>
+        </div>
+        <div class="suggestion-card" onclick="ask('How do I apply for a MUDRA loan?')">
+          <div class="card-emoji">💼</div>
+          <div class="card-title">MUDRA Loan</div>
+          <div class="card-desc">Business loans for micro enterprises</div>
+        </div>
+        <div class="suggestion-card" onclick="ask('What is SVANidhi scheme for street vendors?')">
+          <div class="card-emoji">🛒</div>
+          <div class="card-title">PM SVANidhi</div>
+          <div class="card-desc">Working capital for street vendors</div>
+        </div>
+      </div>
+      <div class="hero-spacer-bottom"></div>
+    </div>
+
+    <!-- Chat messages -->
+    <div class="chat-container" id="chat" style="display:none"></div>
+
+    <!-- Input bar -->
+    <div class="input-bar">
+      <div class="input-wrap">
+        <textarea
+          id="chat-input"
+          class="chat-input"
+          placeholder="Ask about any government scheme…"
+          rows="1"
+          onkeydown="handleKey(event)"
+          oninput="autoResize(this)"
+        ></textarea>
+        <button class="send-btn" id="send-btn" onclick="sendMessage()">➤</button>
+      </div>
+      <div class="input-hint">
+        Translate • Retrieve • Respond — powered by local LLM + RAG
+      </div>
+    </div>
+  </main>
+</div>
+
+<script>
+  // ── State ─────────────────────────────────────────────────────────
+  let currentLanguage = 'English';
+  let isWaiting = false;
+
+  // ── Init ──────────────────────────────────────────────────────────
+  async function init() {
+    await loadHealth();
+    await loadSchemes();
+  }
+
+  async function loadHealth() {
+    try {
+      const r = await fetch('/health');
+      const d = await r.json();
+      document.getElementById('chunk-count').textContent = d.chunks_loaded || '0';
+    } catch(e) {
+      document.getElementById('status-text').textContent = 'Offline';
+    }
+  }
+
+  async function loadSchemes() {
+    try {
+      const r = await fetch('/schemes');
+      const d = await r.json();
+      const list = document.getElementById('scheme-list');
+      const icons = ['🏦','🌾','💼','🏥','🏠','📚','💧','🛒','👩‍🌾','💰','🔒','🌟','🎯','🤝','✨'];
+      list.innerHTML = d.schemes.map((s, i) => `
+        <div class="scheme-chip" onclick="ask('Tell me about ${s}')">
+          <div class="chip-icon">${icons[i % icons.length]}</div>
+          <span>${s}</span>
+        </div>
+      `).join('') || '<div style="color:rgba(255,255,255,0.3);font-size:12px;padding:8px">No schemes loaded yet</div>';
+    } catch(e) {}
+  }
+
+  // ── Language ──────────────────────────────────────────────────────
+  function setLanguage(lang) {
+    currentLanguage = lang;
+    document.getElementById('lang-display').textContent = lang;
+    const input = document.getElementById('chat-input');
+    const placeholders = {
+      'Hindi':    'कोई भी सरकारी योजना के बारे में पूछें…',
+      'Telugu':   'ఏదైనా ప్రభుత్వ పథకం గురించి అడగండి…',
+      'Tamil':    'எந்த அரசு திட்டத்தையும் பற்றி கேளுங்கள்…',
+      'Kannada':  'ಯಾವುದೇ ಸರ್ಕಾರಿ ಯೋಜನೆಯ ಬಗ್ಗೆ ಕೇಳಿ…',
+      'Bengali':  'যেকোনো সরকারি প্রকল্প সম্পর্কে জিজ্ঞাসা করুন…',
+      'Marathi':  'कोणत्याही सरकारी योजनेबद्दल विचारा…',
+      'Gujarati': 'કોઈ પણ સરકારી યોજના વિશે પૂછો…',
+      'English':  'Ask about any government scheme…',
+    };
+    input.placeholder = placeholders[lang] || 'Ask about any government scheme…';
+  }
+
+  // ── Chat ──────────────────────────────────────────────────────────
+  function ask(q) {
+    document.getElementById('chat-input').value = q;
+    sendMessage();
+  }
+
+  function showChat() {
+    document.getElementById('hero').style.display = 'none';
+    document.getElementById('chat').style.display = 'flex';
+  }
+
+  const TIER_META = {
+    txt:  { icon: '📄', label: 'From documents', cls: 'tier-txt' },
+    url:  { icon: '🌐', label: 'From official website', cls: 'tier-url' },
+    web:  { icon: '🔍', label: 'From web search', cls: 'tier-web' },
+    none: { icon: '❓', label: 'Not found', cls: 'tier-none' },
+  };
+
+  function appendMessage(role, html, sources = [], tier = '') {
+    showChat();
+    const chat = document.getElementById('chat');
+    const div = document.createElement('div');
+    div.className = `msg ${role}`;
+
+    const avatar = role === 'user'
+      ? `<div class="msg-avatar">U</div>`
+      : `<div class="msg-avatar">स</div>`;
+
+    let tierHtml = '';
+    if (role === 'bot' && tier && TIER_META[tier]) {
+      const t = TIER_META[tier];
+      tierHtml = `<div class="tier-badge ${t.cls}">${t.icon} ${t.label}</div>`;
+    }
+
+    let sourcesHtml = '';
+    if (sources.length > 0) {
+      const tierInfo = {
+        txt:  { icon: '📄', label: 'From document', cls: 'tier-txt' },
+        url:  { icon: '🌐', label: 'From official website', cls: 'tier-url' },
+        web:  { icon: '🔍', label: 'From web search', cls: 'tier-web' },
+        none: { icon: '❓', label: 'Source unknown', cls: 'tier-none' },
+      };
+      const t = tierInfo[tier] || tierInfo.txt;
+      sourcesHtml = `<div class="sources">
+        ${sources.map(s => `
+          <div class="source-tag">
+            📄 ${s.scheme} · ${s.section}
+            <span class="source-score">${(s.score*100).toFixed(0)}%</span>
+          </div>`).join('')}
+        <div class="tier-badge ${t.cls}">${t.icon} ${t.label}</div>
+      </div>`;
+    }
+
+    div.innerHTML = `
+      ${avatar}
+      <div class="msg-bubble">${tierHtml}${html}${sourcesHtml}</div>
+    `;
+    chat.appendChild(div);
+    chat.scrollTop = chat.scrollHeight;
+    return div;
+  }
+
+  function addTyping() {
+    const chat = document.getElementById('chat');
+    const div = document.createElement('div');
+    div.className = 'msg bot';
+    div.id = 'typing-indicator';
+    div.innerHTML = `
+      <div class="msg-avatar">स</div>
+      <div class="msg-bubble">
+        <div class="typing-indicator">
+          <div class="typing-dot"></div>
+          <div class="typing-dot"></div>
+          <div class="typing-dot"></div>
+        </div>
+      </div>
+    `;
+    chat.appendChild(div);
+    chat.scrollTop = chat.scrollHeight;
+  }
+
+  function removeTyping() {
+    const t = document.getElementById('typing-indicator');
+    if (t) t.remove();
+  }
+
+  function formatText(text) {
+    // Convert markdown-style bullets and bold to HTML
+    return text
+      .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+      .replace(/^• (.+)$/gm, '<li>$1</li>')
+      .replace(/(<li>.*<\/li>)/s, '<ul>$1</ul>')
+      .replace(/\n/g, '<br/>');
+  }
+
+  async function sendMessage() {
+    const input = document.getElementById('chat-input');
+    const q = input.value.trim();
+    if (!q || isWaiting) return;
+
+    input.value = '';
+    input.style.height = 'auto';
+    isWaiting = true;
+    document.getElementById('send-btn').disabled = true;
+
+    appendMessage('user', q);
+    addTyping();
+
+    try {
+      const r = await fetch('/chat', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ question: q, language: currentLanguage })
+      });
+      const d = await r.json();
+      removeTyping();
+      appendMessage('bot', formatText(d.answer), d.sources || [], d.tier || '');
+    } catch(e) {
+      removeTyping();
+      appendMessage('bot', `<span style="color:#F87171">Connection error. Is the server running?</span>`);
+    }
+
+    isWaiting = false;
+    document.getElementById('send-btn').disabled = false;
+    input.focus();
+  }
+
+
+
+  // ── Helpers ───────────────────────────────────────────────────────
+  function handleKey(e) {
+    if (e.key === 'Enter' && !e.shiftKey) {
+      e.preventDefault();
+      sendMessage();
+    }
+  }
+
+  function autoResize(el) {
+    el.style.height = 'auto';
+    el.style.height = Math.min(el.scrollHeight, 140) + 'px';
+  }
+
+  let toastTimeout;
+  function showToast(msg, type = '') {
+    const existing = document.querySelector('.toast');
+    if (existing) existing.remove();
+    clearTimeout(toastTimeout);
+    const div = document.createElement('div');
+    div.className = `toast ${type}`;
+    div.textContent = msg;
+    document.body.appendChild(div);
+    toastTimeout = setTimeout(() => div.remove(), 4000);
+  }
+
+  // ── Boot ──────────────────────────────────────────────────────────
+  init();
+</script>
+</body>
+</html>
