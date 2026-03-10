@@ -1,0 +1,147 @@
+Pradhan Mantri Jan Dhan Yojana (PMJDY)
+
+Ministry: Ministry of Finance  
+Department: Department of Financial Services  
+Launch Date: 28 August 2014  
+Type: National Financial Inclusion Scheme  
+
+--------------------------------------------------
+
+1. Overview:
+
+Pradhan Mantri Jan Dhan Yojana (PMJDY) is a National Mission for Financial Inclusion (NMFI) launched in August 2014 by the Government of India. The scheme aims to ensure universal access to banking facilities for every unbanked adult in the country.
+
+The scheme is guided by the principles of:
+- Banking the unbanked
+- Securing the unsecured
+- Funding the unfunded
+- Serving underserved and unserved areas
+
+Initially focused on opening accounts for every household, the scheme later shifted its focus to ensuring access for every unbanked adult.
+
+The scheme includes enhanced benefits such as:
+- Increase in overdraft (OD) limit from Rs. 5,000 to Rs. 10,000
+- Increase in accidental insurance cover on RuPay card from Rs. 1 lakh to Rs. 2 lakh
+
+PMJDY promotes financial inclusion by providing access to basic savings accounts, credit facilities, remittances, insurance, and pension schemes.
+
+--------------------------------------------------
+
+2. Benefits:
+
+a) Basic Savings Bank Deposit Account (BSBDA):
+- No minimum balance required.
+- Account holders can deposit and withdraw money through bank branches, ATMs, and Banking Correspondents (BCs).
+- Maximum four withdrawals per month.
+
+b) Small Account (Chota Khata):
+- Can be opened without officially valid documents.
+- Valid for 12 months.
+- Can be extended for another 12 months if proof of application for valid documents is submitted.
+- Subject to transaction and balance limits.
+
+c) RuPay Debit Card:
+- Free RuPay debit card issued to beneficiaries.
+- Accidental insurance cover of Rs. 2 lakh.
+- Rs. 1 lakh for accounts opened before 28 August 2018.
+
+d) Interest:
+- Savings accounts earn applicable interest.
+
+e) Overdraft Facility:
+- Overdraft facility up to Rs. 10,000 available to eligible account holders.
+
+f) Business Correspondents (Bank Mitras):
+- Provide banking services in rural and remote areas.
+- Assist with deposits, withdrawals, account statements, and basic banking services.
+
+g) Direct Benefit Transfers (DBT):
+PMJDY accounts are eligible for:
+- Direct Benefit Transfer (DBT)
+- Pradhan Mantri Jeevan Jyoti Bima Yojana (PMJJBY)
+- Pradhan Mantri Suraksha Bima Yojana (PMSBY)
+- Atal Pension Yojana (APY)
+- MUDRA scheme
+
+--------------------------------------------------
+
+3. Eligibility:
+
+- Applicant must be an Indian citizen.
+- Minors above 10 years may open accounts with support from a legal guardian.
+
+--------------------------------------------------
+
+4. Application Process:
+
+Step 1:
+Visit the official PMJDY portal.
+
+Step 2:
+Download the Account Opening Form from the "e-documents" section (available in English and Hindi).
+
+Step 3:
+Print and fill the form with personal and banking details, including:
+- Name
+- Address
+- Aadhaar number
+- Profession
+- Annual income
+- Bank branch details
+
+Step 4:
+Submit the completed form at the nearest bank branch.
+
+Step 5:
+Provide required documents along with mobile number or email ID for account activation.
+
+--------------------------------------------------
+
+5. Documents Required:
+
+- Aadhaar card
+- Government ID proof (Voter ID / PAN Card / Ration Card)
+- Address proof (Passport / Driving License / Utility Bill)
+- Passport size photograph
+- Filled and signed PMJDY account opening form
+- Any additional document as notified by the Central Government
+
+--------------------------------------------------
+
+6. Frequently Asked Questions:
+
+Q: Can I open a joint account under PMJDY?
+A: Yes, joint accounts are allowed.
+
+Q: Where can I open a PMJDY account?
+A: At any bank branch operating on Core Banking Solutions (CBS) or at an authorized BC outlet.
+
+Q: Is there a minimum balance requirement?
+A: No, PMJDY accounts can be opened with zero balance.
+
+Q: Is accidental insurance provided?
+A: Yes, RuPay card holders receive accidental insurance cover up to Rs. 2 lakh.
+
+Q: Is overdraft facility available?
+A: Yes, overdraft up to Rs. 10,000 is available after satisfactory account operation.
+
+Q: Can minors open an account?
+A: Yes, minors above 10 years can open accounts under guardianship.
+
+Q: Can I transfer my PMJDY account to another city or state?
+A: Yes, accounts are transferable through core banking solutions.
+
+Q: Can I open multiple PMJDY accounts?
+A: No, only one PMJDY account per person is allowed.
+
+Q: What if I do not have valid documents?
+A: A Small Account can be opened with limited transaction and balance caps, subject to later document submission.
+
+--------------------------------------------------
+
+7. Webiste URL:
+https://www.pmjdy.gov.in/
+
+--------------------------------------------------
+
+End of Document

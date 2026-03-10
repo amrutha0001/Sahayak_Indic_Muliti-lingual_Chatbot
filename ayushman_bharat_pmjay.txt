@@ -1,0 +1,180 @@
+Ayushman Bharat – Pradhan Mantri Jan Arogya Yojana (PM-JAY)
+
+Ministry: Ministry of Health & Family Welfare  
+Department: National Health Authority (NHA)  
+Launch Date: 23 September 2018  
+Type: National Public Health Insurance Scheme  
+
+--------------------------------------------------
+
+1. Overview:
+
+Ayushman Bharat – Pradhan Mantri Jan Arogya Yojana (PM-JAY) is a national health insurance scheme launched by the Government of India to provide cashless hospitalization coverage to poor and vulnerable families.
+
+The scheme provides health insurance coverage of Rs. 5,00,000 per family per year for secondary and tertiary healthcare services.
+
+Ayushman Bharat adopts a continuum of care approach and consists of two interrelated components:
+
+1. Health and Wellness Centres (HWCs):
+   Provide comprehensive primary healthcare services including:
+   - Maternal and child health services
+   - Non-communicable disease care
+   - Free essential drugs
+   - Diagnostics
+   - Preventive healthcare promotion
+
+2. Pradhan Mantri Jan Arogya Yojana (PM-JAY):
+   Provides cashless insurance coverage up to Rs. 5,00,000 per family per year for hospitalization.
+
+--------------------------------------------------
+
+2. Benefits:
+
+Financial Health Insurance Cover:
+
+- Annual coverage of up to Rs. 5,00,000 per family per year.
+- Cashless and paperless treatment at empanelled hospitals.
+- Coverage includes:
+  - Consultation
+  - Medicines
+  - Diagnostics
+  - Surgery
+  - ICU charges
+  - Implants
+  - Accommodation and food
+- Covers 3 days pre-hospitalization expenses.
+- Covers 15 days post-hospitalization expenses.
+- Covers treatment complications.
+
+Coverage Features:
+
+- Covers all pre-existing diseases from day one.
+- No restriction on family size, age, or gender.
+- Nationwide portability across empanelled hospitals.
+- Covers approximately 1,929 medical procedures.
+
+--------------------------------------------------
+
+3. Eligibility:
+
+Rural Beneficiaries:
+
+Families falling under at least one of the following deprivation criteria:
+
+- Only one room with kutcha walls and roof.
+- No adult member between ages 16–59.
+- No adult male member between ages 16–59.
+- Disabled member with no able-bodied adult.
+- SC/ST households.
+- Landless households dependent on manual casual labour.
+
+Automatically included:
+
+- Households without shelter.
+- Destitute or living on alms.
+- Manual scavenger families.
+- Primitive tribal groups.
+- Legally released bonded labour.
+
+Urban Beneficiaries:
+
+Eligible occupational categories include:
+
+- Ragpickers
+- Beggars
+- Domestic workers
+- Street vendors / hawkers / cobblers
+- Construction workers / labourers / plumbers / painters / welders / security guards
+- Sanitation workers
+- Home-based workers / artisans / tailors
+- Transport workers / drivers / conductors / rickshaw pullers
+- Shop assistants / helpers / delivery assistants
+- Electricians / mechanics / repair workers
+- Washer-men / chowkidars
+
+Exclusions:
+
+Not eligible if:
+
+- Own two-, three-, or four-wheeler vehicles or motorized fishing boat.
+- Own mechanized farming equipment.
+- Have Kisan Credit Card with limit above Rs. 50,000.
+- Are government employees.
+- Work in government-managed non-agricultural enterprises.
+- Earn monthly income above Rs. 10,000.
+- Own refrigerator and landline.
+- Own solidly built houses.
+- Own 5 acres or more agricultural land.
+
+--------------------------------------------------
+
+4. Application Process:
+
+Mode: Offline and Online
+
+To obtain PM-JAY e-card:
+
+Step 1:
+Visit an empanelled hospital or Community Service Centre (CSC).
+
+Step 2:
+Provide identification details such as:
+- PM letter
+- RSBY URN
+- Ration card number
+- Mobile number
+
+Step 3:
+Arogya Mitra searches beneficiary details in the BIS system.
+
+Step 4:
+Individual identification through Aadhaar or government ID and ration card.
+
+Step 5:
+Family records are verified and uploaded.
+
+Step 6:
+Trust/insurance company reviews and approves or rejects.
+
+Step 7:
+On approval, PM-JAY e-card is issued.
+
+--------------------------------------------------
+
+5. Documents Required:
+
+- Aadhaar Card or PAN Card (Identity Proof)
+- Proof of Address
+- Mobile number / contact details
+- Caste Certificate (if applicable)
+- Income Certificate
+- Family status document (Joint/Nuclear)
+- Ration Card
+
+--------------------------------------------------
+
+6. Frequently Asked Questions:
+
+Q: Do beneficiaries need to pay any premium?
+A: No. Eligible families receive coverage free of cost.
+
+Q: Are pre-existing diseases covered?
+A: Yes. All pre-existing diseases are covered from day one.
+
+Q: Is there any limit on family size?
+A: No. There is no cap on family size, age, or gender.
+
+Q: Can benefits be availed without Aadhaar?
+A: Aadhaar or valid government ID is required for identification and verification.
+
+Q: Is the scheme portable across India?
+A: Yes. Treatment can be availed at any empanelled hospital across India.
+
+--------------------------------------------------
+
+7. Website URL:
+https://pmjay.gov.in/
+
+--------------------------------------------------
+
+End of Document

@@ -1,0 +1,186 @@
+Pradhan Mantri Mudra Yojana (PMMY)
+
+Ministry: Ministry of Finance  
+Department: Department of Financial Services  
+Launch Date: 8 April 2015  
+Type: Micro-Enterprise Credit Scheme  
+
+--------------------------------------------------
+
+1. Overview:
+Pradhan Mantri Mudra Yojana (PMMY) is a flagship scheme of the Government of India. The scheme facilitates micro credit/loans up to Rs. 20 lakh to income-generating micro enterprises engaged in the non-farm sector in manufacturing, trading or service sectors, including activities allied to agriculture such as poultry, dairy, and beekeeping.
+
+The scheme provides financial assistance extended by Member Lending Institutions (MLIs) to non-corporate, non-farm sector income-generating activities of micro and small entities.
+
+These entities include proprietorship or partnership firms such as small manufacturing units, service sector units, shopkeepers, fruit and vegetable vendors, truck operators, food-service units, repair shops, machine operators, small industries, artisans, and food processors.
+
+Loans can be availed through eligible Member Lending Institutions, including:
+- Public Sector Banks
+- Private Sector Banks
+- State Cooperative Banks
+- Regional Rural Banks
+- Micro Finance Institutions (MFIs)
+- Non-Banking Financial Companies (NBFCs)
+- Small Finance Banks (SFBs)
+- Other financial intermediaries approved by Mudra Ltd.
+
+Interest Rate:
+Interest rates are determined by Member Lending Institutions as per Reserve Bank of India (RBI) guidelines.
+
+Processing Charges:
+Banks may charge processing fees as per internal guidelines. Processing charges for Shishu loans (up to Rs. 50,000) are generally waived by most banks.
+
+Note:
+There are no agents or middlemen engaged by MUDRA for availing Mudra loans. Borrowers should avoid persons posing as agents or facilitators.
+
+--------------------------------------------------
+
+2. Loan Categories and Benefits:
+
+The scheme is classified into four categories based on growth stage and funding needs:
+
+Shishu:
+Loans up to Rs. 50,000.
+
+Kishore:
+Loans above Rs. 50,000 and up to Rs. 5 lakh.
+
+Tarun:
+Loans above Rs. 5 lakh and up to Rs. 10 lakh.
+
+Tarun Plus:
+Loans up to Rs. 20 lakh for entrepreneurs who have successfully repaid previous loans under the Tarun category.
+
+--------------------------------------------------
+
+3. Eligibility:
+
+Eligible borrowers include:
+- Individuals
+- Proprietary concerns
+- Partnership firms
+- Private Limited Companies
+- Public Companies
+- Other legal business entities
+
+Conditions:
+- Applicant must not be a defaulter with any bank or financial institution.
+- Applicant should have a satisfactory credit track record.
+- Individual borrowers may be required to possess necessary skills, experience, or knowledge to undertake the proposed business activity.
+- Educational qualifications, if required, depend on the nature of the business activity.
+
+--------------------------------------------------
+
+4. Application Process:
+
+Pre-requisites:
+- ID Proof
+- Address Proof
+- Passport size photograph
+- Applicant signature
+- Proof of identity and address of business enterprise
+
+Steps:
+
+Step 1:
+Visit the official PM MUDRA website and select the Udyamimitra portal.
+
+Step 2:
+Click on “Apply Now” for Mudra Loan.
+
+Step 3:
+Select applicant type:
+- New Entrepreneur
+- Existing Entrepreneur
+- Self-employed Professional
+
+Step 4:
+Enter name, email, and mobile number. Generate OTP for registration.
+
+After successful registration:
+
+Step 5:
+Fill in personal and professional details.
+
+Step 6:
+Select hand-holding agencies (if required), or proceed to “Loan Application Center”.
+
+Step 7:
+Select loan category: Shishu / Kishore / Tarun.
+
+Step 8:
+Enter business information including:
+- Business name
+- Business activity
+- Industry type (Manufacturing, Service, Trading, Allied to Agriculture)
+
+Step 9:
+Provide details of:
+- Ownership
+- Existing banking/credit facilities
+- Proposed credit facilities
+- Future financial estimates
+- Preferred lender
+
+Step 10:
+Upload required documents.
+
+Step 11:
+Submit application. An application number is generated for future reference.
+
+--------------------------------------------------
+
+5. Documents Required:
+
+For Shishu Loan:
+
+- Identity proof (Aadhaar, PAN, Voter ID, Driving License, Passport, etc.)
+- Address proof (utility bill not older than 2 months, Aadhaar, Passport, etc.)
+- Two recent passport size photographs
+- Quotation of machinery/items to be purchased
+- Supplier details and price details
+- Proof of identity and address of business enterprise
+- Relevant licenses or registration certificates (if applicable)
+
+For Kishore, Tarun, and Tarun Plus Loans:
+
+- Identity proof (Aadhaar, PAN, Voter ID, Driving License, Passport)
+- Address proof
+- Two recent passport size photographs
+- Business registration documents
+- Statement of accounts (last six months)
+- Last two years balance sheets (for loans above Rs. 2 lakh)
+- Income tax or sales tax returns (if applicable)
+- Projected balance sheets
+- Sales achieved in current financial year
+- Project report detailing technical and economic viability
+- Memorandum and Articles of Association or Partnership Deed
+- Asset and liability statement (if required)
+
+--------------------------------------------------
+
+6. Frequently Asked Questions:
+
+Q: Is Khadi activity eligible under PMMY loans?
+A: Yes. MUDRA loans are applicable for any income-generating activity. Since Khadi falls under the textile sector, loans taken for income generation in this activity are eligible under PMMY.
+
+Q: Are MUDRA loans available for purchase of CNG tempo or taxi?
+A: Yes. MUDRA loans are available for purchase of a CNG tempo or taxi if the vehicle is intended for commercial use and income generation.
+
+Q: If I already have a savings bank account, can I apply for a MUDRA loan?
+A: Yes. The applicant can approach the bank branch and apply as per the lending institution’s format. Loan approval, amount, and repayment terms will be determined based on the proposed business activity and anticipated cash flow, subject to RBI guidelines and the lender’s internal policies.
+
+Q: What is the turnaround time for processing PMMY Shishu loans?
+A: As per Banking Codes and Standards Board of India (BCSBI) guidelines, loan applications for credit limits up to Rs. 5 lakh should generally be processed within two weeks.
+
+Q: Is it mandatory to submit Income Tax Returns for the past two years to avail a Rs. 20 lakh loan under PMMY?
+A: Generally, Income Tax Returns are not insisted upon for small-value loans. However, document requirements depend on the lending institution’s internal guidelines and policies.
+
+--------------------------------------------------
+
+7. Website URL:
+https://www.mudra.org.in/
+
+--------------------------------------------------
+
+End of Document

@@ -1,0 +1,189 @@
+Atal Pension Yojana (APY)
+
+Ministry: Ministry of Finance  
+Department: Department of Financial Services  
+Regulator: Pension Fund Regulatory and Development Authority (PFRDA)  
+Launch Date: 9 May 2015  
+Type: Contributory Pension Scheme  
+
+--------------------------------------------------
+
+1. Overview:
+
+Atal Pension Yojana (APY) is an old-age income security scheme for savings account holders aged between 18 and 40 years who are not income tax payers. The scheme aims to address longevity risks among workers in the unorganized sector and encourages voluntary retirement savings.
+
+The scheme is primarily targeted at:
+- Poor and underprivileged citizens
+- Workers in the unorganized sector
+
+Subscriber contributions are made through auto-debit from the subscriber’s savings bank account on a monthly, quarterly, or half-yearly basis.
+
+Charges and overdue interest for delayed or non-payment of contributions are levied as prescribed by the Pension Fund Regulatory and Development Authority (PFRDA) in consultation with the Central Government.
+
+Grievance Redressal:
+Subscribers can raise grievances through the official National Pension System (NPS) portal. A token number is generated for tracking grievance status.
+
+--------------------------------------------------
+
+2. Benefits:
+
+A. Upon Exit at Age 60:
+
+The subscriber receives the following benefits upon attaining 60 years:
+
+(i) Guaranteed Minimum Pension:
+The subscriber receives a guaranteed minimum pension of:
+- Rs. 1,000 per month
+- Rs. 2,000 per month
+- Rs. 3,000 per month
+- Rs. 4,000 per month
+- Rs. 5,000 per month
+
+The pension amount depends on the chosen contribution and continues until the subscriber’s death.
+
+(ii) Pension to Spouse:
+After the subscriber’s death, the spouse receives the same pension amount until the spouse’s death.
+
+(iii) Return of Pension Wealth:
+After the death of both the subscriber and spouse, the accumulated pension corpus is returned to the nominee.
+
+Tax Benefits:
+Contributions to APY are eligible for tax benefits under Section 80CCD(1), similar to the National Pension System (NPS).
+
+--------------------------------------------------
+
+B. Voluntary Exit Before 60 Years:
+
+If a subscriber exits before 60 years:
+- Only the subscriber’s contribution and net actual accrued income are refunded.
+- Government co-contribution (if applicable) and accrued income on it will not be paid if the subscriber joined before 31 March 2016 and received co-contribution.
+
+--------------------------------------------------
+
+C. Death Before 60 Years:
+
+Option 1:
+The spouse may continue contributing to the APY account until the original subscriber would have attained 60 years. The spouse will receive the pension after 60 years until death.
+
+Option 2:
+The accumulated pension corpus will be returned to the spouse or nominee.
+
+--------------------------------------------------
+
+3. Eligibility:
+
+- Minimum age of entry: 18 years
+- Maximum age of entry: 40 years
+- Pension starts at: 60 years
+- Applicant must have a savings bank account.
+- Applicant must not be an income tax payer (effective from 1 October 2022).
+
+Contribution Period:
+Subscribers must contribute from the age of joining until 60 years.
+
+Exclusions:
+From 1 October 2022, any citizen who is or has been an income tax payer is not eligible to join APY.
+
+--------------------------------------------------
+
+4. Application Process:
+
+Mode: Online / Offline (through Banks & Post Offices)
+
+Online Method 1 (Through Internet Banking):
+
+Step 1:
+Log into internet banking account.
+
+Step 2:
+Search for Atal Pension Yojana (APY) on dashboard.
+
+Step 3:
+Fill in basic details and nominee details.
+
+Step 4:
+Provide consent for auto-debit from savings account.
+
+Step 5:
+Submit application.
+
+
+Online Method 2 (Through eNPS Portal):
+
+Step 1:
+Visit the official eNPS website.
+
+Step 2:
+Select “Atal Pension Yojana” and click “APY Registration”.
+
+Step 3:
+Fill basic details.
+
+Step 4:
+Complete KYC using one of the following:
+- Offline Aadhaar XML upload
+- Aadhaar OTP verification
+- Aadhaar Virtual ID
+
+Step 5:
+Fill personal details and select pension amount.
+
+Step 6:
+Select contribution frequency (monthly/quarterly/half-yearly).
+
+Step 7:
+Enter nominee details.
+
+Step 8:
+Complete eSign through Aadhaar OTP verification.
+
+Step 9:
+Registration confirmation is generated.
+
+Helpline:
+Toll-free number: 1800-110-069
+
+--------------------------------------------------
+
+5. Documents Required:
+
+- Active Savings Bank or Post Office Savings Account
+- KYC details (fetched from linked bank/post office account)
+- Aadhaar (for KYC verification)
+
+--------------------------------------------------
+
+6. Frequently Asked Questions:
+
+Q: When will I receive my pension?
+A: Pension is payable after attaining 60 years of age.
+
+Q: Can a Swavalamban subscriber join APY?
+A: Yes, eligible Swavalamban subscribers can migrate to APY as per scheme guidelines.
+
+Q: Is nomination mandatory?
+A: Yes, nomination is required at the time of joining the scheme.
+
+Q: What happens if contribution is delayed?
+A: Overdue interest and charges may be levied as prescribed by PFRDA.
+
+Q: Is Aadhaar compulsory for joining APY?
+A: Aadhaar is generally required for KYC, depending on the mode of registration.
+
+Q: Can a government employee subscribe to APY?
+A: Eligibility depends on tax status and other conditions as prescribed.
+
+Q: Can I open APY without a savings bank account?
+A: No, a savings bank account is mandatory.
+
+Q: Can I join APY after turning 40 years?
+A: No, the maximum age for joining APY is 40 years.
+
+--------------------------------------------------
+
+7. Website URL:
+https://financialservices.gov.in/beta/en/atal-pension-yojna
+
+--------------------------------------------------
+
+End of Document

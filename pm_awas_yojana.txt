@@ -1,0 +1,156 @@
+Pradhan Mantri Awas Yojana (PMAY)
+
+Ministry: 
+- Ministry of Housing & Urban Affairs (PMAY-Urban)  
+- Ministry of Rural Development (PMAY-Gramin)  
+
+Launch Date: 25 June 2015  
+Type: Central Government Housing Scheme  
+
+----------------------------------------------------------------------------------------------------
+
+1. Overview:
+
+Pradhan Mantri Awas Yojana (PMAY) is a flagship housing initiative of the Government of India aimed at providing “Housing for All.” The scheme seeks to ensure that every eligible family has access to a pucca house with basic civic amenities.
+
+PMAY operates in two components:
+
+• PMAY-Urban (PMAY-U) – For urban beneficiaries  
+• PMAY-Gramin (PMAY-G) – For rural beneficiaries  
+
+The scheme provides financial assistance for:
+
+• Construction of new houses  
+• Enhancement of existing houses  
+• Purchase of affordable housing  
+• Interest subsidy on home loans  
+
+Under PMAY-Urban, the Credit Linked Subsidy Scheme (CLSS) provides interest subsidy on housing loans for EWS, LIG, and MIG categories.
+
+PMAY-Gramin focuses on providing financial assistance to rural poor households identified under SECC data.
+
+The scheme promotes:
+
+• Affordable housing
+• Women ownership (mandatory co-ownership in many cases)
+• Environment-friendly construction
+• Convergence with sanitation, electricity, and LPG schemes
+
+--------------------------------------------------
+
+2. Benefits:
+
+1. Financial Assistance (PMAY-G):
+   • ₹1.20 lakh in plain areas.
+   • ₹1.30 lakh in hilly/difficult areas.
+
+2. Credit Linked Subsidy Scheme (PMAY-U):
+   • Interest subsidy up to 6.5% for EWS/LIG.
+   • Subsidy applied to loan tenure up to 20 years.
+   • Subsidy credited upfront to loan account.
+
+3. House Size:
+   • Minimum 25 sq. meter area (including cooking space).
+
+4. Convergence Benefits:
+   • Swachh Bharat toilet support.
+   • Electricity connection under Saubhagya.
+   • LPG under Ujjwala.
+   • Drinking water supply schemes.
+
+5. Direct Benefit Transfer:
+   • Funds transferred directly to beneficiary bank account in stages.
+
+--------------------------------------------------
+
+3. Eligibility:
+
+General Eligibility:
+
+• Must not own a pucca house anywhere in India.
+• Must belong to EWS/LIG/MIG category (Urban).
+• Must be listed in SECC data (Rural).
+
+Income Criteria (Urban):
+
+• EWS: Annual income up to ₹3 lakh.
+• LIG: ₹3–6 lakh.
+• MIG-I: ₹6–12 lakh.
+• MIG-II: ₹12–18 lakh.
+
+Special Provisions:
+
+• House ownership preferably in woman’s name.
+• Priority to SC/ST, minorities, differently-abled, widows.
+
+Exclusions:
+
+• Those owning pucca house.
+• Income tax payers in certain categories.
+• High-income category applicants.
+
+--------------------------------------------------
+
+4. Application Process:
+
+Mode: Online and Offline
+
+Online (PMAY-U):
+
+Step 1: Visit official PMAY portal.
+Step 2: Select “Citizen Assessment.”
+Step 3: Enter Aadhaar number.
+Step 4: Fill income and family details.
+Step 5: Submit form.
+Step 6: Verification by Urban Local Body.
+
+PMAY-G:
+
+• Identified via SECC data.
+• Verified by Gram Sabha.
+• Approved list published at village level.
+
+Loan-based CLSS:
+
+• Apply through bank/HFC.
+• Bank verifies eligibility.
+• Subsidy processed through National Housing Bank.
+
+--------------------------------------------------
+
+5. Documents Required:
+
+• Aadhaar Card
+• Income certificate
+• Bank account details
+• Property documents
+• SECC inclusion proof (rural)
+• Loan sanction letter (CLSS)
+
+--------------------------------------------------
+
+6. Frequently Asked Questions:
+
+Q1: Can I apply if I already own a house?
+A: No, existing pucca house owners are not eligible.
+
+Q2: Is subsidy given directly to me?
+A: Under CLSS, subsidy is credited to loan account.
+
+Q3: Is women ownership mandatory?
+A: Preferred, and mandatory in many categories.
+
+Q4: Can I apply offline?
+A: Yes, through ULBs or Gram Panchayats.
+
+Q5: Is there any application fee?
+A: No official application fee.
+
+--------------------------------------------------
+
+7. Webiste URL:
+https://pmaymis.gov.in/
+
+--------------------------------------------------
+
+End of Document

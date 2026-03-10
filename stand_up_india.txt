@@ -1,0 +1,171 @@
+Stand-Up India
+
+Ministry: Ministry of Finance  
+Department: Department of Financial Services  
+Launch Date: 5 April 2016  
+Type: Bank Loan Facilitation Scheme  
+
+--------------------------------------------------
+
+1. Overview:
+
+Stand-Up India is a scheme by the Ministry of Finance aimed at financing Scheduled Caste (SC), Scheduled Tribe (ST), and Women entrepreneurs by facilitating bank loans for setting up greenfield enterprises.
+
+The scheme supports enterprises in:
+- Manufacturing
+- Services
+- Trading
+- Activities allied to agriculture
+
+Objective:
+To facilitate bank loans ranging from Rs. 10 lakh to Rs. 1 crore to:
+- At least one SC/ST borrower per bank branch
+- At least one woman borrower per bank branch
+
+For non-individual enterprises:
+At least 51% of the shareholding and controlling stake must be held by an SC/ST or Woman entrepreneur.
+
+Status:
+The scheme is currently marked as closed on the myScheme portal.
+
+--------------------------------------------------
+
+2. Benefits:
+
+- Composite loan (term loan + working capital) between Rs. 10 lakh and Rs. 1 crore.
+- RuPay debit card issued for borrower convenience.
+- Hand-holding support through SIDBI portal, including:
+  - Training and skill development
+  - Mentoring support
+  - Project report preparation
+  - Application assistance
+  - Work shed / utility support services
+  - Access to subsidy schemes
+
+--------------------------------------------------
+
+3. Eligibility:
+
+- Loan is provided only for greenfield enterprises (first-time ventures in manufacturing, services, trading, or allied agricultural activities).
+- If applicant is male, he must belong to SC or ST category.
+- Women entrepreneurs are eligible.
+- Applicant must be at least 18 years old.
+- Applicant must not be in default to any bank or financial institution.
+- In case of non-individual enterprises, 51% ownership must be held by SC/ST or Woman entrepreneur.
+
+--------------------------------------------------
+
+4. Application Process:
+
+Mode 1:
+Approach the nearest bank branch directly.
+
+Mode 2:
+Contact the Lead District Manager (LDM) of the district.
+
+Mode 3:
+Apply through the official Stand-Up India portal.
+
+Online Portal Process:
+
+Step 1:
+Visit the official Stand-Up India portal.
+
+Step 2:
+Enter full details of the business location.
+
+Step 3:
+Select applicant category:
+- SC
+- ST
+- Woman
+Confirm whether 51% stake is held.
+
+Step 4:
+Provide business details:
+- Nature of proposed business
+- Loan amount required
+- Description of business
+- Details of premises
+
+Step 5:
+Enter past business experience details.
+
+Step 6:
+Indicate whether hand-holding support is required.
+
+Step 7:
+Fill personal details including:
+- Name of enterprise
+- Constitution of business entity
+
+Step 8:
+Submit registration form.
+
+After registration:
+The respective financial institution contacts the applicant to complete loan processing and formalities.
+
+--------------------------------------------------
+
+5. Documents Required:
+
+General Documents:
+
+- Proof of Identity (Voter ID / Passport / Driving License / PAN Card)
+- Proof of Residence (Utility Bill / Passport / Voter ID)
+- Proof of Business Address
+- Declaration that applicant is not a defaulter
+- Memorandum & Articles of Association (Company) / Partnership Deed
+- Assets and liabilities statement of promoters and guarantors
+- Latest income tax returns
+- Rent agreement (if premises rented)
+- Pollution control clearance (if applicable)
+- SSI / MSME registration (if applicable)
+- Projected balance sheets for next two years
+- Title deeds / lease deeds of properties offered as security
+- Caste certificate (for SC/ST applicants)
+- Certificate of incorporation showing majority stake held by SC/ST/Woman
+
+For Loans Above Rs. 25 Lakh:
+
+- Profile of business unit
+- Last three years balance sheets of associate/group companies (if any)
+- Detailed project report including:
+  - Machinery details
+  - Supplier details
+  - Financial projections
+  - Capacity utilization
+  - Profit and loss projections
+  - Labour and staffing plans
+  - Raw material sources
+  - Buyer details
+  - Competitor analysis
+  - Strength and weakness analysis
+
+--------------------------------------------------
+
+6. Frequently Asked Questions (Selected):
+
+Q: What is the size of the loan under Stand-Up India?
+A: Loans range from Rs. 10 lakh to Rs. 1 crore.
+
+Q: What is hand-holding support?
+A: Hand-holding support includes assistance in training, skill development, mentoring, project preparation, and loan application facilitation.
+
+Q: Who are eligible lending institutions?
+A: Scheduled Commercial Banks and other participating financial institutions under the scheme.
+
+Q: What activities are eligible?
+A: Greenfield enterprises in manufacturing, services, trading, and activities allied to agriculture.
+
+Q: What is the difference between Stand-Up India and Start-Up India?
+A: Stand-Up India provides bank loans specifically for SC/ST and Women entrepreneurs for greenfield enterprises, whereas Start-Up India focuses on innovation-driven startups and ecosystem development.
+
+--------------------------------------------------
+
+7. Website URL:
+https://www.standupmitra.in/
+
+--------------------------------------------------
+
+End of Document

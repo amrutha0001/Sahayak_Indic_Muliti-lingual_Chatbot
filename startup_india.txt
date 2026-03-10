@@ -1,0 +1,112 @@
+Startup India
+
+Ministry: Ministry of Commerce & Industry  
+Department: Department for Promotion of Industry and Internal Trade (DPIIT)  
+Launch Date: 16 January 2016  
+Type: Entrepreneurship Promotion Initiative  
+
+--------------------------------------------------
+
+1. Overview:
+
+Startup India is a flagship initiative aimed at promoting innovation, entrepreneurship, and startup ecosystem growth in India.
+
+Objectives:
+
+• Simplify startup registration process.
+• Provide tax incentives.
+• Facilitate funding access.
+• Promote research and innovation.
+• Encourage job creation.
+
+The scheme provides DPIIT recognition to eligible startups, enabling them to access government benefits.
+
+--------------------------------------------------
+
+2. Benefits:
+
+1. DPIIT Recognition.
+2. Income tax exemption for 3 consecutive years (eligible startups).
+3. Exemption under Section 56 (Angel Tax).
+4. Fund of Funds for Startups (FFS).
+5. Easier compliance under labor and environmental laws.
+6. Fast-track patent application and IPR support.
+7. Self-certification compliance.
+
+--------------------------------------------------
+
+3. Eligibility:
+
+• Entity must be incorporated as:
+   - Private Limited Company
+   - Registered Partnership Firm
+   - LLP
+
+• Age of entity must be less than 10 years.
+• Annual turnover must not exceed ₹100 crore.
+• Must work toward innovation, development, or improvement of products/services.
+
+Exclusions:
+
+• Entities formed by splitting or reconstruction of existing business.
+• Large enterprises exceeding turnover cap.
+
+--------------------------------------------------
+
+4. Application Process:
+
+Step 1:
+Register entity under Companies Act/LLP Act.
+
+Step 2:
+Visit Startup India portal.
+
+Step 3:
+Create profile and upload documents.
+
+Step 4:
+Provide details of innovation/business model.
+
+Step 5:
+Submit for DPIIT recognition.
+
+Step 6:
+Receive recognition certificate upon approval.
+
+--------------------------------------------------
+
+5. Required Documents:
+
+• Certificate of Incorporation
+• PAN
+• Details of Directors/Partners
+• Pitch deck/business description
+• Authorization letter
+
+--------------------------------------------------
+
+6. Frequently Asked Questions:
+
+Q1: Is DPIIT recognition mandatory?
+A: Required to access Startup India benefits.
+
+Q2: Is tax exemption automatic?
+A: No, requires separate application.
+
+Q3: Can a sole proprietorship apply?
+A: No.
+
+Q4: What is Fund of Funds?
+A: Government-backed capital support mechanism.
+
+Q5: How long is recognition valid?
+A: Up to 10 years from incorporation.
+
+--------------------------------------------------
+
+7. Website URL:
+https://www.startupindia.gov.in/
+
+--------------------------------------------------
+
+End of Document

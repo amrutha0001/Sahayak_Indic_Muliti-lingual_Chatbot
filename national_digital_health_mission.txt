@@ -1,0 +1,124 @@
+National Digital Health Mission (NDHM) / Ayushman Bharat Digital Mission (ABDM)
+
+Ministry: Ministry of Health & Family Welfare  
+Department: National Health Authority (NHA)  
+Launch Date: 15 August 2020  
+Type: National Digital Health Infrastructure Mission  
+
+--------------------------------------------------
+
+1. Overview:
+
+The National Digital Health Mission (NDHM), later renamed Ayushman Bharat Digital Mission (ABDM), aims to create a unified digital health ecosystem in India.
+
+The mission establishes:
+
+• Unique Health IDs (ABHA ID)
+• Digital Health Records
+• Health Facility Registry
+• Healthcare Professionals Registry
+• Interoperable digital health platforms
+
+Objective:
+
+• Improve access to healthcare services.
+• Enable seamless data sharing with consent.
+• Reduce duplication of medical tests.
+• Strengthen digital governance in healthcare.
+
+The system is built on consent-based data sharing architecture.
+
+--------------------------------------------------
+
+2. Benefits:
+
+1. ABHA ID:
+   • Unique digital health identifier for citizens.
+
+2. Digital Health Records:
+   • Secure storage of prescriptions, reports, diagnosis.
+
+3. Interoperability:
+   • Records accessible across hospitals with consent.
+
+4. Telemedicine Integration:
+   • Enables remote consultation.
+
+5. Reduced Medical Costs:
+   • Avoid repeat tests.
+
+6. Nationwide Portability:
+   • Records accessible across India.
+
+--------------------------------------------------
+
+3. Eligibility:
+
+Eligible:
+
+• All Indian citizens.
+• Healthcare providers.
+• Diagnostic labs.
+• Pharmacies.
+
+Exclusions:
+
+• No mandatory participation.
+• Participation voluntary and consent-based.
+
+--------------------------------------------------
+
+4. Application Process:
+
+For Citizens:
+
+Step 1: Visit ABDM portal.
+Step 2: Generate ABHA ID using Aadhaar/mobile.
+Step 3: Complete OTP verification.
+Step 4: Create login credentials.
+
+For Healthcare Providers:
+
+• Register through ABDM portal.
+• Submit registration and compliance documents.
+
+Consent-Based Data Sharing:
+
+• Records shared only after user approval.
+
+--------------------------------------------------
+
+5. Required Documents:
+
+• Aadhaar (optional but recommended)
+• Mobile number
+• Identity proof (if required)
+• Healthcare provider registration certificate (for institutions)
+
+--------------------------------------------------
+
+6. Frequently Asked Questions:
+
+Q1: Is ABHA ID mandatory?
+A: No, voluntary.
+
+Q2: Is my data secure?
+A: Yes, consent-based architecture.
+
+Q3: Can hospitals access data without permission?
+A: No.
+
+Q4: Is it linked to PM-JAY?
+A: It complements but is separate.
+
+Q5: Is there any fee?
+A: No.
+
+--------------------------------------------------
+
+7. Website URL:
+https://abdm.gov.in/
+
+--------------------------------------------------
+
+End of Document
