@@ -30,6 +30,73 @@
       --shadow-lg:  0 24px 64px rgba(13,27,42,0.14);
     }
 
+    /* ── Dark theme overrides ──────────────────────────── */
+    [data-theme="dark"] {
+      --cream:      #0E1117;
+      --cream-2:    #161B24;
+      --text-main:  #E8EDF4;
+      --text-soft:  #9AAABB;
+      --text-muted: #5A6A7A;
+      --border:     rgba(255,255,255,0.08);
+      --shadow:     0 8px 32px rgba(0,0,0,0.40);
+      --shadow-lg:  0 24px 64px rgba(0,0,0,0.50);
+    }
+    /* main area bg */
+    [data-theme="dark"] body       { background: #0E1117; }
+    [data-theme="dark"] main       { background: #0E1117; }
+    [data-theme="dark"] .hero      { background: #0E1117; }
+    [data-theme="dark"] .input-bar { background: linear-gradient(to top, #0E1117 80%, transparent); }
+    /* hero cards */
+    [data-theme="dark"] .suggestion-card {
+      background: #161B24;
+      border-color: rgba(255,255,255,0.08);
+    }
+    [data-theme="dark"] .suggestion-card:hover {
+      border-color: var(--saffron);
+      background: #1C2333;
+    }
+    [data-theme="dark"] .suggestion-card .card-title { color: #E8EDF4; }
+    [data-theme="dark"] .suggestion-card .card-desc  { color: #9AAABB; }
+    /* chat bubbles */
+    [data-theme="dark"] .msg.bot .msg-bubble {
+      background: #161B24;
+      border-color: rgba(255,255,255,0.08);
+      color: #E8EDF4;
+    }
+    [data-theme="dark"] .msg.bot .msg-bubble strong { color: #E8EDF4; }
+    /* input wrap */
+    [data-theme="dark"] .input-wrap {
+      background: #161B24;
+      border-color: rgba(255,255,255,0.10);
+    }
+    [data-theme="dark"] .chat-input { color: #E8EDF4; }
+    /* chat scrollbar */
+    [data-theme="dark"] .chat-container::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.15); }
+    /* language dropdown options panel */
+    [data-theme="dark"] .lang-selector select option {
+      background: #161B24;
+      color: #E8EDF4;
+    }
+    [data-theme="dark"] .lang-selector select {
+      color-scheme: dark;
+    }
+    /* hero h1 */
+    [data-theme="dark"] .hero h1 { color: #E8EDF4; }
+    /* theme toggle button */
+    .theme-toggle {
+      width: 36px; height: 36px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 50%;
+      color: rgba(255,255,255,0.80);
+      font-size: 16px;
+      cursor: pointer;
+      display: grid; place-items: center;
+      transition: background 0.2s, transform 0.3s;
+      flex-shrink: 0;
+    }
+    .theme-toggle:hover { background: rgba(255,255,255,0.15); transform: rotate(20deg); }
+
     /* ── Reset & Base ──────────────────────────────────── */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html, body {
@@ -40,6 +107,7 @@
       font-family: 'DM Sans', sans-serif;
       background: var(--cream);
       color: var(--text-main);
+      transition: background 0.2s, color 0.2s;
     }
 
     /* ── Noise texture overlay ─────────────────────────── */
@@ -695,6 +763,7 @@
           </svg>
         </span>
       </div>
+      <button class="theme-toggle" id="theme-toggle" onclick="toggleTheme()" title="Toggle dark mode">🌙</button>
       <div class="status-pill">
         <div class="status-dot"></div>
         <span id="status-text">Live</span>
@@ -994,9 +1063,27 @@
     toastTimeout = setTimeout(() => div.remove(), 4000);
   }
 
+  // ── Theme ─────────────────────────────────────────────────────────
+  function toggleTheme() {
+    const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+    document.documentElement.setAttribute('data-theme', isDark ? 'light' : 'dark');
+    document.getElementById('theme-toggle').textContent = isDark ? '🌙' : '☀️';
+    localStorage.setItem('sahayak-theme', isDark ? 'light' : 'dark');
+  }
+  // Apply saved theme instantly on load
+  (function() {
+    const saved = localStorage.getItem('sahayak-theme');
+    if (saved === 'dark') {
+      document.documentElement.setAttribute('data-theme', 'dark');
+      document.addEventListener('DOMContentLoaded', () => {
+        const btn = document.getElementById('theme-toggle');
+        if (btn) btn.textContent = '☀️';
+      });
+    }
+  })();
+
   // ── Boot ──────────────────────────────────────────────────────────
   init();
 </script>
 </body>
-
 </html>
