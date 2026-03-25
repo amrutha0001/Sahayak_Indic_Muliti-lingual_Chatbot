@@ -41,7 +41,7 @@ User Query (any language)
         │
    score ≥ 0.55?  ──No──▶  Tier 2: Scrape official URL from scheme file
         │                          │
-       Yes                    Still thin? ──▶ Tier 3: DuckDuckGo search
+       Yes                    Still thin (score < 0.30)? ──▶ Tier 3: DuckDuckGo search
         │                          │
         └──────────────────────────┘
                       │
