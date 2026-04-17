@@ -64,6 +64,7 @@ class Source(BaseModel):
 
 class ChatResponse(BaseModel):
     answer: str
+    english_answer: str = ""   # always English — used as TTS fallback on browsers without Indic voices
     sources: list[Source]
     tier: str = "txt"      # "txt" | "url" | "web" | "none" 
 
@@ -119,6 +120,7 @@ def chat(req: ChatRequest):
     result = answer(req.question, language=req.language)
     return ChatResponse(
         answer=result["answer"],
+        english_answer=result.get("english_answer", result["answer"]),
         sources=[Source(**s) for s in result["sources"]],
         tier=result.get("tier", "txt"),
     )
