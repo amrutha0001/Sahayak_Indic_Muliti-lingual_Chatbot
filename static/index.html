@@ -41,48 +41,24 @@
       --shadow:     0 8px 32px rgba(0,0,0,0.40);
       --shadow-lg:  0 24px 64px rgba(0,0,0,0.50);
     }
-    /* main area bg */
     [data-theme="dark"] body       { background: #0E1117; }
     [data-theme="dark"] main       { background: #0E1117; }
     [data-theme="dark"] .hero      { background: #0E1117; }
     [data-theme="dark"] .input-bar { background: linear-gradient(to top, #0E1117 80%, transparent); }
-    /* hero cards */
-    [data-theme="dark"] .suggestion-card {
-      background: #161B24;
-      border-color: rgba(255,255,255,0.08);
-    }
-    [data-theme="dark"] .suggestion-card:hover {
-      border-color: var(--saffron);
-      background: #1C2333;
-    }
+    [data-theme="dark"] .suggestion-card { background: #161B24; border-color: rgba(255,255,255,0.08); }
+    [data-theme="dark"] .suggestion-card:hover { border-color: var(--saffron); background: #1C2333; }
     [data-theme="dark"] .suggestion-card .card-title { color: #E8EDF4; }
     [data-theme="dark"] .suggestion-card .card-desc  { color: #9AAABB; }
-    /* chat bubbles */
-    [data-theme="dark"] .msg.bot .msg-bubble {
-      background: #161B24;
-      border-color: rgba(255,255,255,0.08);
-      color: #E8EDF4;
-    }
+    [data-theme="dark"] .msg.bot .msg-bubble { background: #161B24; border-color: rgba(255,255,255,0.08); color: #E8EDF4; }
     [data-theme="dark"] .msg.bot .msg-bubble strong { color: #E8EDF4; }
-    /* input wrap */
-    [data-theme="dark"] .input-wrap {
-      background: #161B24;
-      border-color: rgba(255,255,255,0.10);
-    }
+    [data-theme="dark"] .input-wrap { background: #161B24; border-color: rgba(255,255,255,0.10); }
     [data-theme="dark"] .chat-input { color: #E8EDF4; }
-    /* chat scrollbar */
     [data-theme="dark"] .chat-container::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.15); }
-    /* language dropdown options panel */
-    [data-theme="dark"] .lang-selector select option {
-      background: #161B24;
-      color: #E8EDF4;
-    }
-    [data-theme="dark"] .lang-selector select {
-      color-scheme: dark;
-    }
-    /* hero h1 */
+    [data-theme="dark"] .lang-selector select option { background: #161B24; color: #E8EDF4; }
+    [data-theme="dark"] .lang-selector select { color-scheme: dark; }
     [data-theme="dark"] .hero h1 { color: #E8EDF4; }
-    /* theme toggle button */
+
+    /* ── Theme toggle ───────────────────────────────────── */
     .theme-toggle {
       width: 36px; height: 36px;
       background: rgba(255,255,255,0.08);
@@ -99,10 +75,7 @@
 
     /* ── Reset & Base ──────────────────────────────────── */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html, body {
-      height: 100%;
-      overflow: hidden;   /* kills the third outer scrollbar completely */
-    }
+    html, body { height: 100%; overflow: hidden; }
     body {
       font-family: 'DM Sans', sans-serif;
       background: var(--cream);
@@ -110,14 +83,13 @@
       transition: background 0.2s, color 0.2s;
     }
 
-    /* ── Noise texture overlay ─────────────────────────── */
+    /* ── Noise texture ─────────────────────────────────── */
     body::before {
       content: '';
       position: fixed;
       inset: 0;
       background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
-      pointer-events: none;
-      z-index: 0;
+      pointer-events: none; z-index: 0;
     }
 
     /* ── Layout ────────────────────────────────────────── */
@@ -125,10 +97,9 @@
       display: grid;
       grid-template-columns: 280px 1fr;
       grid-template-rows: auto 1fr;
-      height: 100vh;        /* exactly the viewport — no more, no less */
-      overflow: hidden;     /* belt-and-braces: nothing leaks out */
-      position: relative;
-      z-index: 1;
+      height: 100vh;
+      overflow: hidden;
+      position: relative; z-index: 1;
       align-items: start;
     }
 
@@ -141,557 +112,264 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      position: sticky;
-      top: 0;
-      z-index: 100;
+      position: sticky; top: 0; z-index: 100;
       box-shadow: 0 1px 0 rgba(255,255,255,0.05), var(--shadow);
     }
-
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
+    .logo { display: flex; align-items: center; gap: 12px; }
     .logo-mark {
-      width: 36px;
-      height: 36px;
+      width: 36px; height: 36px;
       background: linear-gradient(135deg, var(--saffron), var(--gold));
       border-radius: 10px;
-      display: grid;
-      place-items: center;
-      font-size: 18px;
+      display: grid; place-items: center; font-size: 18px;
     }
-
-    .logo-text {
-      font-family: 'Syne', sans-serif;
-      font-weight: 800;
-      font-size: 22px;
-      color: #fff;
-      letter-spacing: -0.5px;
-    }
+    .logo-text { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 22px; color: #fff; letter-spacing: -0.5px; }
     .logo-text span { color: var(--saffron-lt); }
-
-    .header-right {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
+    .header-right { display: flex; align-items: center; gap: 12px; }
 
     .lang-selector {
-      display: flex;
-      align-items: center;
-      gap: 8px;
+      display: flex; align-items: center; gap: 8px;
       background: rgba(255,255,255,0.08);
       border: 1px solid rgba(255,255,255,0.12);
-      border-radius: 40px;
-      padding: 6px 14px 6px 10px;
-      cursor: pointer;
-      transition: all 0.2s;
+      border-radius: 40px; padding: 6px 14px 6px 10px;
+      cursor: pointer; transition: all 0.2s;
     }
     .lang-selector:hover { background: rgba(255,255,255,0.12); }
     .lang-selector select {
-      background: transparent;
-      border: none;
-      color: #fff;
-      font-family: 'DM Sans', sans-serif;
-      font-size: 14px;
-      font-weight: 500;
-      cursor: pointer;
-      outline: none;
-      appearance: none;
-      padding-right: 4px;
+      background: transparent; border: none; color: #fff;
+      font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 500;
+      cursor: pointer; outline: none; appearance: none; -webkit-appearance: none; padding-right: 4px;
     }
     .lang-selector option { color: var(--text-main); background: #fff; }
-    .lang-selector select { -webkit-appearance: none; }  /* hide native arrow */
-    .lang-chevron {
-      display: grid; place-items: center;
-      color: rgba(255,255,255,0.55);
-      flex-shrink: 0; pointer-events: none;
-      transition: transform 0.2s;
-    }
+    .lang-chevron { display: grid; place-items: center; color: rgba(255,255,255,0.55); flex-shrink: 0; pointer-events: none; transition: transform 0.2s; }
     .lang-selector:focus-within .lang-chevron { transform: rotate(180deg); }
 
     .status-pill {
-      display: flex;
-      align-items: center;
-      gap: 6px;
+      display: flex; align-items: center; gap: 6px;
       background: rgba(26,122,74,0.25);
       border: 1px solid rgba(26,122,74,0.4);
-      border-radius: 40px;
-      padding: 5px 12px;
-      font-size: 12px;
-      font-weight: 500;
+      border-radius: 40px; padding: 5px 12px;
+      font-size: 12px; font-weight: 500; color: #6EE7A0; letter-spacing: 0.02em;
+    }
+    .status-dot { width: 6px; height: 6px; background: #6EE7A0; border-radius: 50%; animation: pulse 2s infinite; }
+    @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
+
+    /* ── Voice Output Toggle button (header) ─────────────── */
+    .voice-toggle {
+      display: flex; align-items: center; gap: 7px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 40px; padding: 5px 12px 5px 9px;
+      cursor: pointer; transition: all 0.2s;
+      font-size: 13px; font-weight: 500;
+      color: rgba(255,255,255,0.70);
+      user-select: none; white-space: nowrap;
+    }
+    .voice-toggle:hover { background: rgba(255,255,255,0.13); }
+    .voice-toggle.active {
+      background: rgba(26,122,74,0.25);
+      border-color: rgba(26,122,74,0.45);
       color: #6EE7A0;
-      letter-spacing: 0.02em;
     }
-    .status-dot {
-      width: 6px; height: 6px;
-      background: #6EE7A0;
-      border-radius: 50%;
-      animation: pulse 2s infinite;
-    }
-    @keyframes pulse {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0.4; }
-    }
+    .vt-icon { font-size: 15px; }
+    .vt-label { font-size: 12px; }
 
     /* ── Sidebar ────────────────────────────────────────── */
     aside {
-      background: var(--navy-2);
-      padding: 0;
-      display: flex;
-      flex-direction: column;
+      background: var(--navy-2); padding: 0;
+      display: flex; flex-direction: column;
       border-right: 1px solid rgba(255,255,255,0.05);
-      height: calc(100vh - 64px);   /* full height minus header */
-      overflow: hidden;              /* children manage their own scroll */
-      position: sticky;
-      top: 64px;
-      align-self: start;
+      height: calc(100vh - 64px); overflow: hidden;
+      position: sticky; top: 64px; align-self: start;
     }
-    /* Static top: label */
-    .sidebar-top {
-      padding: 24px 20px 10px;
-      flex-shrink: 0;
-    }
-    /* ── Scrollable scheme list — its OWN scrollbar ── */
-    .scheme-scroll {
-      flex: 1;              /* takes all available space between top and bottom */
-      overflow-y: auto;
-      overflow-x: hidden;
-      padding: 0 20px 8px;
-      min-height: 0;        /* critical: lets flex child shrink below content size */
-    }
+    .sidebar-top { padding: 24px 20px 10px; flex-shrink: 0; }
+    .scheme-scroll { flex: 1; overflow-y: auto; overflow-x: hidden; padding: 0 20px 8px; min-height: 0; }
     .scheme-scroll::-webkit-scrollbar { width: 4px; }
     .scheme-scroll::-webkit-scrollbar-track { background: rgba(255,255,255,0.03); border-radius: 4px; }
     .scheme-scroll::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.18); border-radius: 4px; }
     .scheme-scroll::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.30); }
-    /* Static bottom: URL + stats — never scrolls away */
-    .sidebar-bottom {
-      padding: 12px 20px 20px;
-      flex-shrink: 0;
-      border-top: 1px solid rgba(255,255,255,0.07);
-      background: var(--navy-2);  /* ensures it stays solid over scroll content */
-    }
-
+    .sidebar-bottom { padding: 12px 20px 20px; flex-shrink: 0; border-top: 1px solid rgba(255,255,255,0.07); background: var(--navy-2); }
     .sidebar-label {
-      font-family: 'Syne', sans-serif;
-      font-size: 10px;
-      font-weight: 700;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--text-muted);
-      padding: 0 8px;
-      margin-bottom: 4px;
-      margin-top: 12px;
+      font-family: 'Syne', sans-serif; font-size: 10px; font-weight: 700;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--text-muted); padding: 0 8px; margin-bottom: 4px; margin-top: 12px;
     }
     .sidebar-label:first-child { margin-top: 0; }
-
     .scheme-chip {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      padding: 10px 12px;
-      border-radius: 12px;
-      cursor: pointer;
-      transition: all 0.18s;
-      color: rgba(255,255,255,0.65);
-      font-size: 13px;
-      font-weight: 400;
-      line-height: 1.3;
+      display: flex; align-items: center; gap: 10px;
+      padding: 10px 12px; border-radius: 12px; cursor: pointer;
+      transition: all 0.18s; color: rgba(255,255,255,0.65);
+      font-size: 13px; font-weight: 400; line-height: 1.3;
       border: 1px solid transparent;
     }
-    .scheme-chip:hover {
-      background: rgba(255,255,255,0.07);
-      color: #fff;
-      border-color: rgba(255,255,255,0.08);
-    }
-    .scheme-chip.active {
-      background: rgba(255,107,26,0.15);
-      color: var(--saffron-lt);
-      border-color: rgba(255,107,26,0.25);
-    }
-    .scheme-chip .chip-icon {
-      width: 30px; height: 30px;
-      background: rgba(255,255,255,0.07);
-      border-radius: 8px;
-      display: grid;
-      place-items: center;
-      font-size: 14px;
-      flex-shrink: 0;
-    }
-    .scheme-chip.active .chip-icon {
-      background: rgba(255,107,26,0.2);
-    }
-
-    /* upload removed */
-
-    .url-form {
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-      margin-top: 4px;
-    }
-    .url-input {
-      padding: 9px 12px;
-      background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(255,255,255,0.1);
-      border-radius: 10px;
-      color: #fff;
-      font-family: 'DM Sans', sans-serif;
-      font-size: 12px;
-      outline: none;
-      transition: border-color 0.2s;
-    }
-    .url-input::placeholder { color: rgba(255,255,255,0.3); }
-    .url-input:focus { border-color: rgba(255,107,26,0.5); }
-    .url-submit {
-      padding: 8px;
-      background: rgba(26,122,74,0.3);
-      border: 1px solid rgba(26,122,74,0.4);
-      border-radius: 10px;
-      color: #6EE7A0;
-      font-size: 12px;
-      font-weight: 500;
-      cursor: pointer;
-      transition: all 0.2s;
-      font-family: 'DM Sans', sans-serif;
-    }
-    .url-submit:hover { background: rgba(26,122,74,0.45); }
+    .scheme-chip:hover { background: rgba(255,255,255,0.07); color: #fff; border-color: rgba(255,255,255,0.08); }
+    .scheme-chip.active { background: rgba(255,107,26,0.15); color: var(--saffron-lt); border-color: rgba(255,107,26,0.25); }
+    .scheme-chip .chip-icon { width: 30px; height: 30px; background: rgba(255,255,255,0.07); border-radius: 8px; display: grid; place-items: center; font-size: 14px; flex-shrink: 0; }
+    .scheme-chip.active .chip-icon { background: rgba(255,107,26,0.2); }
 
     /* ── Main chat area ─────────────────────────────────── */
-    main {
-      display: flex;
-      flex-direction: column;
-      height: calc(100vh - 64px);
-      overflow: hidden;
-      min-height: 0;
-    }
+    main { display: flex; flex-direction: column; height: calc(100vh - 64px); overflow: hidden; min-height: 0; }
 
-    /* ── Hero / empty state ─────────────────────────────── */
+    /* ── Hero ─────────────────────────────────────────── */
     .hero {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: flex-start;
-      padding: 24px 40px 16px;
-      text-align: center;
-      animation: fadeUp 0.6s ease both;
-      overflow-y: auto;
-      min-height: 0;
+      flex: 1; display: flex; flex-direction: column;
+      align-items: center; justify-content: flex-start;
+      padding: 24px 40px 16px; text-align: center;
+      animation: fadeUp 0.6s ease both; overflow-y: auto; min-height: 0;
     }
-    /* pseudo-elements create elastic vertical centering that collapses on short screens */
     .hero-spacer-top    { flex: 1; max-height: 40px; }
     .hero-spacer-bottom { flex: 1; max-height: 40px; }
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(20px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
     .hero-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
+      display: inline-flex; align-items: center; gap: 6px;
       background: linear-gradient(to right, rgba(255,107,26,0.12), rgba(245,200,66,0.10));
-      border: 1px solid rgba(255,107,26,0.2);
-      border-radius: 40px;
-      padding: 6px 14px;
-      font-size: 12px;
-      font-weight: 500;
-      color: var(--saffron);
-      letter-spacing: 0.04em;
-      margin-bottom: 16px;
+      border: 1px solid rgba(255,107,26,0.2); border-radius: 40px;
+      padding: 6px 14px; font-size: 12px; font-weight: 500; color: var(--saffron);
+      letter-spacing: 0.04em; margin-bottom: 16px;
     }
-
     .hero h1 {
-      font-family: 'Syne', sans-serif;
-      font-size: clamp(28px, 3.6vw, 48px);
-      font-weight: 800;
-      line-height: 1.28;
-      letter-spacing: -1px;
-      color: var(--navy);
-      max-width: 640px;
-      margin-bottom: 16px;
+      font-family: 'Syne', sans-serif; font-size: clamp(28px, 3.6vw, 48px);
+      font-weight: 800; line-height: 1.28; letter-spacing: -1px;
+      color: var(--navy); max-width: 640px; margin-bottom: 16px;
     }
     .hero h1 .accent {
       background: linear-gradient(135deg, var(--saffron), var(--gold));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
     }
-
-    .hero p {
-      color: var(--text-soft);
-      font-size: 16px;
-      line-height: 1.6;
-      max-width: 480px;
-      margin-bottom: 24px;
-    }
-
-    .suggestion-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 10px;
-      max-width: 600px;
-      width: 100%;
-    }
-
+    .hero p { color: var(--text-soft); font-size: 16px; line-height: 1.6; max-width: 480px; margin-bottom: 24px; }
+    .suggestion-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; max-width: 600px; width: 100%; }
     .suggestion-card {
-      background: #fff;
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 12px 16px;
-      cursor: pointer;
-      text-align: left;
-      transition: all 0.2s;
-      box-shadow: 0 2px 8px rgba(13,27,42,0.05);
+      background: #fff; border: 1px solid var(--border); border-radius: var(--radius);
+      padding: 12px 16px; cursor: pointer; text-align: left;
+      transition: all 0.2s; box-shadow: 0 2px 8px rgba(13,27,42,0.05);
     }
-    .suggestion-card:hover {
-      border-color: var(--saffron);
-      box-shadow: 0 4px 20px rgba(255,107,26,0.10), 0 0 0 3px rgba(255,107,26,0.05);
-      transform: translateY(-2px);
-    }
+    .suggestion-card:hover { border-color: var(--saffron); box-shadow: 0 4px 20px rgba(255,107,26,0.10), 0 0 0 3px rgba(255,107,26,0.05); transform: translateY(-2px); }
     .suggestion-card .card-emoji { font-size: 20px; margin-bottom: 8px; }
-    .suggestion-card .card-title {
-      font-weight: 600;
-      font-size: 13px;
-      color: var(--text-main);
-      margin-bottom: 4px;
-    }
-    .suggestion-card .card-desc {
-      font-size: 12px;
-      color: var(--text-soft);
-      line-height: 1.4;
-    }
+    .suggestion-card .card-title { font-weight: 600; font-size: 13px; color: var(--text-main); margin-bottom: 4px; }
+    .suggestion-card .card-desc  { font-size: 12px; color: var(--text-soft); line-height: 1.4; }
 
     /* ── Chat messages ──────────────────────────────────── */
-    .chat-container {
-      flex: 1;
-      overflow-y: auto;
-      padding: 32px 40px;
-      display: flex;
-      flex-direction: column;
-      gap: 24px;
-      scroll-behavior: smooth;
-    }
+    .chat-container { flex: 1; overflow-y: auto; padding: 32px 40px; display: flex; flex-direction: column; gap: 24px; scroll-behavior: smooth; }
     .chat-container::-webkit-scrollbar { width: 5px; }
     .chat-container::-webkit-scrollbar-track { background: rgba(13,27,42,0.04); border-radius: 4px; }
     .chat-container::-webkit-scrollbar-thumb { background: rgba(13,27,42,0.20); border-radius: 4px; }
     .chat-container::-webkit-scrollbar-thumb:hover { background: rgba(13,27,42,0.35); }
-
-    .msg {
-      display: flex;
-      gap: 14px;
-      animation: fadeUp 0.3s ease both;
-      max-width: 780px;
-    }
+    .msg { display: flex; gap: 14px; animation: fadeUp 0.3s ease both; max-width: 780px; }
     .msg.user { align-self: flex-end; flex-direction: row-reverse; }
     .msg.bot  { align-self: flex-start; }
-
-    .msg-avatar {
-      width: 36px; height: 36px;
-      border-radius: 10px;
-      flex-shrink: 0;
-      display: grid;
-      place-items: center;
-      font-size: 16px;
-      font-weight: 700;
-    }
-    .msg.user .msg-avatar {
-      background: linear-gradient(135deg, var(--navy), var(--navy-3));
-      color: #fff;
-      font-size: 14px;
-    }
-    .msg.bot .msg-avatar {
-      background: linear-gradient(135deg, var(--saffron), var(--gold));
-      color: #fff;
-    }
-
-    .msg-bubble {
-      padding: 16px 20px;
-      border-radius: 18px;
-      max-width: 640px;
-      line-height: 1.65;
-      font-size: 15px;
-    }
-    .msg.user .msg-bubble {
-      background: var(--navy);
-      color: #fff;
-      border-bottom-right-radius: 4px;
-    }
-    .msg.bot .msg-bubble {
-      background: #fff;
-      color: var(--text-main);
-      border-bottom-left-radius: 4px;
-      border: 1px solid var(--border);
-      box-shadow: var(--shadow);
-    }
-
-    .msg.bot .msg-bubble ul {
-      padding-left: 18px;
-      margin: 8px 0;
-    }
+    .msg-avatar { width: 36px; height: 36px; border-radius: 10px; flex-shrink: 0; display: grid; place-items: center; font-size: 16px; font-weight: 700; }
+    .msg.user .msg-avatar { background: linear-gradient(135deg, var(--navy), var(--navy-3)); color: #fff; font-size: 14px; }
+    .msg.bot  .msg-avatar { background: linear-gradient(135deg, var(--saffron), var(--gold)); color: #fff; }
+    .msg-bubble { padding: 16px 20px; border-radius: 18px; max-width: 640px; line-height: 1.65; font-size: 15px; }
+    .msg.user .msg-bubble { background: var(--navy); color: #fff; border-bottom-right-radius: 4px; }
+    .msg.bot  .msg-bubble { background: #fff; color: var(--text-main); border-bottom-left-radius: 4px; border: 1px solid var(--border); box-shadow: var(--shadow); }
+    .msg.bot .msg-bubble ul { padding-left: 18px; margin: 8px 0; }
     .msg.bot .msg-bubble ul li { margin-bottom: 4px; }
     .msg.bot .msg-bubble strong { color: var(--navy); }
 
+    /* ── Speak button on each bot message ─────────────── */
+    .speak-btn {
+      display: inline-flex; align-items: center; gap: 5px;
+      margin-top: 10px; padding: 4px 12px;
+      background: rgba(255,107,26,0.07);
+      border: 1px solid rgba(255,107,26,0.18);
+      border-radius: 20px; color: var(--saffron);
+      font-size: 11px; font-weight: 600; cursor: pointer;
+      transition: all 0.2s; font-family: 'DM Sans', sans-serif;
+    }
+    .speak-btn:hover { background: rgba(255,107,26,0.14); border-color: rgba(255,107,26,0.30); }
+    .speak-btn.speaking { background: rgba(255,107,26,0.18); border-color: var(--saffron); }
+    .speak-icon { font-size: 13px; }
+
     /* Sources */
-    .sources {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-      margin-top: 12px;
-      padding-top: 12px;
-      border-top: 1px solid var(--border);
-    }
-    .source-tag {
-      display: flex;
-      align-items: center;
-      gap: 5px;
-      padding: 4px 10px;
-      background: rgba(255,107,26,0.06);
-      border: 1px solid rgba(255,107,26,0.15);
-      border-radius: 20px;
-      font-size: 11px;
-      color: var(--saffron);
-      font-weight: 500;
-    }
-    .source-score {
-      background: rgba(255,107,26,0.12);
-      border-radius: 10px;
-      padding: 1px 5px;
-      font-size: 10px;
-    }
-    .tier-badge {
-      display: inline-flex; align-items: center; gap: 4px;
-      margin-top: 8px; padding: 3px 10px; border-radius: 20px;
-      font-size: 10px; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase;
-    }
+    .sources { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px; padding-top: 12px; border-top: 1px solid var(--border); }
+    .source-tag { display: flex; align-items: center; gap: 5px; padding: 4px 10px; background: rgba(255,107,26,0.06); border: 1px solid rgba(255,107,26,0.15); border-radius: 20px; font-size: 11px; color: var(--saffron); font-weight: 500; }
+    .source-score { background: rgba(255,107,26,0.12); border-radius: 10px; padding: 1px 5px; font-size: 10px; }
+    .tier-badge { display: inline-flex; align-items: center; gap: 4px; margin-top: 8px; padding: 3px 10px; border-radius: 20px; font-size: 10px; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; }
     .tier-txt  { background:rgba(26,122,74,0.10);  color:#22A060; border:1px solid rgba(26,122,74,0.2); }
     .tier-url  { background:rgba(245,200,66,0.12); color:#B8860B; border:1px solid rgba(245,200,66,0.3); }
     .tier-web  { background:rgba(99,130,255,0.10); color:#4F67D8; border:1px solid rgba(99,130,255,0.2); }
     .tier-none { background:rgba(255,80,80,0.10);  color:#D04040; border:1px solid rgba(255,80,80,0.2); }
 
     /* Typing indicator */
-    .typing-indicator {
-      display: flex;
-      align-items: center;
-      gap: 5px;
-      padding: 14px 18px;
-    }
-    .typing-dot {
-      width: 7px; height: 7px;
-      background: var(--text-muted);
-      border-radius: 50%;
-      animation: typingBounce 1.2s infinite;
-    }
+    .typing-indicator { display: flex; align-items: center; gap: 5px; padding: 14px 18px; }
+    .typing-dot { width: 7px; height: 7px; background: var(--text-muted); border-radius: 50%; animation: typingBounce 1.2s infinite; }
     .typing-dot:nth-child(2) { animation-delay: 0.2s; }
     .typing-dot:nth-child(3) { animation-delay: 0.4s; }
-    @keyframes typingBounce {
-      0%, 60%, 100% { transform: translateY(0); opacity: 0.4; }
-      30% { transform: translateY(-6px); opacity: 1; }
-    }
+    @keyframes typingBounce { 0%, 60%, 100% { transform: translateY(0); opacity: 0.4; } 30% { transform: translateY(-6px); opacity: 1; } }
 
     /* ── Input bar ──────────────────────────────────────── */
     .input-bar {
+      position: relative;
       padding: 20px 40px 28px;
       background: linear-gradient(to top, var(--cream) 80%, transparent);
     }
-
     .input-wrap {
-      display: flex;
-      align-items: flex-end;
-      gap: 10px;
-      background: #fff;
-      border: 1.5px solid var(--border);
-      border-radius: 20px;
-      padding: 12px 14px 12px 20px;
-      box-shadow: var(--shadow-lg);
-      transition: border-color 0.2s, box-shadow 0.2s;
+      display: flex; align-items: flex-end; gap: 10px;
+      background: #fff; border: 1.5px solid var(--border);
+      border-radius: 20px; padding: 12px 14px 12px 20px;
+      box-shadow: var(--shadow-lg); transition: border-color 0.2s, box-shadow 0.2s;
     }
-    .input-wrap:focus-within {
-      border-color: var(--saffron);
-      box-shadow: 0 0 0 4px rgba(255,107,26,0.08), var(--shadow-lg);
-    }
-
+    .input-wrap:focus-within { border-color: var(--saffron); box-shadow: 0 0 0 4px rgba(255,107,26,0.08), var(--shadow-lg); }
     .chat-input {
-      flex: 1;
-      border: none;
-      outline: none;
-      resize: none;
-      font-family: 'DM Sans', sans-serif;
-      font-size: 15px;
-      color: var(--text-main);
-      background: transparent;
-      max-height: 140px;
-      line-height: 1.5;
+      flex: 1; border: none; outline: none; resize: none;
+      font-family: 'DM Sans', sans-serif; font-size: 15px;
+      color: var(--text-main); background: transparent;
+      max-height: 140px; line-height: 1.5;
     }
     .chat-input::placeholder { color: var(--text-muted); }
+
+    /* ── Mic button ──────────────────────────────────────── */
+    .mic-btn {
+      width: 42px; height: 42px;
+      background: rgba(13,27,42,0.06);
+      border: 1.5px solid var(--border);
+      border-radius: 14px; color: var(--text-soft);
+      font-size: 18px; cursor: pointer;
+      display: grid; place-items: center; flex-shrink: 0;
+      transition: all 0.2s;
+    }
+    .mic-btn:hover { background: rgba(255,107,26,0.08); border-color: rgba(255,107,26,0.25); color: var(--saffron); }
+    .mic-btn.recording {
+      background: rgba(255,107,26,0.15);
+      border-color: var(--saffron); color: var(--saffron);
+      animation: micPulse 1s infinite;
+    }
+    .mic-btn.unsupported { opacity: 0.35; cursor: not-allowed; }
+    @keyframes micPulse { 0%, 100% { box-shadow: 0 0 0 0 rgba(255,107,26,0.40); } 50% { box-shadow: 0 0 0 6px rgba(255,107,26,0); } }
 
     .send-btn {
       width: 42px; height: 42px;
       background: linear-gradient(135deg, var(--saffron), var(--saffron-lt));
-      border: none;
-      border-radius: 14px;
-      color: #fff;
-      font-size: 18px;
-      cursor: pointer;
-      display: grid;
-      place-items: center;
-      flex-shrink: 0;
-      transition: all 0.2s;
+      border: none; border-radius: 14px; color: #fff;
+      font-size: 18px; cursor: pointer; display: grid;
+      place-items: center; flex-shrink: 0; transition: all 0.2s;
       box-shadow: 0 4px 12px rgba(255,107,26,0.3);
     }
-    .send-btn:hover {
-      transform: scale(1.05);
-      box-shadow: 0 6px 18px rgba(255,107,26,0.4);
-    }
-    .send-btn:disabled {
-      opacity: 0.5;
-      cursor: not-allowed;
-      transform: none;
-    }
+    .send-btn:hover { transform: scale(1.05); box-shadow: 0 6px 18px rgba(255,107,26,0.4); }
+    .send-btn:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
 
-    .input-hint {
-      text-align: center;
-      font-size: 11px;
-      color: var(--text-muted);
-      margin-top: 10px;
-      letter-spacing: 0.02em;
+    .input-hint { text-align: center; font-size: 11px; color: var(--text-muted); margin-top: 10px; letter-spacing: 0.02em; }
+
+    /* ── Listening badge (floats above input bar while recording) */
+    .listening-badge {
+      display: none; align-items: center; gap: 7px;
+      position: absolute; bottom: calc(100% + 6px); left: 50%; transform: translateX(-50%);
+      background: var(--navy); color: #fff;
+      padding: 7px 18px; border-radius: 30px;
+      font-size: 13px; font-weight: 500; box-shadow: var(--shadow-lg);
+      white-space: nowrap; z-index: 50; pointer-events: none;
     }
+    .listening-badge.visible { display: flex; }
+    .lb-dot { width: 8px; height: 8px; background: var(--saffron); border-radius: 50%; animation: pulse 1s infinite; }
 
     /* ── Toast ──────────────────────────────────────────── */
-    .toast {
-      position: fixed;
-      bottom: 100px;
-      right: 24px;
-      background: var(--navy);
-      color: #fff;
-      padding: 12px 20px;
-      border-radius: 14px;
-      font-size: 13px;
-      font-weight: 500;
-      box-shadow: var(--shadow-lg);
-      z-index: 999;
-      animation: slideIn 0.3s ease;
-      max-width: 300px;
-    }
+    .toast { position: fixed; bottom: 100px; right: 24px; background: var(--navy); color: #fff; padding: 12px 20px; border-radius: 14px; font-size: 13px; font-weight: 500; box-shadow: var(--shadow-lg); z-index: 999; animation: slideIn 0.3s ease; max-width: 300px; }
     .toast.success { border-left: 3px solid var(--green-lt); }
     .toast.error   { border-left: 3px solid #F87171; }
-    @keyframes slideIn {
-      from { opacity: 0; transform: translateX(20px); }
-      to   { opacity: 1; transform: translateX(0); }
-    }
+    @keyframes slideIn { from { opacity: 0; transform: translateX(20px); } to { opacity: 1; transform: translateX(0); } }
 
-    /* ── Decorative background orbs ─────────────────────── */
-    .orb {
-      position: fixed;
-      border-radius: 50%;
-      filter: blur(80px);
-      opacity: 0.18;
-      pointer-events: none;
-      z-index: 0;
-    }
+    /* ── Orbs ───────────────────────────────────────────── */
+    .orb { position: fixed; border-radius: 50%; filter: blur(80px); opacity: 0.18; pointer-events: none; z-index: 0; }
     .orb-1 { width: 500px; height: 500px; background: var(--saffron); top: -200px; right: -100px; }
     .orb-2 { width: 400px; height: 400px; background: var(--green);   bottom: -150px; left: 200px; }
     .orb-3 { width: 300px; height: 300px; background: var(--gold);    top: 40%; left: 50%; opacity: 0.08; }
@@ -705,30 +383,12 @@
       .input-bar { padding: 12px 20px 20px; }
       .suggestion-grid { grid-template-columns: 1fr; }
       .hero { padding: 20px; }
+      .vt-label { display: none; }
     }
-
-    /* ── Tier badge ─────────────────────────────────────── */
-    .tier-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 5px;
-      font-size: 10px;
-      font-weight: 600;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      padding: 3px 9px;
-      border-radius: 20px;
-      margin-bottom: 8px;
-    }
-    .tier-txt  { background: rgba(26,122,74,0.10); color: #1A7A4A; border: 1px solid rgba(26,122,74,0.2); }
-    .tier-url  { background: rgba(245,200,66,0.15); color: #B8860B; border: 1px solid rgba(245,200,66,0.35); }
-    .tier-web  { background: rgba(255,107,26,0.10); color: var(--saffron); border: 1px solid rgba(255,107,26,0.25); }
-    .tier-none { background: rgba(139,0,0,0.08); color: #8B0000; border: 1px solid rgba(139,0,0,0.15); }
   </style>
 </head>
 <body>
 
-<!-- Background decoration -->
 <div class="orb orb-1"></div>
 <div class="orb orb-2"></div>
 <div class="orb orb-3"></div>
@@ -754,7 +414,7 @@
           <option value="Marathi">मराठी</option>
           <option value="Gujarati">ગુજરાતી</option>
           <option value="Punjabi">ਪੰਜਾਬੀ</option>
-          <option value="Odia">ଓଡ଼ིଆ</option>
+          <option value="Odia">ଓଡ଼ିଆ</option>
           <option value="Malayalam">മലയാളം</option>
         </select>
         <span class="lang-chevron">
@@ -763,6 +423,15 @@
           </svg>
         </span>
       </div>
+
+      <!-- ╔══════════════════════════════════════╗ -->
+      <!-- ║  VOICE OUTPUT TOGGLE (header button) ║ -->
+      <!-- ╚══════════════════════════════════════╝ -->
+      <button class="voice-toggle" id="voice-output-toggle" onclick="toggleVoiceOutput()" title="Toggle voice output on/off">
+        <span class="vt-icon" id="voice-icon">🔇</span>
+        <span class="vt-label" id="voice-label">Voice Off</span>
+      </button>
+
       <button class="theme-toggle" id="theme-toggle" onclick="toggleTheme()" title="Toggle dark mode">🌙</button>
       <div class="status-pill">
         <div class="status-dot"></div>
@@ -773,17 +442,12 @@
 
   <!-- ── Sidebar ── -->
   <aside id="sidebar">
-    <!-- Static top: label -->
     <div class="sidebar-top">
       <div class="sidebar-label" style="margin-top:0">Loaded Schemes</div>
     </div>
-
-    <!-- Scrollable scheme list -->
     <div class="scheme-scroll" id="scheme-list">
       <div style="color:rgba(255,255,255,0.3);font-size:12px;padding:8px">Loading...</div>
     </div>
-
-    <!-- Static bottom: stats only -->
     <div class="sidebar-bottom">
       <div class="sidebar-label" style="margin-top:0;margin-bottom:8px">Stats</div>
       <div style="background:rgba(255,255,255,0.05);border-radius:12px;padding:12px;font-size:12px;color:rgba(255,255,255,0.5)">
@@ -801,12 +465,12 @@
 
   <!-- ── Main ── -->
   <main>
-    <!-- Hero / empty state -->
+    <!-- Hero -->
     <div class="hero" id="hero">
       <div class="hero-spacer-top"></div>
       <div class="hero-badge">🇮🇳 India's Government Scheme Assistant</div>
       <h1>Your guide to every <span class="accent">Government Scheme</span></h1>
-      <p>Ask anything about PM welfare programmes — in your own language. Get complete, accurate answers instantly.</p>
+      <p>Ask anything about PM welfare programmes in your language. Now with <strong>voice input &amp; voice output</strong>.</p>
       <div class="suggestion-grid">
         <div class="suggestion-card" onclick="ask('What is PMJDY and who is eligible?')">
           <div class="card-emoji">🏦</div>
@@ -832,11 +496,17 @@
       <div class="hero-spacer-bottom"></div>
     </div>
 
-    <!-- Chat messages -->
+    <!-- Chat -->
     <div class="chat-container" id="chat" style="display:none"></div>
 
     <!-- Input bar -->
     <div class="input-bar">
+      <!-- Floating "Listening…" badge shown while mic is active -->
+      <div class="listening-badge" id="listening-badge">
+        <span class="lb-dot"></span>
+        <span>Listening…</span>
+      </div>
+
       <div class="input-wrap">
         <textarea
           id="chat-input"
@@ -846,244 +516,611 @@
           onkeydown="handleKey(event)"
           oninput="autoResize(this)"
         ></textarea>
+        <!-- ╔═══════════════════╗ -->
+        <!-- ║  MIC / VOICE INPUT ║ -->
+        <!-- ╚═══════════════════╝ -->
+        <button class="mic-btn" id="mic-btn" onclick="toggleMic()" title="Click to speak your question">🎤</button>
         <button class="send-btn" id="send-btn" onclick="sendMessage()">➤</button>
       </div>
       <div class="input-hint">
-        Translate • Retrieve • Respond — powered by local LLM + RAG
+        🎤 click to speak &nbsp;·&nbsp; 🔊 toggle voice output in the header &nbsp;·&nbsp; powered by local LLM + RAG
       </div>
     </div>
   </main>
 </div>
 
+<!-- ═══════════════════════════════════════════════════════
+     JAVASCRIPT
+═══════════════════════════════════════════════════════ -->
 <script>
-  // ── State ─────────────────────────────────────────────────────────
-  let currentLanguage = 'English';
-  let isWaiting = false;
+// ════════════════════════════════════════════════════════
+// STATE
+// ════════════════════════════════════════════════════════
+let currentLanguage = 'English';
+let isWaiting       = false;
+let voiceOutputOn   = false;   // starts OFF — toggle in header to enable
+let recognition     = null;    // SpeechRecognition instance
+let isRecording     = false;
 
-  // ── Init ──────────────────────────────────────────────────────────
-  async function init() {
-    await loadHealth();
-    await loadSchemes();
+// BCP-47 locale for each supported language
+// Used for both SpeechRecognition (voice input) and SpeechSynthesis (voice output)
+const LANG_LOCALE = {
+  'English':   'en-IN',
+  'Hindi':     'hi-IN',
+  'Telugu':    'te-IN',
+  'Tamil':     'ta-IN',
+  'Kannada':   'kn-IN',
+  'Bengali':   'bn-IN',
+  'Marathi':   'mr-IN',
+  'Gujarati':  'gu-IN',
+  'Punjabi':   'pa-IN',
+  'Odia':      'or-IN',
+  'Malayalam': 'ml-IN',
+};
+
+// ════════════════════════════════════════════════════════
+// INIT
+// ════════════════════════════════════════════════════════
+async function init() {
+  restorePrefs();
+  await loadHealth();
+  await loadSchemes();
+  initSpeechRecognition();
+}
+
+async function loadHealth() {
+  try {
+    const r = await fetch('/health');
+    const d = await r.json();
+    document.getElementById('chunk-count').textContent = d.chunks_loaded || '0';
+  } catch(e) {
+    document.getElementById('status-text').textContent = 'Offline';
+  }
+}
+
+async function loadSchemes() {
+  try {
+    const r = await fetch('/schemes');
+    const d = await r.json();
+    const list  = document.getElementById('scheme-list');
+    const icons = ['🏦','🌾','💼','🏥','🏠','📚','💧','🛒','👩‍🌾','💰','🔒','🌟','🎯','🤝','✨'];
+    list.innerHTML = d.schemes.map((s, i) => `
+      <div class="scheme-chip" onclick="ask('Tell me about ${s}')">
+        <div class="chip-icon">${icons[i % icons.length]}</div>
+        <span>${s}</span>
+      </div>
+    `).join('') || '<div style="color:rgba(255,255,255,0.3);font-size:12px;padding:8px">No schemes loaded yet</div>';
+  } catch(e) {}
+}
+
+// ════════════════════════════════════════════════════════
+// RESTORE SAVED PREFERENCES
+// ════════════════════════════════════════════════════════
+function restorePrefs() {
+  const savedTheme = localStorage.getItem('sahayak-theme');
+  if (savedTheme === 'dark') {
+    document.documentElement.setAttribute('data-theme', 'dark');
+    const btn = document.getElementById('theme-toggle');
+    if (btn) btn.textContent = '☀️';
+  }
+  const savedVoice = localStorage.getItem('sahayak-voice');
+  if (savedVoice === '1') {
+    voiceOutputOn = true;
+    const toggleBtn = document.getElementById('voice-output-toggle');
+    if (toggleBtn) toggleBtn.classList.add('active');
+    const icon  = document.getElementById('voice-icon');
+    const label = document.getElementById('voice-label');
+    if (icon)  icon.textContent  = '🔊';
+    if (label) label.textContent = 'Voice On';
+  }
+}
+
+// ════════════════════════════════════════════════════════
+// LANGUAGE
+// ════════════════════════════════════════════════════════
+function setLanguage(lang) {
+  currentLanguage = lang;
+  document.getElementById('lang-display').textContent = lang;
+  const placeholders = {
+    'Hindi':    'कोई भी सरकारी योजना के बारे में पूछें…',
+    'Telugu':   'ఏదైనా ప్రభుత్వ పథకం గురించి అడగండి…',
+    'Tamil':    'எந்த அரசு திட்டத்தையும் பற்றி கேளுங்கள்…',
+    'Kannada':  'ಯಾವುದೇ ಸರ್ಕಾರಿ ಯೋಜನೆಯ ಬಗ್ಗೆ ಕೇಳಿ…',
+    'Bengali':  'যেকোনো সরকারি প্রকল্প সম্পর্কে জিজ্ঞাসা করুন…',
+    'Marathi':  'कोणत्याही सरकारी योजनेबद्दल विचारा…',
+    'Gujarati': 'કોઈ પણ સરકારી યોજના વિશે પૂછો…',
+    'English':  'Ask about any government scheme…',
+  };
+  document.getElementById('chat-input').placeholder = placeholders[lang] || 'Ask about any government scheme…';
+  if (recognition) recognition.lang = LANG_LOCALE[lang] || 'en-IN';
+}
+
+// ════════════════════════════════════════════════════════
+// VOICE OUTPUT  (Text-to-Speech)
+// ════════════════════════════════════════════════════════
+
+/**
+ * Check whether the browser has a TTS voice capable of speaking the given locale.
+ *
+ * The Web Speech API voice list is populated lazily by the browser; by the time
+ * the user sends their first message the list is usually ready.  We check for
+ * an exact locale match first (e.g. "hi-IN"), then a language-only match
+ * ("hi"), which covers voices labelled "hi-IN", "hi-Latn-IN", etc.
+ *
+ * Returns the matched SpeechSynthesisVoice, or null if nothing suitable found.
+ */
+function findVoiceForLocale(locale) {
+  if (!window.speechSynthesis) return null;
+  const voices = window.speechSynthesis.getVoices();
+  if (!voices.length) return null;
+  const lang = locale.split('-')[0];          // e.g. "hi" from "hi-IN"
+
+  // 1. Exact BCP-47 match
+  let v = voices.find(v => v.lang === locale);
+  if (v) return v;
+
+  // 2. Same language, any region  (e.g. hi-IN matches hi-*)
+  v = voices.find(v => v.lang.split('-')[0] === lang && v.lang !== 'en');
+  if (v) return v;
+
+  return null;
+}
+
+/**
+ * Toggle voice output on/off.
+ * State persists in localStorage so the preference survives page reloads.
+ */
+function toggleVoiceOutput() {
+  voiceOutputOn = !voiceOutputOn;
+  const btn   = document.getElementById('voice-output-toggle');
+  const icon  = document.getElementById('voice-icon');
+  const label = document.getElementById('voice-label');
+  if (voiceOutputOn) {
+    btn.classList.add('active');
+    icon.textContent  = '🔊';
+    label.textContent = 'Voice On';
+    showToast('Voice output enabled — bot replies will be read aloud', 'success');
+  } else {
+    btn.classList.remove('active');
+    icon.textContent  = '🔇';
+    label.textContent = 'Voice Off';
+    window.speechSynthesis && window.speechSynthesis.cancel();
+    showToast('Voice output disabled', '');
+  }
+  localStorage.setItem('sahayak-voice', voiceOutputOn ? '1' : '0');
+}
+
+/**
+ * Core TTS function.
+ *
+ * Strategy:
+ *   1. Strip HTML tags to get plain text.
+ *   2. Look for a TTS voice matching the current language locale.
+ *   3. If a matching Indic voice IS found  → speak the Indic text with that voice.
+ *   4. If NO matching voice found          → speak the English fallback text instead,
+ *      using an English voice. A small "(speaking in English)" note is shown.
+ *
+ * This solves the "only numbers spoken" bug: that happens because an en-US/en-GB
+ * voice is used to read Devanagari/Telugu etc. text, and it silently skips all
+ * non-ASCII characters, leaving only digits and punctuation audible.
+ *
+ * @param {string} indicHtml      - HTML of the translated (Indic) answer
+ * @param {string} englishText    - Plain English answer (always available as fallback)
+ * @param {string} locale         - BCP-47 locale, e.g. "hi-IN"
+ * @returns {{ utterance: SpeechSynthesisUtterance, usedFallback: boolean } | null}
+ */
+function speakAnswer(indicHtml, englishText, locale) {
+  if (!window.speechSynthesis) return null;
+
+  // Strip HTML tags
+  const tmp = document.createElement('div');
+  tmp.innerHTML = indicHtml;
+  const indicText = (tmp.textContent || tmp.innerText || '').trim();
+  if (!indicText) return null;
+
+  window.speechSynthesis.cancel();   // stop any current speech first
+
+  const isEnglish    = (locale === 'en-IN' || locale.startsWith('en'));
+  const matchedVoice = isEnglish ? null : findVoiceForLocale(locale);
+  const usedFallback = !isEnglish && !matchedVoice;
+
+  const utterance = new SpeechSynthesisUtterance(usedFallback ? (englishText || indicText) : indicText);
+  utterance.rate   = 0.95;
+  utterance.pitch  = 1;
+  utterance.volume = 1;
+
+  if (usedFallback) {
+    // No Indic voice — speak English with the best available English-IN voice
+    utterance.lang = 'en-IN';
+    const enVoice  = window.speechSynthesis.getVoices().find(v => v.lang === 'en-IN')
+                  || window.speechSynthesis.getVoices().find(v => v.lang.startsWith('en'));
+    if (enVoice) utterance.voice = enVoice;
+  } else if (isEnglish) {
+    // English selected — use en-IN voice directly
+    utterance.lang = locale;
+    const enVoice  = window.speechSynthesis.getVoices().find(v => v.lang === locale)
+                  || window.speechSynthesis.getVoices().find(v => v.lang.startsWith('en'));
+    if (enVoice) utterance.voice = enVoice;
+  } else {
+    // Indic voice found — use it
+    utterance.lang  = locale;
+    utterance.voice = matchedVoice;
   }
 
-  async function loadHealth() {
-    try {
-      const r = await fetch('/health');
-      const d = await r.json();
-      document.getElementById('chunk-count').textContent = d.chunks_loaded || '0';
-    } catch(e) {
-      document.getElementById('status-text').textContent = 'Offline';
-    }
+  window.speechSynthesis.speak(utterance);
+  return { utterance, usedFallback };
+}
+
+/**
+ * Called when user clicks the 🔊 Speak button on a specific bot message.
+ * Works regardless of the global voice-output toggle.
+ */
+function manualSpeak(btn) {
+  if (!window.speechSynthesis) {
+    showToast('Text-to-speech is not supported in this browser. Try Chrome or Edge.', 'error');
+    return;
+  }
+  // If this button is already speaking → stop
+  if (btn.classList.contains('speaking')) {
+    window.speechSynthesis.cancel();
+    resetAllSpeakButtons();
+    return;
+  }
+  // Stop any other speech first
+  window.speechSynthesis.cancel();
+  resetAllSpeakButtons();
+
+  const indicHtml   = btn.dataset.indicHtml   || '';
+  const englishText = btn.dataset.englishText  || '';
+  const locale      = LANG_LOCALE[currentLanguage] || 'en-IN';
+
+  const result = speakAnswer(indicHtml, englishText, locale);
+  if (!result) return;
+
+  const { utterance, usedFallback } = result;
+
+  btn.classList.add('speaking');
+  btn.innerHTML = '<span class="speak-icon">⏹</span> Stop';
+
+  if (usedFallback) {
+    showToast('No ' + currentLanguage + ' voice installed on this device — speaking in English instead.', '');
   }
 
-  async function loadSchemes() {
-    try {
-      const r = await fetch('/schemes');
-      const d = await r.json();
-      const list = document.getElementById('scheme-list');
-      const icons = ['🏦','🌾','💼','🏥','🏠','📚','💧','🛒','👩‍🌾','💰','🔒','🌟','🎯','🤝','✨'];
-      list.innerHTML = d.schemes.map((s, i) => `
-        <div class="scheme-chip" onclick="ask('Tell me about ${s}')">
-          <div class="chip-icon">${icons[i % icons.length]}</div>
-          <span>${s}</span>
-        </div>
-      `).join('') || '<div style="color:rgba(255,255,255,0.3);font-size:12px;padding:8px">No schemes loaded yet</div>';
-    } catch(e) {}
+  const restore = () => {
+    btn.classList.remove('speaking');
+    btn.innerHTML = '<span class="speak-icon">🔊</span> Speak';
+  };
+  utterance.onend  = restore;
+  utterance.onerror = restore;
+}
+
+function resetAllSpeakButtons() {
+  document.querySelectorAll('.speak-btn.speaking').forEach(b => {
+    b.classList.remove('speaking');
+    b.innerHTML = '<span class="speak-icon">🔊</span> Speak';
+  });
+}
+
+// Voices are loaded asynchronously in Chrome — ensure we get the full list
+if (window.speechSynthesis) {
+  // Trigger initial population
+  window.speechSynthesis.getVoices();
+  window.speechSynthesis.onvoiceschanged = () => window.speechSynthesis.getVoices();
+}
+
+// ════════════════════════════════════════════════════════
+// VOICE INPUT  (Speech-to-Text)
+// ════════════════════════════════════════════════════════
+function initSpeechRecognition() {
+  const micBtn = document.getElementById('mic-btn');
+  const SR     = window.SpeechRecognition || window.webkitSpeechRecognition;
+
+  if (!SR) {
+    micBtn.classList.add('unsupported');
+    micBtn.title = 'Voice input not supported in this browser. Please use Chrome or Edge.';
+    return;
   }
 
-  // ── Language ──────────────────────────────────────────────────────
-  function setLanguage(lang) {
-    currentLanguage = lang;
-    document.getElementById('lang-display').textContent = lang;
-    const input = document.getElementById('chat-input');
-    const placeholders = {
-      'Hindi':    'कोई भी सरकारी योजना के बारे में पूछें…',
-      'Telugu':   'ఏదైనా ప్రభుత్వ పథకం గురించి అడగండి…',
-      'Tamil':    'எந்த அரசு திட்டத்தையும் பற்றி கேளுங்கள்…',
-      'Kannada':  'ಯಾವುದೇ ಸರ್ಕಾರಿ ಯೋಜನೆಯ ಬಗ್ಗೆ ಕೇಳಿ…',
-      'Bengali':  'যেকোনো সরকারি প্রকল্প সম্পর্কে জিজ্ঞাসা করুন…',
-      'Marathi':  'कोणत्याही सरकारी योजनेबद्दल विचारा…',
-      'Gujarati': 'કોઈ પણ સરકારી યોજના વિશે પૂછો…',
-      'English':  'Ask about any government scheme…',
-    };
-    input.placeholder = placeholders[lang] || 'Ask about any government scheme…';
-  }
+  recognition = new SR();
+  recognition.continuous      = false;
+  recognition.interimResults  = true;
+  recognition.maxAlternatives = 1;
+  recognition.lang            = LANG_LOCALE[currentLanguage] || 'en-IN';
 
-  // ── Chat ──────────────────────────────────────────────────────────
-  function ask(q) {
-    document.getElementById('chat-input').value = q;
-    sendMessage();
-  }
-
-  function showChat() {
-    document.getElementById('hero').style.display = 'none';
-    document.getElementById('chat').style.display = 'flex';
-  }
-
-  const TIER_META = {
-    txt:  { icon: '📄', label: 'From documents', cls: 'tier-txt' },
-    url:  { icon: '🌐', label: 'From official website', cls: 'tier-url' },
-    web:  { icon: '🔍', label: 'From web search', cls: 'tier-web' },
-    none: { icon: '❓', label: 'Not found', cls: 'tier-none' },
+  recognition.onstart = () => {
+    isRecording = true;
+    micBtn.classList.add('recording');
+    micBtn.textContent = '⏹';
+    document.getElementById('listening-badge').classList.add('visible');
   };
 
-  function appendMessage(role, html, sources = [], tier = '') {
-    showChat();
-    const chat = document.getElementById('chat');
-    const div = document.createElement('div');
-    div.className = `msg ${role}`;
-
-    const avatar = role === 'user'
-      ? `<div class="msg-avatar">U</div>`
-      : `<div class="msg-avatar">स</div>`;
-
-    let tierHtml = '';
-    if (role === 'bot' && tier && TIER_META[tier]) {
-      const t = TIER_META[tier];
-      tierHtml = `<div class="tier-badge ${t.cls}">${t.icon} ${t.label}</div>`;
+  recognition.onresult = (event) => {
+    let interim = '';
+    let final   = '';
+    for (let i = event.resultIndex; i < event.results.length; i++) {
+      const t = event.results[i][0].transcript;
+      if (event.results[i].isFinal) final   += t;
+      else                          interim += t;
     }
-
-    let sourcesHtml = '';
-    if (sources.length > 0) {
-      const tierInfo = {
-        txt:  { icon: '📄', label: 'From document', cls: 'tier-txt' },
-        url:  { icon: '🌐', label: 'From official website', cls: 'tier-url' },
-        web:  { icon: '🔍', label: 'From web search', cls: 'tier-web' },
-        none: { icon: '❓', label: 'Source unknown', cls: 'tier-none' },
-      };
-      const t = tierInfo[tier] || tierInfo.txt;
-      sourcesHtml = `<div class="sources">
-        ${sources.map(s => `
-          <div class="source-tag">
-            📄 ${s.scheme} · ${s.section}
-            <span class="source-score">${(s.score*100).toFixed(0)}%</span>
-          </div>`).join('')}
-        <div class="tier-badge ${t.cls}">${t.icon} ${t.label}</div>
-      </div>`;
-    }
-
-    div.innerHTML = `
-      ${avatar}
-      <div class="msg-bubble">${tierHtml}${html}${sourcesHtml}</div>
-    `;
-    chat.appendChild(div);
-    chat.scrollTop = chat.scrollHeight;
-    return div;
-  }
-
-  function addTyping() {
-    const chat = document.getElementById('chat');
-    const div = document.createElement('div');
-    div.className = 'msg bot';
-    div.id = 'typing-indicator';
-    div.innerHTML = `
-      <div class="msg-avatar">स</div>
-      <div class="msg-bubble">
-        <div class="typing-indicator">
-          <div class="typing-dot"></div>
-          <div class="typing-dot"></div>
-          <div class="typing-dot"></div>
-        </div>
-      </div>
-    `;
-    chat.appendChild(div);
-    chat.scrollTop = chat.scrollHeight;
-  }
-
-  function removeTyping() {
-    const t = document.getElementById('typing-indicator');
-    if (t) t.remove();
-  }
-
-  function formatText(text) {
-    // Convert markdown-style bullets and bold to HTML
-    return text
-      .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
-      .replace(/^• (.+)$/gm, '<li>$1</li>')
-      .replace(/(<li>.*<\/li>)/s, '<ul>$1</ul>')
-      .replace(/\n/g, '<br/>');
-  }
-
-  async function sendMessage() {
     const input = document.getElementById('chat-input');
-    const q = input.value.trim();
-    if (!q || isWaiting) return;
+    input.value = (final || interim).trim();
+    autoResize(input);
+  };
 
-    input.value = '';
-    input.style.height = 'auto';
-    isWaiting = true;
-    document.getElementById('send-btn').disabled = true;
+  recognition.onend = () => {
+    isRecording = false;
+    micBtn.classList.remove('recording');
+    micBtn.textContent = '🎤';
+    document.getElementById('listening-badge').classList.remove('visible');
+    const q = document.getElementById('chat-input').value.trim();
+    if (q) sendMessage();
+  };
 
-    appendMessage('user', q);
-    addTyping();
+  recognition.onerror = (event) => {
+    isRecording = false;
+    micBtn.classList.remove('recording');
+    micBtn.textContent = '🎤';
+    document.getElementById('listening-badge').classList.remove('visible');
+    if (event.error === 'not-allowed') {
+      showToast('Microphone access denied. Please allow mic access in your browser settings.', 'error');
+    } else if (event.error === 'no-speech') {
+      showToast('No speech detected. Please try again.', '');
+    } else if (event.error === 'language-not-supported') {
+      showToast('Speech recognition for ' + currentLanguage + ' is not supported in this browser. Try English.', 'error');
+    } else if (event.error !== 'aborted') {
+      showToast('Voice input error: ' + event.error, 'error');
+    }
+  };
+}
 
+function toggleMic() {
+  if (!recognition) {
+    showToast('Voice input is not supported in this browser. Please use Chrome or Edge.', 'error');
+    return;
+  }
+  if (isRecording) {
+    recognition.stop();
+  } else {
+    recognition.lang = LANG_LOCALE[currentLanguage] || 'en-IN';
+    document.getElementById('chat-input').value = '';
     try {
-      const r = await fetch('/chat', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ question: q, language: currentLanguage })
-      });
-      const d = await r.json();
-      removeTyping();
-      appendMessage('bot', formatText(d.answer), d.sources || [], d.tier || '');
+      recognition.start();
     } catch(e) {
-      removeTyping();
-      appendMessage('bot', `<span style="color:#F87171">Connection error. Is the server running?</span>`);
-    }
-
-    isWaiting = false;
-    document.getElementById('send-btn').disabled = false;
-    input.focus();
-  }
-
-
-
-  // ── Helpers ───────────────────────────────────────────────────────
-  function handleKey(e) {
-    if (e.key === 'Enter' && !e.shiftKey) {
-      e.preventDefault();
-      sendMessage();
+      showToast('Voice input is already active.', '');
     }
   }
+}
 
-  function autoResize(el) {
-    el.style.height = 'auto';
-    el.style.height = Math.min(el.scrollHeight, 140) + 'px';
+// ════════════════════════════════════════════════════════
+// CHAT
+// ════════════════════════════════════════════════════════
+function ask(q) {
+  document.getElementById('chat-input').value = q;
+  sendMessage();
+}
+
+function showChat() {
+  document.getElementById('hero').style.display = 'none';
+  document.getElementById('chat').style.display = 'flex';
+}
+
+const TIER_META = {
+  txt:  { icon: '📄', label: 'From documents',        cls: 'tier-txt'  },
+  url:  { icon: '🌐', label: 'From official website', cls: 'tier-url'  },
+  web:  { icon: '🔍', label: 'From web search',        cls: 'tier-web'  },
+  none: { icon: '❓', label: 'Not found',              cls: 'tier-none' },
+};
+
+/**
+ * Append a message bubble.
+ * 
+ * For bot messages:
+ *  - indicHtml   = the translated answer HTML (what is displayed)
+ *  - englishText = the English version (used as TTS fallback when no Indic voice installed)
+ *  Both are stored as data attributes on the Speak button so manualSpeak() can access them.
+ */
+function appendMessage(role, indicHtml, englishText, sources = [], tier = '') {
+  showChat();
+  const chat = document.getElementById('chat');
+  const div  = document.createElement('div');
+  div.className = `msg ${role}`;
+
+  const avatar = role === 'user'
+    ? `<div class="msg-avatar">U</div>`
+    : `<div class="msg-avatar">S</div>`;
+
+  let tierHtml = '';
+  if (role === 'bot' && tier && TIER_META[tier]) {
+    const t = TIER_META[tier];
+    tierHtml = `<div class="tier-badge ${t.cls}">${t.icon} ${t.label}</div>`;
   }
 
-  let toastTimeout;
-  function showToast(msg, type = '') {
-    const existing = document.querySelector('.toast');
-    if (existing) existing.remove();
-    clearTimeout(toastTimeout);
-    const div = document.createElement('div');
-    div.className = `toast ${type}`;
-    div.textContent = msg;
-    document.body.appendChild(div);
-    toastTimeout = setTimeout(() => div.remove(), 4000);
+  let sourcesHtml = '';
+  if (sources.length > 0) {
+    const t = TIER_META[tier] || TIER_META.txt;
+    sourcesHtml = `<div class="sources">
+      ${sources.map(s => `
+        <div class="source-tag">
+          📄 ${s.scheme} · ${s.section}
+          <span class="source-score">${(s.score * 100).toFixed(0)}%</span>
+        </div>`).join('')}
+      <div class="tier-badge ${t.cls}">${t.icon} ${t.label}</div>
+    </div>`;
   }
 
-  // ── Theme ─────────────────────────────────────────────────────────
-  function toggleTheme() {
-    const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
-    document.documentElement.setAttribute('data-theme', isDark ? 'light' : 'dark');
-    document.getElementById('theme-toggle').textContent = isDark ? '🌙' : '☀️';
-    localStorage.setItem('sahayak-theme', isDark ? 'light' : 'dark');
-  }
-  // Apply saved theme instantly on load
-  (function() {
-    const saved = localStorage.getItem('sahayak-theme');
-    if (saved === 'dark') {
-      document.documentElement.setAttribute('data-theme', 'dark');
-      document.addEventListener('DOMContentLoaded', () => {
-        const btn = document.getElementById('theme-toggle');
-        if (btn) btn.textContent = '☀️';
-      });
+  const speakId = 'speak-' + Date.now() + '-' + Math.random().toString(36).slice(2, 6);
+
+  // Speak button for every bot message
+  const speakBtnHtml = role === 'bot'
+    ? `<button class="speak-btn" id="${speakId}" onclick="manualSpeak(this)">
+         <span class="speak-icon">🔊</span> Speak
+       </button>`
+    : '';
+
+  div.innerHTML = `
+    ${avatar}
+    <div class="msg-bubble">${tierHtml}${indicHtml}${speakBtnHtml}${sourcesHtml}</div>
+  `;
+  chat.appendChild(div);
+  chat.scrollTop = chat.scrollHeight;
+
+  // Store both versions on the button's dataset
+  if (role === 'bot') {
+    const btn = document.getElementById(speakId);
+    if (btn) {
+      btn.dataset.indicHtml   = indicHtml;
+      btn.dataset.englishText = englishText || '';
     }
-  })();
+  }
 
-  // ── Boot ──────────────────────────────────────────────────────────
-  init();
+  // Auto-speak if voice output is ON
+  if (role === 'bot' && voiceOutputOn) {
+    const locale = LANG_LOCALE[currentLanguage] || 'en-IN';
+    const result = speakAnswer(indicHtml, englishText, locale);
+    if (result) {
+      const { utterance, usedFallback } = result;
+      const btn = document.getElementById(speakId);
+      if (btn) {
+        btn.classList.add('speaking');
+        btn.innerHTML = '<span class="speak-icon">⏹</span> Stop';
+      }
+      if (usedFallback) {
+        showToast('No ' + currentLanguage + ' voice installed — speaking in English.', '');
+      }
+      const restore = () => {
+        if (btn) {
+          btn.classList.remove('speaking');
+          btn.innerHTML = '<span class="speak-icon">🔊</span> Speak';
+        }
+      };
+      utterance.onend  = restore;
+      utterance.onerror = restore;
+    }
+  }
+
+  return div;
+}
+
+function addTyping() {
+  const chat = document.getElementById('chat');
+  const div  = document.createElement('div');
+  div.className = 'msg bot';
+  div.id        = 'typing-indicator';
+  div.innerHTML = `
+    <div class="msg-avatar">S</div>
+    <div class="msg-bubble">
+      <div class="typing-indicator">
+        <div class="typing-dot"></div>
+        <div class="typing-dot"></div>
+        <div class="typing-dot"></div>
+      </div>
+    </div>
+  `;
+  chat.appendChild(div);
+  chat.scrollTop = chat.scrollHeight;
+}
+
+function removeTyping() {
+  const t = document.getElementById('typing-indicator');
+  if (t) t.remove();
+}
+
+function formatText(text) {
+  // Normalize: give every bullet character its own line regardless of whether
+  // the LLM placed them inline ("sentence. • item • item") or on separate lines.
+  let html = text.replace(/\s*•\s*/g, '\n• ').trim();
+
+  // Bold
+  html = html.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+
+  // Convert "• item" lines → <li>item</li>
+  html = html.replace(/^•\s+(.+)$/gm, '<li>$1</li>');
+
+  // Wrap every consecutive run of <li> lines in a single <ul>
+  html = html.replace(/(<li>.*?<\/li>)(\n<li>.*?<\/li>)*/g, (m) => '<ul>' + m.replace(/\n/g, '') + '</ul>');
+
+  // Remaining newlines → <br/>
+  html = html.replace(/\n/g, '<br/>');
+
+  return html;
+}
+
+async function sendMessage() {
+  const input = document.getElementById('chat-input');
+  const q     = input.value.trim();
+  if (!q || isWaiting) return;
+
+  input.value        = '';
+  input.style.height = 'auto';
+  isWaiting = true;
+  document.getElementById('send-btn').disabled = true;
+
+  // User bubble — no English fallback needed
+  appendMessage('user', q, q);
+  addTyping();
+
+  try {
+    const r = await fetch('/chat', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ question: q, language: currentLanguage }),
+    });
+    const d = await r.json();
+    removeTyping();
+    // d.answer        = translated (Indic or English) answer
+    // d.english_answer = always the English version (TTS fallback)
+    appendMessage('bot', formatText(d.answer), d.english_answer || d.answer, d.sources || [], d.tier || '');
+  } catch(e) {
+    removeTyping();
+    appendMessage('bot', `<span style="color:#F87171">Connection error. Is the server running?</span>`, '', [], '');
+  }
+
+  isWaiting = false;
+  document.getElementById('send-btn').disabled = false;
+  input.focus();
+}
+
+// ════════════════════════════════════════════════════════
+// HELPERS
+// ════════════════════════════════════════════════════════
+function handleKey(e) {
+  if (e.key === 'Enter' && !e.shiftKey) {
+    e.preventDefault();
+    sendMessage();
+  }
+}
+
+function autoResize(el) {
+  el.style.height = 'auto';
+  el.style.height = Math.min(el.scrollHeight, 140) + 'px';
+}
+
+let toastTimeout;
+function showToast(msg, type = '') {
+  const existing = document.querySelector('.toast');
+  if (existing) existing.remove();
+  clearTimeout(toastTimeout);
+  const div = document.createElement('div');
+  div.className   = `toast ${type}`;
+  div.textContent = msg;
+  document.body.appendChild(div);
+  toastTimeout = setTimeout(() => div.remove(), 4000);
+}
+
+// ════════════════════════════════════════════════════════
+// THEME
+// ════════════════════════════════════════════════════════
+function toggleTheme() {
+  const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+  document.documentElement.setAttribute('data-theme', isDark ? 'light' : 'dark');
+  document.getElementById('theme-toggle').textContent = isDark ? '🌙' : '☀️';
+  localStorage.setItem('sahayak-theme', isDark ? 'light' : 'dark');
+}
+
+// ════════════════════════════════════════════════════════
+// BOOT
+// ════════════════════════════════════════════════════════
+init();
 </script>
 </body>
 </html>
