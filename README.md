@@ -397,20 +397,3 @@ Response:
 ```
 
 ---
-
-## Troubleshooting
-
-**Voice input is not working.**
-Voice input requires Chrome or Edge. Firefox does not support the Web Speech API. Also ensure microphone permission is granted in the browser.
-
-**Voice output only reads numbers.**
-This means the device has no voice pack installed for the selected language. The system will automatically fall back to English speech. Install the relevant voice pack from your device's language settings, or use the Speak button after switching to English.
-
-**The server returns a 500 error on the first question.**
-Ensure `python ingest.py` was run at least once and the `chroma_db/` directory exists. Also confirm the `.env` file has a valid `HF_TOKEN`.
-
-**Translation is slow or times out.**
-The `deep-translator` library calls the Google Translate API. On a slow connection or if the service is rate-limiting, translation may time out. The system will return the untranslated English answer in that case.
-
-**A scheme is not found even though its file is in `schemes/`.**
-Delete `chroma_db/` and re-run `python ingest.py` to rebuild the index from scratch.
