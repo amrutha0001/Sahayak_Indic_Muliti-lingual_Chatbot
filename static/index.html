@@ -54,8 +54,6 @@
     [data-theme="dark"] .input-wrap { background: #161B24; border-color: rgba(255,255,255,0.10); }
     [data-theme="dark"] .chat-input { color: #E8EDF4; }
     [data-theme="dark"] .chat-container::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.15); }
-    [data-theme="dark"] .lang-selector select option { background: #161B24; color: #E8EDF4; }
-    [data-theme="dark"] .lang-selector select { color-scheme: dark; }
     [data-theme="dark"] .hero h1 { color: #E8EDF4; }
 
     /* ── Theme toggle ───────────────────────────────────── */
@@ -126,32 +124,170 @@
     .logo-text span { color: var(--saffron-lt); }
     .header-right { display: flex; align-items: center; gap: 12px; }
 
-    .lang-selector {
-      display: flex; align-items: center; gap: 8px;
-      background: rgba(255,255,255,0.08);
-      border: 1px solid rgba(255,255,255,0.12);
-      border-radius: 40px; padding: 6px 14px 6px 10px;
-      cursor: pointer; transition: all 0.2s;
+    /* ══════════════════════════════════════════════════════
+       CUSTOM LANGUAGE SELECTOR  (replaces the old <select>)
+    ══════════════════════════════════════════════════════ */
+    .lang-dropdown-wrap {
+      position: relative;
+      flex-shrink: 0;
     }
-    .lang-selector:hover { background: rgba(255,255,255,0.12); }
-    .lang-selector select {
-      background: transparent; border: none; color: #fff;
-      font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 500;
-      cursor: pointer; outline: none; appearance: none; -webkit-appearance: none; padding-right: 4px;
-    }
-    .lang-selector option { color: var(--text-main); background: #fff; }
-    .lang-chevron { display: grid; place-items: center; color: rgba(255,255,255,0.55); flex-shrink: 0; pointer-events: none; transition: transform 0.2s; }
-    .lang-selector:focus-within .lang-chevron { transform: rotate(180deg); }
 
-    .status-pill {
-      display: flex; align-items: center; gap: 6px;
-      background: rgba(26,122,74,0.25);
-      border: 1px solid rgba(26,122,74,0.4);
-      border-radius: 40px; padding: 5px 12px;
-      font-size: 12px; font-weight: 500; color: #6EE7A0; letter-spacing: 0.02em;
+    /* The trigger button */
+    .lang-trigger {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 0 14px 0 10px;
+      height: 36px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.14);
+      border-radius: 10px;
+      cursor: pointer;
+      user-select: none;
+      transition: background 0.18s, border-color 0.18s, box-shadow 0.18s;
+      outline: none;
     }
-    .status-dot { width: 6px; height: 6px; background: #6EE7A0; border-radius: 50%; animation: pulse 2s infinite; }
-    @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
+    .lang-trigger:hover,
+    .lang-dropdown-wrap.open .lang-trigger {
+      background: rgba(255,255,255,0.12);
+      border-color: rgba(255,107,26,0.50);
+      box-shadow: 0 0 0 3px rgba(255,107,26,0.12);
+    }
+
+    /* Globe icon */
+    .lang-trigger .lt-globe {
+      font-size: 15px;
+      line-height: 1;
+      flex-shrink: 0;
+    }
+
+    /* Flag */
+    .lang-trigger .lt-flag {
+      font-size: 16px;
+      line-height: 1;
+      flex-shrink: 0;
+    }
+
+    /* Current lang name */
+    .lang-trigger .lt-name {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 13px;
+      font-weight: 500;
+      color: #fff;
+      min-width: 52px;
+      max-width: 72px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    /* Chevron */
+    .lang-trigger .lt-chevron {
+      display: flex;
+      align-items: center;
+      color: rgba(255,255,255,0.45);
+      transition: transform 0.22s ease;
+      flex-shrink: 0;
+    }
+    .lang-dropdown-wrap.open .lang-trigger .lt-chevron {
+      transform: rotate(180deg);
+    }
+
+    /* The panel that drops down */
+    .lang-panel {
+      position: absolute;
+      top: calc(100% + 8px);
+      right: 0;
+      width: 220px;
+      background: #111C2B;
+      border: 1px solid rgba(255,255,255,0.10);
+      border-radius: 14px;
+      padding: 6px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.55), 0 4px 16px rgba(0,0,0,0.30);
+      opacity: 0;
+      transform: translateY(-8px) scale(0.97);
+      transform-origin: top right;
+      pointer-events: none;
+      transition: opacity 0.20s ease, transform 0.20s ease;
+      z-index: 200;
+      /* Scrollable if many languages */
+      max-height: 320px;
+      overflow-y: auto;
+    }
+    .lang-panel::-webkit-scrollbar { width: 4px; }
+    .lang-panel::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.15); border-radius: 4px; }
+    .lang-dropdown-wrap.open .lang-panel {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+      pointer-events: all;
+    }
+
+    /* Section label inside panel */
+    .lang-panel-label {
+      font-size: 9.5px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.28);
+      padding: 6px 10px 4px;
+      font-family: 'Syne', sans-serif;
+    }
+
+    /* Each language option row */
+    .lang-option {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 10px;
+      border-radius: 9px;
+      cursor: pointer;
+      transition: background 0.15s;
+      border: 1px solid transparent;
+    }
+    .lang-option:hover {
+      background: rgba(255,255,255,0.07);
+    }
+    .lang-option.selected {
+      background: rgba(255,107,26,0.14);
+      border-color: rgba(255,107,26,0.25);
+    }
+
+    .lo-flag {
+      font-size: 18px;
+      line-height: 1;
+      flex-shrink: 0;
+      width: 24px;
+      text-align: center;
+    }
+    .lo-info {
+      display: flex;
+      flex-direction: column;
+      gap: 1px;
+      flex: 1;
+      min-width: 0;
+    }
+    .lo-name {
+      font-size: 13px;
+      font-weight: 500;
+      color: rgba(255,255,255,0.88);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .lo-native {
+      font-size: 11px;
+      color: rgba(255,255,255,0.38);
+    }
+    .lo-check {
+      font-size: 13px;
+      color: var(--saffron);
+      opacity: 0;
+      flex-shrink: 0;
+      transition: opacity 0.15s;
+    }
+    .lang-option.selected .lo-check {
+      opacity: 1;
+    }
 
     /* ── Voice Output Toggle button (header) ─────────────── */
     .voice-toggle {
@@ -172,6 +308,17 @@
     }
     .vt-icon { font-size: 15px; }
     .vt-label { font-size: 12px; }
+
+    /* ── Status pill ────────────────────────────────────── */
+    .status-pill {
+      display: flex; align-items: center; gap: 6px;
+      background: rgba(26,122,74,0.25);
+      border: 1px solid rgba(26,122,74,0.4);
+      border-radius: 40px; padding: 5px 12px;
+      font-size: 12px; font-weight: 500; color: #6EE7A0; letter-spacing: 0.02em;
+    }
+    .status-dot { width: 6px; height: 6px; background: #6EE7A0; border-radius: 50%; animation: pulse 2s infinite; }
+    @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
 
     /* ── Sidebar ────────────────────────────────────────── */
     aside {
@@ -350,7 +497,7 @@
 
     .input-hint { text-align: center; font-size: 11px; color: var(--text-muted); margin-top: 10px; letter-spacing: 0.02em; }
 
-    /* ── Listening badge (floats above input bar while recording) */
+    /* ── Listening badge ─────────────────────────────────── */
     .listening-badge {
       display: none; align-items: center; gap: 7px;
       position: absolute; bottom: calc(100% + 6px); left: 50%; transform: translateX(-50%);
@@ -384,6 +531,7 @@
       .suggestion-grid { grid-template-columns: 1fr; }
       .hero { padding: 20px; }
       .vt-label { display: none; }
+      .lt-name { display: none; }
     }
   </style>
 </head>
@@ -402,31 +550,30 @@
       <div class="logo-text">Saha<span>yak</span></div>
     </div>
     <div class="header-right">
-      <div class="lang-selector">
-        <span style="font-size:14px">🌐</span>
-        <select id="lang-select" onchange="setLanguage(this.value)">
-          <option value="English">English</option>
-          <option value="Hindi">हिंदी</option>
-          <option value="Telugu">తెలుగు</option>
-          <option value="Tamil">தமிழ்</option>
-          <option value="Kannada">ಕನ್ನಡ</option>
-          <option value="Bengali">বাংলা</option>
-          <option value="Marathi">मराठी</option>
-          <option value="Gujarati">ગુજરાતી</option>
-          <option value="Punjabi">ਪੰਜਾਬੀ</option>
-          <option value="Odia">ଓଡ଼ିଆ</option>
-          <option value="Malayalam">മലയാളം</option>
-        </select>
-        <span class="lang-chevron">
-          <svg width="10" height="6" viewBox="0 0 10 6" fill="none">
-            <path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </span>
+
+      <!-- ╔══════════════════════════════════════════════╗ -->
+      <!-- ║  CUSTOM LANGUAGE SELECTOR                    ║ -->
+      <!-- ╚══════════════════════════════════════════════╝ -->
+      <div class="lang-dropdown-wrap" id="lang-dropdown-wrap">
+        <!-- Trigger -->
+        <div class="lang-trigger" id="lang-trigger" tabindex="0" role="button" aria-haspopup="listbox" aria-expanded="false" onclick="toggleLangDropdown()" onkeydown="handleLangKey(event)">
+          <span class="lt-globe">🌐</span>
+          <span class="lt-flag" id="lt-flag">🇮🇳</span>
+          <span class="lt-name" id="lt-name">English</span>
+          <span class="lt-chevron">
+            <svg width="10" height="6" viewBox="0 0 10 6" fill="none">
+              <path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+        </div>
+
+        <!-- Panel -->
+        <div class="lang-panel" id="lang-panel" role="listbox">
+          <div class="lang-panel-label">Select Language</div>
+          <!-- Options rendered by JS -->
+        </div>
       </div>
 
-      <!-- ╔══════════════════════════════════════╗ -->
-      <!-- ║  VOICE OUTPUT TOGGLE (header button) ║ -->
-      <!-- ╚══════════════════════════════════════╝ -->
       <button class="voice-toggle" id="voice-output-toggle" onclick="toggleVoiceOutput()" title="Toggle voice output on/off">
         <span class="vt-icon" id="voice-icon">🔇</span>
         <span class="vt-label" id="voice-label">Voice Off</span>
@@ -501,12 +648,10 @@
 
     <!-- Input bar -->
     <div class="input-bar">
-      <!-- Floating "Listening…" badge shown while mic is active -->
       <div class="listening-badge" id="listening-badge">
         <span class="lb-dot"></span>
         <span>Listening…</span>
       </div>
-
       <div class="input-wrap">
         <textarea
           id="chat-input"
@@ -516,9 +661,6 @@
           onkeydown="handleKey(event)"
           oninput="autoResize(this)"
         ></textarea>
-        <!-- ╔═══════════════════╗ -->
-        <!-- ║  MIC / VOICE INPUT ║ -->
-        <!-- ╚═══════════════════╝ -->
         <button class="mic-btn" id="mic-btn" onclick="toggleMic()" title="Click to speak your question">🎤</button>
         <button class="send-btn" id="send-btn" onclick="sendMessage()">➤</button>
       </div>
@@ -529,39 +671,105 @@
   </main>
 </div>
 
-<!-- ═══════════════════════════════════════════════════════
-     JAVASCRIPT
-═══════════════════════════════════════════════════════ -->
 <script>
+// ════════════════════════════════════════════════════════
+// LANGUAGE DATA
+// ════════════════════════════════════════════════════════
+const LANGUAGES = [
+  { value: 'English',   label: 'English',   native: 'English',    flag: '🇮🇳', locale: 'en-IN' },
+  { value: 'Hindi',     label: 'Hindi',     native: 'हिंदी',       flag: '🇮🇳', locale: 'hi-IN' },
+  { value: 'Telugu',    label: 'Telugu',    native: 'తెలుగు',      flag: '🇮🇳', locale: 'te-IN' },
+  { value: 'Tamil',     label: 'Tamil',     native: 'தமிழ்',       flag: '🇮🇳', locale: 'ta-IN' },
+  { value: 'Kannada',   label: 'Kannada',   native: 'ಕನ್ನಡ',       flag: '🇮🇳', locale: 'kn-IN' },
+  { value: 'Bengali',   label: 'Bengali',   native: 'বাংলা',       flag: '🇧🇩', locale: 'bn-IN' },
+  { value: 'Marathi',   label: 'Marathi',   native: 'मराठी',       flag: '🇮🇳', locale: 'mr-IN' },
+  { value: 'Gujarati',  label: 'Gujarati',  native: 'ગુજરાતી',    flag: '🇮🇳', locale: 'gu-IN' },
+  { value: 'Punjabi',   label: 'Punjabi',   native: 'ਪੰਜਾਬੀ',     flag: '🇮🇳', locale: 'pa-IN' },
+  { value: 'Odia',      label: 'Odia',      native: 'ଓଡ଼ିଆ',       flag: '🇮🇳', locale: 'or-IN' },
+  { value: 'Malayalam', label: 'Malayalam', native: 'മലയാളം',     flag: '🇮🇳', locale: 'ml-IN' },
+];
+
+const LANG_LOCALE = Object.fromEntries(LANGUAGES.map(l => [l.value, l.locale]));
+
 // ════════════════════════════════════════════════════════
 // STATE
 // ════════════════════════════════════════════════════════
 let currentLanguage = 'English';
 let isWaiting       = false;
-let voiceOutputOn   = false;   // starts OFF — toggle in header to enable
-let recognition     = null;    // SpeechRecognition instance
+let voiceOutputOn   = false;
+let recognition     = null;
 let isRecording     = false;
+let langDropdownOpen = false;
 
-// BCP-47 locale for each supported language
-// Used for both SpeechRecognition (voice input) and SpeechSynthesis (voice output)
-const LANG_LOCALE = {
-  'English':   'en-IN',
-  'Hindi':     'hi-IN',
-  'Telugu':    'te-IN',
-  'Tamil':     'ta-IN',
-  'Kannada':   'kn-IN',
-  'Bengali':   'bn-IN',
-  'Marathi':   'mr-IN',
-  'Gujarati':  'gu-IN',
-  'Punjabi':   'pa-IN',
-  'Odia':      'or-IN',
-  'Malayalam': 'ml-IN',
-};
+// ════════════════════════════════════════════════════════
+// CUSTOM LANGUAGE DROPDOWN
+// ════════════════════════════════════════════════════════
+function buildLangPanel() {
+  const panel = document.getElementById('lang-panel');
+  panel.innerHTML = '<div class="lang-panel-label">Select Language</div>';
+  LANGUAGES.forEach(lang => {
+    const opt = document.createElement('div');
+    opt.className = 'lang-option' + (lang.value === currentLanguage ? ' selected' : '');
+    opt.setAttribute('role', 'option');
+    opt.setAttribute('data-value', lang.value);
+    opt.innerHTML = `
+      <span class="lo-flag">${lang.flag}</span>
+      <div class="lo-info">
+        <span class="lo-name">${lang.label}</span>
+        <span class="lo-native">${lang.native}</span>
+      </div>
+      <span class="lo-check">✓</span>
+    `;
+    opt.addEventListener('click', () => selectLanguage(lang.value));
+    panel.appendChild(opt);
+  });
+}
+
+function toggleLangDropdown() {
+  langDropdownOpen = !langDropdownOpen;
+  const wrap = document.getElementById('lang-dropdown-wrap');
+  const trigger = document.getElementById('lang-trigger');
+  wrap.classList.toggle('open', langDropdownOpen);
+  trigger.setAttribute('aria-expanded', langDropdownOpen ? 'true' : 'false');
+}
+
+function closeLangDropdown() {
+  langDropdownOpen = false;
+  document.getElementById('lang-dropdown-wrap').classList.remove('open');
+  document.getElementById('lang-trigger').setAttribute('aria-expanded', 'false');
+}
+
+function selectLanguage(value) {
+  currentLanguage = value;
+  const lang = LANGUAGES.find(l => l.value === value);
+  // Update trigger display
+  document.getElementById('lt-flag').textContent = lang.flag;
+  document.getElementById('lt-name').textContent = lang.label;
+  // Refresh option highlights
+  document.querySelectorAll('.lang-option').forEach(el => {
+    el.classList.toggle('selected', el.dataset.value === value);
+  });
+  closeLangDropdown();
+  setLanguage(value);
+}
+
+function handleLangKey(e) {
+  if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggleLangDropdown(); }
+  if (e.key === 'Escape') closeLangDropdown();
+}
+
+// Close when clicking outside
+document.addEventListener('click', (e) => {
+  if (!document.getElementById('lang-dropdown-wrap').contains(e.target)) {
+    closeLangDropdown();
+  }
+});
 
 // ════════════════════════════════════════════════════════
 // INIT
 // ════════════════════════════════════════════════════════
 async function init() {
+  buildLangPanel();
   restorePrefs();
   await loadHealth();
   await loadSchemes();
@@ -613,6 +821,10 @@ function restorePrefs() {
     if (icon)  icon.textContent  = '🔊';
     if (label) label.textContent = 'Voice On';
   }
+  const savedLang = localStorage.getItem('sahayak-lang');
+  if (savedLang && LANGUAGES.find(l => l.value === savedLang)) {
+    selectLanguage(savedLang);
+  }
 }
 
 // ════════════════════════════════════════════════════════
@@ -621,6 +833,7 @@ function restorePrefs() {
 function setLanguage(lang) {
   currentLanguage = lang;
   document.getElementById('lang-display').textContent = lang;
+  localStorage.setItem('sahayak-lang', lang);
   const placeholders = {
     'Hindi':    'कोई भी सरकारी योजना के बारे में पूछें…',
     'Telugu':   'ఏదైనా ప్రభుత్వ పథకం గురించి అడగండి…',
@@ -638,38 +851,18 @@ function setLanguage(lang) {
 // ════════════════════════════════════════════════════════
 // VOICE OUTPUT  (Text-to-Speech)
 // ════════════════════════════════════════════════════════
-
-/**
- * Check whether the browser has a TTS voice capable of speaking the given locale.
- *
- * The Web Speech API voice list is populated lazily by the browser; by the time
- * the user sends their first message the list is usually ready.  We check for
- * an exact locale match first (e.g. "hi-IN"), then a language-only match
- * ("hi"), which covers voices labelled "hi-IN", "hi-Latn-IN", etc.
- *
- * Returns the matched SpeechSynthesisVoice, or null if nothing suitable found.
- */
 function findVoiceForLocale(locale) {
   if (!window.speechSynthesis) return null;
   const voices = window.speechSynthesis.getVoices();
   if (!voices.length) return null;
-  const lang = locale.split('-')[0];          // e.g. "hi" from "hi-IN"
-
-  // 1. Exact BCP-47 match
+  const lang = locale.split('-')[0];
   let v = voices.find(v => v.lang === locale);
   if (v) return v;
-
-  // 2. Same language, any region  (e.g. hi-IN matches hi-*)
   v = voices.find(v => v.lang.split('-')[0] === lang && v.lang !== 'en');
   if (v) return v;
-
   return null;
 }
 
-/**
- * Toggle voice output on/off.
- * State persists in localStorage so the preference survives page reloads.
- */
 function toggleVoiceOutput() {
   voiceOutputOn = !voiceOutputOn;
   const btn   = document.getElementById('voice-output-toggle');
@@ -690,106 +883,60 @@ function toggleVoiceOutput() {
   localStorage.setItem('sahayak-voice', voiceOutputOn ? '1' : '0');
 }
 
-/**
- * Core TTS function.
- *
- * Strategy:
- *   1. Strip HTML tags to get plain text.
- *   2. Look for a TTS voice matching the current language locale.
- *   3. If a matching Indic voice IS found  → speak the Indic text with that voice.
- *   4. If NO matching voice found          → speak the English fallback text instead,
- *      using an English voice. A small "(speaking in English)" note is shown.
- *
- * This solves the "only numbers spoken" bug: that happens because an en-US/en-GB
- * voice is used to read Devanagari/Telugu etc. text, and it silently skips all
- * non-ASCII characters, leaving only digits and punctuation audible.
- *
- * @param {string} indicHtml      - HTML of the translated (Indic) answer
- * @param {string} englishText    - Plain English answer (always available as fallback)
- * @param {string} locale         - BCP-47 locale, e.g. "hi-IN"
- * @returns {{ utterance: SpeechSynthesisUtterance, usedFallback: boolean } | null}
- */
 function speakAnswer(indicHtml, englishText, locale) {
   if (!window.speechSynthesis) return null;
-
-  // Strip HTML tags
   const tmp = document.createElement('div');
   tmp.innerHTML = indicHtml;
   const indicText = (tmp.textContent || tmp.innerText || '').trim();
   if (!indicText) return null;
-
-  window.speechSynthesis.cancel();   // stop any current speech first
-
+  window.speechSynthesis.cancel();
   const isEnglish    = (locale === 'en-IN' || locale.startsWith('en'));
   const matchedVoice = isEnglish ? null : findVoiceForLocale(locale);
   const usedFallback = !isEnglish && !matchedVoice;
-
   const utterance = new SpeechSynthesisUtterance(usedFallback ? (englishText || indicText) : indicText);
   utterance.rate   = 0.95;
   utterance.pitch  = 1;
   utterance.volume = 1;
-
   if (usedFallback) {
-    // No Indic voice — speak English with the best available English-IN voice
     utterance.lang = 'en-IN';
     const enVoice  = window.speechSynthesis.getVoices().find(v => v.lang === 'en-IN')
                   || window.speechSynthesis.getVoices().find(v => v.lang.startsWith('en'));
     if (enVoice) utterance.voice = enVoice;
   } else if (isEnglish) {
-    // English selected — use en-IN voice directly
     utterance.lang = locale;
     const enVoice  = window.speechSynthesis.getVoices().find(v => v.lang === locale)
                   || window.speechSynthesis.getVoices().find(v => v.lang.startsWith('en'));
     if (enVoice) utterance.voice = enVoice;
   } else {
-    // Indic voice found — use it
     utterance.lang  = locale;
     utterance.voice = matchedVoice;
   }
-
   window.speechSynthesis.speak(utterance);
   return { utterance, usedFallback };
 }
 
-/**
- * Called when user clicks the 🔊 Speak button on a specific bot message.
- * Works regardless of the global voice-output toggle.
- */
 function manualSpeak(btn) {
   if (!window.speechSynthesis) {
     showToast('Text-to-speech is not supported in this browser. Try Chrome or Edge.', 'error');
     return;
   }
-  // If this button is already speaking → stop
   if (btn.classList.contains('speaking')) {
     window.speechSynthesis.cancel();
     resetAllSpeakButtons();
     return;
   }
-  // Stop any other speech first
   window.speechSynthesis.cancel();
   resetAllSpeakButtons();
-
   const indicHtml   = btn.dataset.indicHtml   || '';
   const englishText = btn.dataset.englishText  || '';
   const locale      = LANG_LOCALE[currentLanguage] || 'en-IN';
-
   const result = speakAnswer(indicHtml, englishText, locale);
   if (!result) return;
-
   const { utterance, usedFallback } = result;
-
   btn.classList.add('speaking');
   btn.innerHTML = '<span class="speak-icon">⏹</span> Stop';
-
-  if (usedFallback) {
-    showToast('No ' + currentLanguage + ' voice installed on this device — speaking in English instead.', '');
-  }
-
-  const restore = () => {
-    btn.classList.remove('speaking');
-    btn.innerHTML = '<span class="speak-icon">🔊</span> Speak';
-  };
+  if (usedFallback) showToast('No ' + currentLanguage + ' voice installed — speaking in English instead.', '');
+  const restore = () => { btn.classList.remove('speaking'); btn.innerHTML = '<span class="speak-icon">🔊</span> Speak'; };
   utterance.onend  = restore;
   utterance.onerror = restore;
 }
@@ -801,42 +948,35 @@ function resetAllSpeakButtons() {
   });
 }
 
-// Voices are loaded asynchronously in Chrome — ensure we get the full list
 if (window.speechSynthesis) {
-  // Trigger initial population
   window.speechSynthesis.getVoices();
   window.speechSynthesis.onvoiceschanged = () => window.speechSynthesis.getVoices();
 }
 
 // ════════════════════════════════════════════════════════
-// VOICE INPUT  (Speech-to-Text)
+// VOICE INPUT
 // ════════════════════════════════════════════════════════
 function initSpeechRecognition() {
   const micBtn = document.getElementById('mic-btn');
   const SR     = window.SpeechRecognition || window.webkitSpeechRecognition;
-
   if (!SR) {
     micBtn.classList.add('unsupported');
     micBtn.title = 'Voice input not supported in this browser. Please use Chrome or Edge.';
     return;
   }
-
   recognition = new SR();
   recognition.continuous      = false;
   recognition.interimResults  = true;
   recognition.maxAlternatives = 1;
   recognition.lang            = LANG_LOCALE[currentLanguage] || 'en-IN';
-
   recognition.onstart = () => {
     isRecording = true;
     micBtn.classList.add('recording');
     micBtn.textContent = '⏹';
     document.getElementById('listening-badge').classList.add('visible');
   };
-
   recognition.onresult = (event) => {
-    let interim = '';
-    let final   = '';
+    let interim = '', final = '';
     for (let i = event.resultIndex; i < event.results.length; i++) {
       const t = event.results[i][0].transcript;
       if (event.results[i].isFinal) final   += t;
@@ -846,7 +986,6 @@ function initSpeechRecognition() {
     input.value = (final || interim).trim();
     autoResize(input);
   };
-
   recognition.onend = () => {
     isRecording = false;
     micBtn.classList.remove('recording');
@@ -855,39 +994,26 @@ function initSpeechRecognition() {
     const q = document.getElementById('chat-input').value.trim();
     if (q) sendMessage();
   };
-
   recognition.onerror = (event) => {
     isRecording = false;
     micBtn.classList.remove('recording');
     micBtn.textContent = '🎤';
     document.getElementById('listening-badge').classList.remove('visible');
-    if (event.error === 'not-allowed') {
-      showToast('Microphone access denied. Please allow mic access in your browser settings.', 'error');
-    } else if (event.error === 'no-speech') {
-      showToast('No speech detected. Please try again.', '');
-    } else if (event.error === 'language-not-supported') {
-      showToast('Speech recognition for ' + currentLanguage + ' is not supported in this browser. Try English.', 'error');
-    } else if (event.error !== 'aborted') {
-      showToast('Voice input error: ' + event.error, 'error');
-    }
+    if (event.error === 'not-allowed') showToast('Microphone access denied.', 'error');
+    else if (event.error === 'no-speech') showToast('No speech detected. Try again.', '');
+    else if (event.error === 'language-not-supported') showToast('Speech recognition for ' + currentLanguage + ' not supported. Try English.', 'error');
+    else if (event.error !== 'aborted') showToast('Voice input error: ' + event.error, 'error');
   };
 }
 
 function toggleMic() {
-  if (!recognition) {
-    showToast('Voice input is not supported in this browser. Please use Chrome or Edge.', 'error');
-    return;
-  }
+  if (!recognition) { showToast('Voice input not supported. Use Chrome or Edge.', 'error'); return; }
   if (isRecording) {
     recognition.stop();
   } else {
     recognition.lang = LANG_LOCALE[currentLanguage] || 'en-IN';
     document.getElementById('chat-input').value = '';
-    try {
-      recognition.start();
-    } catch(e) {
-      showToast('Voice input is already active.', '');
-    }
+    try { recognition.start(); } catch(e) { showToast('Voice input is already active.', ''); }
   }
 }
 
@@ -911,113 +1037,57 @@ const TIER_META = {
   none: { icon: '❓', label: 'Not found',              cls: 'tier-none' },
 };
 
-/**
- * Append a message bubble.
- * 
- * For bot messages:
- *  - indicHtml   = the translated answer HTML (what is displayed)
- *  - englishText = the English version (used as TTS fallback when no Indic voice installed)
- *  Both are stored as data attributes on the Speak button so manualSpeak() can access them.
- */
 function appendMessage(role, indicHtml, englishText, sources = [], tier = '') {
   showChat();
   const chat = document.getElementById('chat');
   const div  = document.createElement('div');
   div.className = `msg ${role}`;
-
-  const avatar = role === 'user'
-    ? `<div class="msg-avatar">U</div>`
-    : `<div class="msg-avatar">S</div>`;
-
+  const avatar = role === 'user' ? `<div class="msg-avatar">U</div>` : `<div class="msg-avatar">S</div>`;
   let tierHtml = '';
   if (role === 'bot' && tier && TIER_META[tier]) {
     const t = TIER_META[tier];
     tierHtml = `<div class="tier-badge ${t.cls}">${t.icon} ${t.label}</div>`;
   }
-
   let sourcesHtml = '';
   if (sources.length > 0) {
     const t = TIER_META[tier] || TIER_META.txt;
     sourcesHtml = `<div class="sources">
-      ${sources.map(s => `
-        <div class="source-tag">
-          📄 ${s.scheme} · ${s.section}
-          <span class="source-score">${(s.score * 100).toFixed(0)}%</span>
-        </div>`).join('')}
+      ${sources.map(s => `<div class="source-tag">📄 ${s.scheme} · ${s.section}<span class="source-score">${(s.score * 100).toFixed(0)}%</span></div>`).join('')}
       <div class="tier-badge ${t.cls}">${t.icon} ${t.label}</div>
     </div>`;
   }
-
   const speakId = 'speak-' + Date.now() + '-' + Math.random().toString(36).slice(2, 6);
-
-  // Speak button for every bot message
   const speakBtnHtml = role === 'bot'
-    ? `<button class="speak-btn" id="${speakId}" onclick="manualSpeak(this)">
-         <span class="speak-icon">🔊</span> Speak
-       </button>`
+    ? `<button class="speak-btn" id="${speakId}" onclick="manualSpeak(this)"><span class="speak-icon">🔊</span> Speak</button>`
     : '';
-
-  div.innerHTML = `
-    ${avatar}
-    <div class="msg-bubble">${tierHtml}${indicHtml}${speakBtnHtml}${sourcesHtml}</div>
-  `;
+  div.innerHTML = `${avatar}<div class="msg-bubble">${tierHtml}${indicHtml}${speakBtnHtml}${sourcesHtml}</div>`;
   chat.appendChild(div);
   chat.scrollTop = chat.scrollHeight;
-
-  // Store both versions on the button's dataset
   if (role === 'bot') {
     const btn = document.getElementById(speakId);
-    if (btn) {
-      btn.dataset.indicHtml   = indicHtml;
-      btn.dataset.englishText = englishText || '';
-    }
+    if (btn) { btn.dataset.indicHtml = indicHtml; btn.dataset.englishText = englishText || ''; }
   }
-
-  // Auto-speak if voice output is ON
   if (role === 'bot' && voiceOutputOn) {
     const locale = LANG_LOCALE[currentLanguage] || 'en-IN';
     const result = speakAnswer(indicHtml, englishText, locale);
     if (result) {
       const { utterance, usedFallback } = result;
       const btn = document.getElementById(speakId);
-      if (btn) {
-        btn.classList.add('speaking');
-        btn.innerHTML = '<span class="speak-icon">⏹</span> Stop';
-      }
-      if (usedFallback) {
-        showToast('No ' + currentLanguage + ' voice installed — speaking in English.', '');
-      }
-      const restore = () => {
-        if (btn) {
-          btn.classList.remove('speaking');
-          btn.innerHTML = '<span class="speak-icon">🔊</span> Speak';
-        }
-      };
-      utterance.onend  = restore;
-      utterance.onerror = restore;
+      if (btn) { btn.classList.add('speaking'); btn.innerHTML = '<span class="speak-icon">⏹</span> Stop'; }
+      if (usedFallback) showToast('No ' + currentLanguage + ' voice — speaking in English.', '');
+      const restore = () => { if (btn) { btn.classList.remove('speaking'); btn.innerHTML = '<span class="speak-icon">🔊</span> Speak'; } };
+      utterance.onend = restore; utterance.onerror = restore;
     }
   }
-
   return div;
 }
 
 function addTyping() {
   const chat = document.getElementById('chat');
   const div  = document.createElement('div');
-  div.className = 'msg bot';
-  div.id        = 'typing-indicator';
-  div.innerHTML = `
-    <div class="msg-avatar">S</div>
-    <div class="msg-bubble">
-      <div class="typing-indicator">
-        <div class="typing-dot"></div>
-        <div class="typing-dot"></div>
-        <div class="typing-dot"></div>
-      </div>
-    </div>
-  `;
-  chat.appendChild(div);
-  chat.scrollTop = chat.scrollHeight;
+  div.className = 'msg bot'; div.id = 'typing-indicator';
+  div.innerHTML = `<div class="msg-avatar">S</div><div class="msg-bubble"><div class="typing-indicator"><div class="typing-dot"></div><div class="typing-dot"></div><div class="typing-dot"></div></div></div>`;
+  chat.appendChild(div); chat.scrollTop = chat.scrollHeight;
 }
 
 function removeTyping() {
@@ -1026,22 +1096,11 @@ function removeTyping() {
 }
 
 function formatText(text) {
-  // Normalize: give every bullet character its own line regardless of whether
-  // the LLM placed them inline ("sentence. • item • item") or on separate lines.
   let html = text.replace(/\s*•\s*/g, '\n• ').trim();
-
-  // Bold
   html = html.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
-
-  // Convert "• item" lines → <li>item</li>
   html = html.replace(/^•\s+(.+)$/gm, '<li>$1</li>');
-
-  // Wrap every consecutive run of <li> lines in a single <ul>
   html = html.replace(/(<li>.*?<\/li>)(\n<li>.*?<\/li>)*/g, (m) => '<ul>' + m.replace(/\n/g, '') + '</ul>');
-
-  // Remaining newlines → <br/>
   html = html.replace(/\n/g, '<br/>');
-
   return html;
 }
 
@@ -1049,16 +1108,11 @@ async function sendMessage() {
   const input = document.getElementById('chat-input');
   const q     = input.value.trim();
   if (!q || isWaiting) return;
-
-  input.value        = '';
-  input.style.height = 'auto';
+  input.value = ''; input.style.height = 'auto';
   isWaiting = true;
   document.getElementById('send-btn').disabled = true;
-
-  // User bubble — no English fallback needed
   appendMessage('user', q, q);
   addTyping();
-
   try {
     const r = await fetch('/chat', {
       method: 'POST',
@@ -1067,14 +1121,11 @@ async function sendMessage() {
     });
     const d = await r.json();
     removeTyping();
-    // d.answer        = translated (Indic or English) answer
-    // d.english_answer = always the English version (TTS fallback)
     appendMessage('bot', formatText(d.answer), d.english_answer || d.answer, d.sources || [], d.tier || '');
   } catch(e) {
     removeTyping();
     appendMessage('bot', `<span style="color:#F87171">Connection error. Is the server running?</span>`, '', [], '');
   }
-
   isWaiting = false;
   document.getElementById('send-btn').disabled = false;
   input.focus();
@@ -1084,10 +1135,7 @@ async function sendMessage() {
 // HELPERS
 // ════════════════════════════════════════════════════════
 function handleKey(e) {
-  if (e.key === 'Enter' && !e.shiftKey) {
-    e.preventDefault();
-    sendMessage();
-  }
+  if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); sendMessage(); }
 }
 
 function autoResize(el) {
@@ -1101,15 +1149,11 @@ function showToast(msg, type = '') {
   if (existing) existing.remove();
   clearTimeout(toastTimeout);
   const div = document.createElement('div');
-  div.className   = `toast ${type}`;
-  div.textContent = msg;
+  div.className = `toast ${type}`; div.textContent = msg;
   document.body.appendChild(div);
   toastTimeout = setTimeout(() => div.remove(), 4000);
 }
 
-// ════════════════════════════════════════════════════════
-// THEME
-// ════════════════════════════════════════════════════════
 function toggleTheme() {
   const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
   document.documentElement.setAttribute('data-theme', isDark ? 'light' : 'dark');
