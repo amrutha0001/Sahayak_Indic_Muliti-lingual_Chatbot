@@ -13,7 +13,7 @@ Ask about PM-KISAN, PMJDY, MUDRA, Ayushman Bharat and 16 other schemes in Hindi,
 
 ## Architecture
 
-![Sahayak System Architecture](Architecture Diagram.png)
+![Sahayak System Architecture](Architecture_Diagram.png)
 
 The pipeline runs through five sequential stages: query preprocessing (translation + acronym expansion), multi-tier retrieval cascade (ChromaDB → official URL → DuckDuckGo), context assembly, LLM generation (Meta-Llama-3-8B-Instruct, τ=0.2), and multilingual response delivery with optional voice output.
 
@@ -58,7 +58,8 @@ sahayak/
 ├── requirements.txt    # Python dependencies (pip install -r requirements.txt)
 ├── schema.txt          # 7-section template for adding new scheme .txt files
 ├── env.example         # Environment variable template (HF_TOKEN, LLM_MODEL)
-├── Architecture Diagram.png   # System architecture diagram
+├── Architecture_Diagram.png   # System architecture diagram
+├── Sahayak Architecture xml code.xml   # System architecture diagram xml code - upload to draw.io
 ├── schemes/            # Scheme documents (.txt, .pdf, .docx) — 17 schemes, 233 chunks
 │   ├── pm_jan_dhan_yojana.txt
 │   ├── pm_kisan_samman_nidhi.txt
