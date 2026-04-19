@@ -13,7 +13,7 @@ Ask about PM-KISAN, PMJDY, MUDRA, Ayushman Bharat and 16 other schemes in Hindi,
 
 ## Architecture
 
-![Sahayak System Architecture](Architecture%20Diagram.png)
+![Sahayak System Architecture](Architecture Diagram.png)
 
 The pipeline runs through five sequential stages: query preprocessing (translation + acronym expansion), multi-tier retrieval cascade (ChromaDB → official URL → DuckDuckGo), context assembly, LLM generation (Meta-Llama-3-8B-Instruct, τ=0.2), and multilingual response delivery with optional voice output.
 
