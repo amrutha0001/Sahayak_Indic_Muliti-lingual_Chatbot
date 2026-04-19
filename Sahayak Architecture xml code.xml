@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxfile host="app.diagrams.net">
+  <diagram name="Page-1" id="s3vQlySmrRt6ZydB3uup">
+    <mxGraphModel dx="1830" dy="1448" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" background="light-dark(#FFFFFF,#FFFFFF)" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="47vW3xywDX0KRhfpH2Z6-1" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=18;fontStyle=1;fontColor=#1a1a2e;" value="&lt;font style=&quot;color: light-dark(rgb(0, 0, 0), rgb(26, 26, 26));&quot;&gt;Sahayak — End-to-End RAG Architecture&lt;/font&gt;" vertex="1">
+          <mxGeometry height="40" width="900" x="196" y="12" as="geometry" />
+        </mxCell>
+        <mxCell id="47vW3xywDX0KRhfpH2Z6-2" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rotation=-90;fontSize=10;fontColor=#888888;fontStyle=1;" value="INPUT" vertex="1">
+          <mxGeometry height="20" width="60" x="30" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="47vW3xywDX0KRhfpH2Z6-3" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rotation=-90;fontSize=10;fontColor=#888888;fontStyle=1;" value="STAGE 1" vertex="1">
+          <mxGeometry height="20" width="60" x="30" y="190" as="geometry" />
+        </mxCell>
+        <mxCell id="47vW3xywDX0KRhfpH2Z6-4" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rotation=-90;fontSize=10;fontColor=#888888;fontStyle=1;" value="STAGE 2" vertex="1">
+          <mxGeometry height="20" width="60" x="30" y="400" as="geometry" />
+        </mxCell>
+        <mxCell id="47vW3xywDX0KRhfpH2Z6-5" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rotation=-90;fontSize=10;fontColor=#888888;fontStyle=1;" value="STAGE 3" vertex="1">
+          <mxGeometry height="20" width="60" x="30" y="690" as="geometry" />
+        </mxCell>
+        <mxCell id="47vW3xywDX0KRhfpH2Z6-6" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rotation=-90;fontSize=10;fontColor=#888888;fontStyle=1;" value="STAGE 4" vertex="1">
+          <mxGeometry height="20" width="60" x="30" y="830" as="geometry" />
+        </mxCell>
+        <mxCell id="47vW3xywDX0KRhfpH2Z6-7" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rotation=-90;fontSize=10;fontColor=#888888;fontStyle=1;" value="STAGE 5" vertex="1">
+          <mxGeometry height="20" width="60" x="30" y="1030" as="geometry" />
+        </mxCell>
+        <mxCell id="47vW3xywDX0KRhfpH2Z6-8" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5f5e3;strokeColor=#1e8449;fontColor=#145a32;fontSize=11;" value="&lt;b&gt;User Query&lt;/b&gt;&lt;br/&gt;Text or voice · any of 11 languages" vertex="1">
+          <mxGeometry height="55" width="260" x="100" y="70" as="geometry" />
+        </mxCell>
+        <mxCell id="47vW3xywDX0KRhfpH2Z6-9" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5f5e3;strokeColor=#1e8449;fontColor=#145a32;fontSize=11;" value="&lt;b&gt;Voice Input (Web Speech API)&lt;/b&gt;&lt;br/&gt;SpeechRecognition · BCP-47 locale per language" vertex="1">
+          <mxGeometry height="55" width="290" x="430" y="70" as="geometry" />
+        </mxCell>
+        <mxCell id="47vW3xywDX0KRhfpH2Z6-10" edge="1" parent="1" source="47vW3xywDX0KRhfpH2Z6-9" style="edgeStyle=orthogonalEdgeStyle;dashed=1;endArrow=block;endFill=1;strokeColor=#1e8449;" target="47vW3xywDX0KRhfpH2Z6-8">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="47vW3xywDX0KRhfpH2Z6-11" edge="1" parent="1" source="47vW3xywDX0KRhfpH2Z6-8" style="edgeStyle=orthogonalEdgeStyle;endArrow=block;endFill=1;strokeColor=#555;" target="47vW3xywDX0KRhfpH2Z6-12">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="47vW3xywDX0KRhfpH2Z6-12" parent="1" style="swimlane;startSize=25;fillColor=#f3e5f5;strokeColor=#6a1b9a;fontColor=#4a148c;fontSize=11;fontStyle=1;dashed=1;dashPattern=6 4;" value="Stage 1 · Query Preprocessing" vertex="1">
+          <mxGeometry height="120" width="620" x="100" y="160" as="geometry" />
+        </mxCell>
+        <mxCell id="47vW3xywDX0KRhfpH2Z6-13" parent="47vW3xywDX0KRhfpH2Z6-12" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e8d5f5;strokeColor=#6a1b9a;fontColor=#4a148c;fontSize=11;" value="&lt;b&gt;Translate to English&lt;/b&gt;&lt;br/&gt;GoogleTranslator · explicit ISO 639-1 code&lt;br/&gt;↩ retry with source=auto if translation fails" vertex="1">
+          <mxGeometry height="60" width="260" x="20" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="47vW3xywDX0KRhfpH2Z6-14" parent="47vW3xywDX0KRhfpH2Z6-12" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e8d5f5;strokeColor=#6a1b9a;fontColor=#4a148c;fontSize=11;" value="&lt;b&gt;Acronym Expansion&lt;/b&gt;&lt;br/&gt;25-entry dictionary · regex word-boundary replace&lt;br/&gt;e.g. PM-KISAN → Pradhan Mantri Kisan Samman Nidhi" vertex="1">
+          <mxGeometry height="60" width="270" x="330" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="47vW3xywDX0KRhfpH2Z6-15" edge="1" parent="47vW3xywDX0KRhfpH2Z6-12" source="47vW3xywDX0KRhfpH2Z6-13" style="edgeStyle=orthogonalEdgeStyle;endArrow=block;endFill=1;strokeColor=#6a1b9a;" target="47vW3xywDX0KRhfpH2Z6-14">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="47vW3xywDX0KRhfpH2Z6-16" edge="1" parent="1" source="47vW3xywDX0KRhfpH2Z6-12" style="edgeStyle=orthogonalEdgeStyle;endArrow=block;endFill=1;strokeColor=#555;" target="47vW3xywDX0KRhfpH2Z6-17" value="q_ex">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="47vW3xywDX0KRhfpH2Z6-17" parent="1" style="swimlane;startSize=25;fillColor=#e3f2fd;strokeColor=#1565c0;fontColor=#0d47a1;fontSize=11;fontStyle=1;dashed=1;dashPattern=6 4;" value="Stage 2 · Multi-Tier Retrieval Cascade" vertex="1">
+          <mxGeometry height="400" width="840" x="100" y="330" as="geometry" />
+        </mxCell>
+        <mxCell id="47vW3xywDX0KRhfpH2Z6-18" parent="47vW3xywDX0KRhfpH2Z6-17" style="swimlane;startSize=22;fillColor=#bbdefb;strokeColor=#1565c0;fontColor=#0d47a1;fontSize=10;fontStyle=1;dashed=1;dashPattern=4 3;" value="Tier 1 · Vector Retrieval from Local Knowledge Base" vertex="1">
+          <mxGeometry height="110" width="780" x="20" y="35" as="geometry" />
+        </mxCell>
+        <mxCell id="47vW3xywDX0KRhfpH2Z6-19" parent="47vW3xywDX0KRhfpH2Z6-18" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e3f2fd;strokeColor=#1565c0;fontColor=#0d47a1;fontSize=11;" value="&lt;b&gt;Embed Query&lt;/b&gt;&lt;br/&gt;all-MiniLM-L6-v2&lt;br/&gt;384-dimensional vector" vertex="1">
+          <mxGeometry height="60" width="160" x="20" y="35" as="geometry" />
+        </mxCell>
+        <mxCell id="47vW3xywDX0KRhfpH2Z6-20" parent="47vW3xywDX0KRhfpH2Z6-18" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e3f2fd;strokeColor=#1565c0;fontColor=#0d47a1;fontSize=11;" value="&lt;b&gt;ChromaDB Search&lt;/b&gt;&lt;br/&gt;k=4 · cosine similarity&lt;br/&gt;HNSW index · sub-linear time" vertex="1">
+          <mxGeometry height="60" width="170" x="220" y="35" as="geometry" />
+        </mxCell>
+        <mxCell id="47vW3xywDX0KRhfpH2Z6-21" parent="47vW3xywDX0KRhfpH2Z6-18" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e3f2fd;strokeColor=#1565c0;fontColor=#0d47a1;fontSize=11;" value="&lt;b&gt;Section Boosting&lt;/b&gt;&lt;br/&gt;+0.05 for intent-matched section&lt;br/&gt;keywords: eligib, apply, benefit…" vertex="1">
+          <mxGeometry height="60" width="180" x="440" y="35" as="geometry" />
+        </mxCell>
+        <mxCell id="47vW3xywDX0KRhfpH2Z6-22" parent="47vW3xywDX0KRhfpH2Z6-18" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#cfd8dc;strokeColor=#455a64;fontColor=#263238;fontSize=11;" value="&lt;b&gt;Knowledge Base&lt;/b&gt;&lt;br/&gt;17 schemes · 7 sections each&lt;br/&gt;txt / pdf / docx / html" vertex="1">
+          <mxGeometry height="60" width="100" x="660" y="35" as="geometry" />
+        </mxCell>
+        <mxCell id="47vW3xywDX0KRhfpH2Z6-23" edge="1" parent="47vW3xywDX0KRhfpH2Z6-18" source="47vW3xywDX0KRhfpH2Z6-19" style="edgeStyle=orthogonalEdgeStyle;endArrow=block;endFill=1;strokeColor=#1565c0;" target="47vW3xywDX0KRhfpH2Z6-20">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="47vW3xywDX0KRhfpH2Z6-24" edge="1" parent="47vW3xywDX0KRhfpH2Z6-18" source="47vW3xywDX0KRhfpH2Z6-20" style="edgeStyle=orthogonalEdgeStyle;endArrow=block;endFill=1;strokeColor=#1565c0;" target="47vW3xywDX0KRhfpH2Z6-21">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="47vW3xywDX0KRhfpH2Z6-25" edge="1" parent="47vW3xywDX0KRhfpH2Z6-18" source="47vW3xywDX0KRhfpH2Z6-22" style="edgeStyle=orthogonalEdgeStyle;endArrow=block;endFill=1;strokeColor=#455a64;dashed=1;" target="47vW3xywDX0KRhfpH2Z6-20">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="47vW3xywDX0KRhfpH2Z6-26" parent="47vW3xywDX0KRhfpH2Z6-17" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff9c4;strokeColor=#f57f17;fontColor=#e65100;fontSize=11;" value="&lt;b&gt;Score threshold?&lt;/b&gt;&lt;br/&gt;θ_c=0.55 · θ_w=0.30 · θ_h=0.18" vertex="1">
+          <mxGeometry height="80" width="200" x="300" y="165" as="geometry" />
+        </mxCell>
+        <mxCell id="47vW3xywDX0KRhfpH2Z6-27" edge="1" parent="47vW3xywDX0KRhfpH2Z6-17" source="47vW3xywDX0KRhfpH2Z6-18" style="edgeStyle=orthogonalEdgeStyle;endArrow=block;endFill=1;strokeColor=#555;" target="47vW3xywDX0KRhfpH2Z6-26">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="47vW3xywDX0KRhfpH2Z6-28" parent="47vW3xywDX0KRhfpH2Z6-17" style="swimlane;startSize=22;fillColor=#fce4ec;strokeColor=#c62828;fontColor=#b71c1c;fontSize=10;fontStyle=1;dashed=1;dashPattern=4 3;" value="Tier 2 · Official Website Scraper" vertex="1">
+          <mxGeometry height="110" width="350" x="20" y="260" as="geometry" />
+        </mxCell>
+        <mxCell id="47vW3xywDX0KRhfpH2Z6-29" parent="47vW3xywDX0KRhfpH2Z6-28" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffcdd2;strokeColor=#c62828;fontColor=#b71c1c;fontSize=11;" value="&lt;b&gt;Fetch Scheme URL&lt;/b&gt;&lt;br/&gt;Regex-extract URL from Section 7&lt;br/&gt;BeautifulSoup · strip nav/footer&lt;br/&gt;Truncate to 3500 chars" vertex="1">
+          <mxGeometry height="60" width="300" x="20" y="32" as="geometry" />
+        </mxCell>
+        <mxCell id="47vW3xywDX0KRhfpH2Z6-30" parent="47vW3xywDX0KRhfpH2Z6-17" style="swimlane;startSize=22;fillColor=#fce4ec;strokeColor=#c62828;fontColor=#b71c1c;fontSize=10;fontStyle=1;dashed=1;dashPattern=4 3;" value="Tier 3 · Live Web Search" vertex="1">
+          <mxGeometry height="110" width="370" x="430" y="260" as="geometry" />
+        </mxCell>
+        <mxCell id="47vW3xywDX0KRhfpH2Z6-31" parent="47vW3xywDX0KRhfpH2Z6-30" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffcdd2;strokeColor=#c62828;fontColor=#b71c1c;fontSize=11;" value="&lt;b&gt;DuckDuckGo Search&lt;/b&gt;&lt;br/&gt;q_ex + &quot;India government scheme&quot;&lt;br/&gt;Instant answer + 5 result snippets&lt;br/&gt;BeautifulSoup HTML extraction" vertex="1">
+          <mxGeometry height="60" width="320" x="20" y="32" as="geometry" />
+        </mxCell>
+        <mxCell id="47vW3xywDX0KRhfpH2Z6-32" parent="47vW3xywDX0KRhfpH2Z6-17" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontSize=10;fontColor=#1565c0;" value="≥ 0.55&lt;br/&gt;Tier 1 sufficient" vertex="1">
+          <mxGeometry height="30" width="120" x="150" y="195" as="geometry" />
+        </mxCell>
+        <mxCell id="47vW3xywDX0KRhfpH2Z6-33" edge="1" parent="47vW3xywDX0KRhfpH2Z6-17" source="47vW3xywDX0KRhfpH2Z6-26" style="edgeStyle=orthogonalEdgeStyle;endArrow=block;endFill=1;strokeColor=#c62828;" target="47vW3xywDX0KRhfpH2Z6-28" value="0.30 – 0.55">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="47vW3xywDX0KRhfpH2Z6-34" edge="1" parent="47vW3xywDX0KRhfpH2Z6-17" source="47vW3xywDX0KRhfpH2Z6-26" style="edgeStyle=orthogonalEdgeStyle;endArrow=block;endFill=1;strokeColor=#c62828;" target="47vW3xywDX0KRhfpH2Z6-30" value="&lt; 0.30">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="47vW3xywDX0KRhfpH2Z6-35" edge="1" parent="1" source="47vW3xywDX0KRhfpH2Z6-17" style="edgeStyle=orthogonalEdgeStyle;endArrow=block;endFill=1;strokeColor=#555;" target="47vW3xywDX0KRhfpH2Z6-36" value="Retrieved context">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="47vW3xywDX0KRhfpH2Z6-36" parent="1" style="swimlane;startSize=25;fillColor=#fff8e1;strokeColor=#e65100;fontColor=#bf360c;fontSize=11;fontStyle=1;dashed=1;dashPattern=6 4;" value="Stage 3 · Context Assembly and Prompt Construction" vertex="1">
+          <mxGeometry height="130" width="840" x="100" y="780" as="geometry" />
+        </mxCell>
+        <mxCell id="47vW3xywDX0KRhfpH2Z6-37" parent="47vW3xywDX0KRhfpH2Z6-36" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe082;strokeColor=#e65100;fontColor=#bf360c;fontSize=11;" value="&lt;b&gt;Tier 1 Chunks&lt;/b&gt;&lt;br/&gt;[Doc i: scheme — section]&lt;br/&gt;chunk text" vertex="1">
+          <mxGeometry height="65" width="200" x="20" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="47vW3xywDX0KRhfpH2Z6-38" parent="47vW3xywDX0KRhfpH2Z6-36" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe082;strokeColor=#e65100;fontColor=#bf360c;fontSize=11;" value="&lt;b&gt;Tier 2 Block&lt;/b&gt;&lt;br/&gt;[Official Website: url]&lt;br/&gt;scraped clean text" vertex="1">
+          <mxGeometry height="65" width="200" x="260" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="47vW3xywDX0KRhfpH2Z6-39" parent="47vW3xywDX0KRhfpH2Z6-36" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe082;strokeColor=#e65100;fontColor=#bf360c;fontSize=11;" value="&lt;b&gt;Tier 3 Block&lt;/b&gt;&lt;br/&gt;[Web i: title | url]&lt;br/&gt;snippet text" vertex="1">
+          <mxGeometry height="65" width="200" x="500" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="47vW3xywDX0KRhfpH2Z6-40" parent="47vW3xywDX0KRhfpH2Z6-36" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontSize=10;fontColor=#bf360c;" value="P = P_sys ‖ C_tier1 ‖ C_tier2 ‖ C_tier3 ‖ P_user" vertex="1">
+          <mxGeometry height="40" width="90" x="680" y="105" as="geometry" />
+        </mxCell>
+        <mxCell id="47vW3xywDX0KRhfpH2Z6-41" edge="1" parent="1" source="47vW3xywDX0KRhfpH2Z6-36" style="edgeStyle=orthogonalEdgeStyle;endArrow=block;endFill=1;strokeColor=#555;" target="47vW3xywDX0KRhfpH2Z6-42" value="Structured prompt">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="47vW3xywDX0KRhfpH2Z6-42" parent="1" style="swimlane;startSize=25;fillColor=#f3e5f5;strokeColor=#6a1b9a;fontColor=#4a148c;fontSize=11;fontStyle=1;dashed=1;dashPattern=6 4;" value="Stage 4 · Language Model Generation and Post-Processing" vertex="1">
+          <mxGeometry height="150" width="840" x="100" y="960" as="geometry" />
+        </mxCell>
+        <mxCell id="47vW3xywDX0KRhfpH2Z6-43" parent="47vW3xywDX0KRhfpH2Z6-42" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1bee7;strokeColor=#6a1b9a;fontColor=#4a148c;fontSize=11;" value="&lt;b&gt;Meta-Llama-3-8B-Instruct&lt;/b&gt;&lt;br/&gt;temperature=0.2 · max_tokens=900&lt;br/&gt;repetition_penalty=1.15&lt;br/&gt;Hugging Face Inference Router API" vertex="1">
+          <mxGeometry height="80" width="340" x="20" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="47vW3xywDX0KRhfpH2Z6-44" parent="47vW3xywDX0KRhfpH2Z6-42" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1bee7;strokeColor=#6a1b9a;fontColor=#4a148c;fontSize=11;" value="&lt;b&gt;Post-Processing&lt;/b&gt;&lt;br/&gt;Sentence deduplication (seen-set)&lt;br/&gt;Label cleaning · 6 regex patterns&lt;br/&gt;→ clean English answer A_en" vertex="1">
+          <mxGeometry height="80" width="300" x="420" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="47vW3xywDX0KRhfpH2Z6-45" edge="1" parent="47vW3xywDX0KRhfpH2Z6-42" source="47vW3xywDX0KRhfpH2Z6-43" style="edgeStyle=orthogonalEdgeStyle;endArrow=block;endFill=1;strokeColor=#6a1b9a;" target="47vW3xywDX0KRhfpH2Z6-44">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="47vW3xywDX0KRhfpH2Z6-46" parent="47vW3xywDX0KRhfpH2Z6-42" style="text;html=1;strokeColor=none;fillColor=#fff9c4;align=center;fontSize=10;fontColor=#e65100;rounded=1;" value="If answer thin&amp;nbsp;&lt;div&gt;(&amp;lt;120 chars&amp;nbsp;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(230, 81, 0), rgb(251, 123, 53));&quot;&gt;or&amp;nbsp;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&#39;cannot find&#39;)&amp;nbsp;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(230, 81, 0), rgb(251, 123, 53));&quot;&gt;→&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&amp;nbsp;escalate to next tier&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="90" x="740" y="55" as="geometry" />
+        </mxCell>
+        <mxCell id="47vW3xywDX0KRhfpH2Z6-47" edge="1" parent="1" source="47vW3xywDX0KRhfpH2Z6-42" style="edgeStyle=orthogonalEdgeStyle;endArrow=block;endFill=1;strokeColor=#555;" target="47vW3xywDX0KRhfpH2Z6-49" value="A_en">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="47vW3xywDX0KRhfpH2Z6-48" edge="1" parent="1" source="47vW3xywDX0KRhfpH2Z6-42" style="edgeStyle=elbowEdgeStyle;endArrow=block;endFill=1;strokeColor=#e65100;dashed=1;dashPattern=5 3;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="47vW3xywDX0KRhfpH2Z6-17" value="Escalate if thin">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="80" y="1035" />
+              <mxPoint x="80" y="530" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="47vW3xywDX0KRhfpH2Z6-49" parent="1" style="swimlane;startSize=25;fillColor=#e8f5e9;strokeColor=#2e7d32;fontColor=#1b5e20;fontSize=11;fontStyle=1;dashed=1;dashPattern=6 4;" value="Stage 5 · Multilingual Response Delivery" vertex="1">
+          <mxGeometry height="170" width="840" x="100" y="1160" as="geometry" />
+        </mxCell>
+        <mxCell id="47vW3xywDX0KRhfpH2Z6-50" parent="47vW3xywDX0KRhfpH2Z6-49" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#c8e6c9;strokeColor=#2e7d32;fontColor=#1b5e20;fontSize=11;" value="&lt;b&gt;Response Translation&lt;/b&gt;&lt;br/&gt;GoogleTranslator · batch ≤ 2000 chars&lt;br/&gt;A_l = ⊕ T(chunk, en→l)&lt;br/&gt;Returns both A_l and A_en" vertex="1">
+          <mxGeometry height="80" width="300" x="20" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="47vW3xywDX0KRhfpH2Z6-51" parent="47vW3xywDX0KRhfpH2Z6-49" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#c8e6c9;strokeColor=#2e7d32;fontColor=#1b5e20;fontSize=11;" value="&lt;b&gt;Voice Output (SpeechSynthesis API)&lt;/b&gt;&lt;br/&gt;getVoices() · BCP-47 locale match&lt;br/&gt;rate=0.9 · async voice loading&lt;br/&gt;Fallback to A_en if no Indic voice found" vertex="1">
+          <mxGeometry height="80" width="310" x="380" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="47vW3xywDX0KRhfpH2Z6-52" parent="47vW3xywDX0KRhfpH2Z6-49" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#2e7d32;strokeColor=#1b5e20;fontColor=#ffffff;fontSize=12;fontStyle=1;" value="&lt;b&gt;Final Response to User — A_l&lt;/b&gt;&lt;br/&gt;Text + optional voice + source tier badge" vertex="1">
+          <mxGeometry height="30" width="380" x="230" y="130" as="geometry" />
+        </mxCell>
+        <mxCell id="47vW3xywDX0KRhfpH2Z6-53" edge="1" parent="47vW3xywDX0KRhfpH2Z6-49" source="47vW3xywDX0KRhfpH2Z6-50" style="edgeStyle=orthogonalEdgeStyle;endArrow=block;endFill=1;strokeColor=#2e7d32;" target="47vW3xywDX0KRhfpH2Z6-52">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="47vW3xywDX0KRhfpH2Z6-54" edge="1" parent="47vW3xywDX0KRhfpH2Z6-49" source="47vW3xywDX0KRhfpH2Z6-51" style="edgeStyle=orthogonalEdgeStyle;endArrow=block;endFill=1;strokeColor=#2e7d32;" target="47vW3xywDX0KRhfpH2Z6-52">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="47vW3xywDX0KRhfpH2Z6-55" parent="1" style="swimlane;startSize=22;fillColor=#eceff1;strokeColor=#455a64;fontColor=#263238;fontSize=10;fontStyle=1;dashed=1;dashPattern=5 4;" value="Offline Ingestion Pipeline" vertex="1">
+          <mxGeometry height="200" width="200" x="980" y="540" as="geometry" />
+        </mxCell>
+        <mxCell id="47vW3xywDX0KRhfpH2Z6-56" parent="47vW3xywDX0KRhfpH2Z6-55" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#cfd8dc;strokeColor=#455a64;fontColor=#263238;fontSize=11;" value="&lt;b&gt;Parse documents&lt;/b&gt;&lt;br/&gt;txt / pdf / docx / html&lt;br/&gt;pdfplumber → pypdfium2 → pdfminer&lt;br/&gt;python-docx paragraph model" vertex="1">
+          <mxGeometry height="70" width="180" x="10" y="32" as="geometry" />
+        </mxCell>
+        <mxCell id="47vW3xywDX0KRhfpH2Z6-57" parent="47vW3xywDX0KRhfpH2Z6-55" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#cfd8dc;strokeColor=#455a64;fontColor=#263238;fontSize=11;" value="&lt;b&gt;Section parsing + embed&lt;/b&gt;&lt;br/&gt;7-section template canonicalise&lt;br/&gt;all-MiniLM-L6-v2 → ChromaDB" vertex="1">
+          <mxGeometry height="60" width="180" x="10" y="118" as="geometry" />
+        </mxCell>
+        <mxCell id="47vW3xywDX0KRhfpH2Z6-58" edge="1" parent="47vW3xywDX0KRhfpH2Z6-55" source="47vW3xywDX0KRhfpH2Z6-56" style="edgeStyle=orthogonalEdgeStyle;endArrow=block;endFill=1;strokeColor=#455a64;" target="47vW3xywDX0KRhfpH2Z6-57">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="47vW3xywDX0KRhfpH2Z6-59" edge="1" parent="1" source="47vW3xywDX0KRhfpH2Z6-55" style="edgeStyle=elbowEdgeStyle;endArrow=block;endFill=1;strokeColor=#455a64;dashed=1;dashPattern=5 3;" target="47vW3xywDX0KRhfpH2Z6-22" value="populates">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="47vW3xywDX0KRhfpH2Z6-60" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#eceff1;strokeColor=#455a64;fontColor=#263238;fontSize=11;dashed=1;dashPattern=4 3;" value="&lt;b&gt;Live Ingest API&lt;/b&gt;&lt;br/&gt;POST /ingest/url&lt;br/&gt;Fetch URL → parse → embed&lt;br/&gt;→ ChromaDB (no restart needed)" vertex="1">
+          <mxGeometry height="80" width="200" x="980" y="760" as="geometry" />
+        </mxCell>
+        <mxCell id="47vW3xywDX0KRhfpH2Z6-61" edge="1" parent="1" source="47vW3xywDX0KRhfpH2Z6-60" style="edgeStyle=orthogonalEdgeStyle;endArrow=block;endFill=1;strokeColor=#455a64;dashed=1;" target="47vW3xywDX0KRhfpH2Z6-55">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
