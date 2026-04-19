@@ -98,7 +98,7 @@ sahayak/
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/your-username/sahayak.git
+git clone https://github.com/amrutha0001/Sahayak_Indic_Muliti-lingual_Chatbot.git
 cd sahayak
 ```
 
