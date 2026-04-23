@@ -68,7 +68,7 @@ sahayak/
 │   └── ...             # 17 schemes total
 ├── static/
 │   └── index.html      # Single-page frontend (chat UI, voice, dark mode, stats panel)
-└── Outputs/            # Screenshots for documentation
+├── Outputs/            # Screenshots for documentation
 |   ├── home_screen.png
 |   ├── dark_mode.png
 |   ├── languages.png
@@ -83,7 +83,7 @@ sahayak/
 |   ├── tier3_response.png
 |   ├── voice_input.png
 |   └── voice_output.png
-├── Docs/
+└── Docs/
     ├── Internship_Report.pdf
     └── Internship_Report_Latex_source.zip
 
