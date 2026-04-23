@@ -69,20 +69,24 @@ sahayak/
 ├── static/
 │   └── index.html      # Single-page frontend (chat UI, voice, dark mode, stats panel)
 └── Outputs/            # Screenshots for documentation
-    ├── home_screen.png
-    ├── dark_mode.png
-    ├── languages.png
-    ├── voice_off.png
-    ├── english_query.png
-    ├── english_benefits.png
-    ├── acronym_query.png
-    ├── hindi_query.png
-    ├── telugu_query.png
-    ├── mixed_script.png
-    ├── tier2_response.png
-    ├── tier3_response.png
-    ├── voice_input.png
-    └── voice_output.png
+|   ├── home_screen.png
+|   ├── dark_mode.png
+|   ├── languages.png
+|   ├── voice_off.png
+|   ├── english_query.png
+|   ├── english_benefits.png
+|   ├── acronym_query.png
+|   ├── hindi_query.png
+|   ├── telugu_query.png
+|   ├── mixed_script.png
+|   ├── tier2_response.png
+|   ├── tier3_response.png
+|   ├── voice_input.png
+|   └── voice_output.png
+├── Docs/
+    ├── Internship_Report.pdf
+    └── Internship_Report_Latex_source.zip
+
 ```
 
 ---
